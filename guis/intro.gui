@@ -1,0 +1,17 @@
+windowDef Desktop {
+	rect	0 ,0 ,640 ,480 
+	backcolor	0 ,1 ,0 ,1
+	visible	1
+	menugui 1
+	nocursor 1
+
+	onActivate
+	{
+		resetTime "0";
+	}
+
+	onTime 0
+	{
+		set "cmd" "startgame" ;
+	}
+}

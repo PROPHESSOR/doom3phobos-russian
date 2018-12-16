@@ -1,0 +1,179 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	background	"guis/assets/e1m3/backstuff.tga"
+	matcolor	.65, .3, .3, 1
+	visible	1
+	cursor 0
+
+	windowDef Background1
+	{
+		rect	75, 50, 490, 380
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+		visible	1
+		cursor 0		
+
+		windowDef Background2
+		{	
+			rect	5, 5, 480, 370
+			background	"guis/assets/e1m3/square.tga"
+			matcolor	1,1,1,1
+			visible	1
+			cursor 0		
+		}
+	}	
+	
+	windowDef TitleImage
+	{
+		rect	80, 50, 180, 90
+		background	"guis/assets/e1m3/bx.tga"
+	}	
+
+	windowDef Title
+	{
+		rect	280, 70, 300, 90
+		forecolor	.75, 0, 0, 1
+		text "«¿ ¿«¿“‹ ŒÕÀ¿…Õ"
+		textscale .75
+	}
+
+	windowDef Post1
+	{
+		rect	100, 150, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag13.tga"
+		}		
+	}	
+
+	windowDef Post2
+	{
+		rect	210, 150, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag11.tga"
+		}		
+	}	
+
+	windowDef Post3
+	{
+		rect	320, 150, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag14.tga"
+		}		
+	}	
+
+	windowDef Post4
+	{
+		rect	430, 150, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag16.tga"
+		}		
+	}	
+
+	windowDef Post5
+	{
+		rect	100, 280, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag8.tga"
+		}		
+	}	
+
+	windowDef Post6
+	{
+		rect	210, 280, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag15.tga"
+		}		
+	}	
+
+	windowDef Post7
+	{
+		rect	320, 280, 100, 100
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	.5, .5, .5, 1
+
+		windowDef Img
+		{
+			rect	1, 1, 98, 98
+			background	"guis/assets/e1m3/mag12.tga"
+		}		
+	}	
+
+
+	windowDef Static {
+		rect	-10 ,-10 ,660 ,500 
+		visible	1
+		background "gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 6
+	}
+
+	windowDef Mask {
+		rect	-10 ,-10 ,660 ,500 
+		visible	1
+		background "guis/assets/common/mask"
+		matcolor	1, 1, 1, 1
+	}
+	windowDef Addhighlight1 {
+		rect	0 ,0 ,-640 ,480 
+		background	"gui/addhighlight"
+		matcolor	0.6 ,0.8 ,0.8 ,1 
+		visible	1
+	}
+	windowDef Addhighlight2 {
+		rect	0 ,200 ,640 ,-280 
+		background	"gui/addhighlight"
+		matcolor	0.8 ,1 ,1 ,1 
+		visible	1
+	}
+	windowDef Scanlines {
+	//scrolling raster lines
+		rect	-10,-10,660,500
+		matcolor	0.15,0.15,0.15,1
+		background	"gui/test/gui_scanlines5"
+		visible	1
+		matscaley 1.5
+
+	}
+	windowDef Outershadow {
+		rect	-10 ,-10 ,660 ,500 
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1 
+		visible	1
+	}
+	windowDef Dirt {
+		rect	-10 ,-10 ,660 ,500 
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt1"
+	}
+}

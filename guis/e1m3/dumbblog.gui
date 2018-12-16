@@ -1,0 +1,122 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	background	"guis/assets/e1m3/backstuff.tga"
+	matcolor	.1, .1, .1, 1
+	visible	1
+	cursor 0
+
+	windowDef Background1
+	{
+		rect	100, 0, 440, 490
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	1, .9, .9, 1
+		visible	1
+		cursor 0		
+	}
+
+	windowDef Background2
+	{
+		rect	120, 0, 400, 490
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	.9, .8, .8, 1		
+		visible	1
+		cursor 0		
+	}
+	
+	windowDef Title
+	{
+		rect	130, 10, 380, 50
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	1, .9, .9, 1
+		forecolor	.25, 0, 0, 1
+		textscale .4
+		textaligny 3
+		text "TEENAGE NUISANCE BIMBO BLOGGER"
+
+		windowDef Subtitle
+		{
+			rect 40, 25, 340, 25
+			forecolor	.25, 0, 0, 1
+			text "-Важные вещи и вс`ка` чушь"
+			textscale .25
+		}
+	}	
+
+	windowDef Post2
+	{
+		rect	130, 100, 380, 350
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	1, .9, .9, 1
+		forecolor	.25, 0, 0, 1
+		textscale .4
+		textaligny 3
+		text "УЖЕ ТОШНИТ ОТ ШКОЛЫ!!!"
+
+		windowDef Subtitle
+		{
+			rect 0, 35, 380, 350
+			forecolor	.25, 0, 0, 1
+			text "Хорошо, значит ` сижу в классе, а учитель похож на старого уродливого извращенца, похоже он флиртует со мной. Натрашардж р`дом со мной сказала, что это неправда, но ` думаю, она просто боится. Кажется, ей нрав`тс` уродливые старые извращенцы..\n\Так что, как и на каникулах, ` сидела за обеденным столом, дума` о плохом и тут к моему столу подходит придурок из класса. ЧТО ЗА ХЕРНЯ, ПРИДУРОК ИЗ КЛАССА? Я НЕ ХОЧУ СИДЕТЬ РЯДОМ С ТОБОЙ. ОТВАЛИ, МУДАК. И вот ` сижу там не жела` его видеть, но он такой мерзкий, что невозможно отвести вгляд...\n\nА потом идиот уходит. ППЦ! Почему он не хочет сидеть со мной? Это потому что ` толста`? Я вешу почти 45 килограмм и знаю что толста`, но кто он такой, чтобы считать мен` толстой?"
+			textscale .25
+		}
+	}
+
+	windowDef Post1
+	{
+		rect	130, 460, 380, 20
+		background	"guis/assets/e1m3/square.tga"
+		matcolor	1, .9, .9, 1
+		forecolor	.25, 0, 0, 1
+		textscale .4
+		textaligny 2
+		text "Я така` толста`.."
+	}
+
+	windowDef Static {
+		rect	-10 ,-10 ,660 ,500 
+		visible	1
+		background "gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 6
+	}
+
+	windowDef Mask {
+		rect	-10 ,-10 ,660 ,500 
+		visible	1
+		background "guis/assets/common/mask"
+		matcolor	1, 1, 1, 1
+	}
+	windowDef Addhighlight1 {
+		rect	0 ,0 ,-640 ,480 
+		background	"gui/addhighlight"
+		matcolor	0.6 ,0.8 ,0.8 ,1 
+		visible	1
+	}
+	windowDef Addhighlight2 {
+		rect	0 ,200 ,640 ,-280 
+		background	"gui/addhighlight"
+		matcolor	0.8 ,1 ,1 ,1 
+		visible	1
+	}
+	windowDef Scanlines {
+	//scrolling raster lines
+		rect	-10,-10,660,500
+		matcolor	0.15,0.15,0.15,1
+		background	"gui/test/gui_scanlines5"
+		visible	1
+		matscaley 1.5
+
+	}
+	windowDef Outershadow {
+		rect	-10 ,-10 ,660 ,500 
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1 
+		visible	1
+	}
+	windowDef Dirt {
+		rect	-10 ,-10 ,660 ,500 
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt1"
+	}
+}

@@ -1,0 +1,176 @@
+	
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  Radio/Audio log window on/off
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	onNamedEvent radioChatterUp {
+		set "RadioWin::visible" "1" ;
+		set "DDWaveForm::visible" "1" ;
+		set "RadioWin2Scroll1::visible" "1" ;
+		set "RadioWin2Scroll2::visible" "1" ;
+		if ("AirWin::visible" == 0) { 			
+			transition "RadioWin::rect" "115 432 0 64" "115 432 100 64" "200" ;
+		} else {
+			transition "RadioWin::rect" "115 432 0 64" "115 432 100 64" "200" ;
+		}
+	}
+	onNamedEvent radioChatterDown {
+		set "RadioWin::visible" "0" ;
+		set "DDWaveForm::visible" "0" ;
+		set "RadioWin2Scroll1::visible" "0" ;
+		set "RadioWin2Scroll2::visible" "0" ;
+	}	
+
+	
+
+
+//////**********************************************************************
+	//  RADIO MESSAGE
+	//////**********************************************************************
+
+	windowDef RadioWin {
+		rect		115, 432, 100, 64
+		notime 1
+	 	visible 0
+
+		windowDef RadioSlot1
+		{
+			rect 0, 0, 100, 12
+			background "guis/assets/ballg.jpg"				
+			matcolor 0.03,.15,0.28,.5
+
+			windowDef BorderTop
+			{
+				rect	0, 0, 100, 1
+					
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderBottom
+			{
+				rect	0, 11, 100, 1
+					
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderLeft
+			{
+				rect	0, 1, 1, 10
+					
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderRight
+			{
+				rect	99, 1, 1, 10
+					
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.06,0.3,0.56,.65
+			}
+		}
+
+		windowDef RadioSlot2
+		{
+			rect 0, 11, 100, 12
+			background "guis/assets/ballg.jpg"				
+			matcolor 0.03,.15,0.28,.5
+
+			windowDef BorderTop
+			{
+				rect	0, 0, 100, 1
+					
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderBottom
+			{
+				rect	0, 11, 100, 1
+					
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderLeft
+			{
+				rect	0, 1, 1, 10
+					
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderRight
+			{
+				rect	99, 1, 1, 10
+					
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.06,0.3,0.56,.65
+			}
+		}
+
+
+		windowDef RadioWin2 {
+			rect 1, 0, 98, 30
+			windowDef RadioWin2Scroll1 {
+				rect 0, 0, 200, 30
+				text "#str_02016"
+				textscale 0.23
+				font	"fonts/bank"
+				forecolor	0.45, 0.6, 0.65, 1
+				
+				textaligny -5.5
+
+				visible 1
+
+				onTime 0 {
+					transition "rect" "0 0 180 30" "-180 0 180 30" "10000" ;
+				}
+				onTime 10000 {
+					transition "rect" "202 0 180 30" "0 0 180 30" "10000" ;
+				}				
+				onTime 20000 {
+					resetTime "0" ;
+				}
+			}
+			windowDef RadioWin2Scroll2 {
+				rect 174, 0, 200, 30
+				text "#str_02017"
+				textscale 0.23
+				font	"fonts/bank"
+				forecolor	0.45, 0.6, 0.65, 1
+				
+				textaligny -5.5
+
+				visible 1
+
+				onTime 0 {
+					transition "rect" "180 0 210 30" "0 0 210 30" "10000" ;
+				}
+				onTime 10000 {
+					transition "rect" "0 0 210 30" "-202 0 210 30" "10000" ;
+				}
+				onTime 20000 {
+					resetTime "0" ;
+				}
+			}
+		}
+
+		windowDef DDWaveForm {
+			rect		1, 13, 98, 8
+			background "gui/wav"
+			matcolor 1, 0.2, 0.1, 1
+			visible	1
+			
+			matscalex 2
+		}
+	}

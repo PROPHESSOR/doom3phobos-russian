@@ -1,0 +1,42 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"A generic placeholder button for basic functionality\ngui_parm1 = the button text\ngui_parm11 = the script to execute\ngui_parm13 = deny access [1 for deny, 0 for grant]"
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";		
+	}
+
+	windowDef ForwardButtonOverlay
+	{
+		rect	0, 0, 640, 480
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButtonOverlay::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButtonOverlay::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				runScript "gui::gui_parm11" ;
+			}			
+		}
+	}
+}

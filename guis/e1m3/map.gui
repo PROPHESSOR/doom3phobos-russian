@@ -1,0 +1,55 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	background	"guis/assets/e1m3/map.tga"
+	matcolor	.3, .3, .65, 1
+	visible	1
+	cursor 0
+
+	windowDef Static {
+		rect	-10 ,-10 ,660 ,500 
+		visible	1
+		background "gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 6
+	}
+
+	windowDef Mask {
+		rect	-10 ,-10 ,660 ,500 
+		visible	1
+		background "guis/assets/common/mask"
+		matcolor	1, 1, 1, 1
+	}
+	windowDef Addhighlight1 {
+		rect	0 ,0 ,-640 ,480 
+		background	"gui/addhighlight"
+		matcolor	0.6 ,0.8 ,0.8 ,1 
+		visible	1
+	}
+	windowDef Addhighlight2 {
+		rect	0 ,200 ,640 ,-280 
+		background	"gui/addhighlight"
+		matcolor	0.8 ,1 ,1 ,1 
+		visible	1
+	}
+	windowDef Scanlines {
+	//scrolling raster lines
+		rect	-10,-10,660,500
+		matcolor	0.15,0.15,0.15,1
+		background	"gui/test/gui_scanlines5"
+		visible	1
+		matscaley 1.5
+
+	}
+	windowDef Outershadow {
+		rect	-10 ,-10 ,660 ,500 
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1 
+		visible	1
+	}
+	windowDef Dirt {
+		rect	-10 ,-10 ,660 ,500 
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt1"
+	}
+}

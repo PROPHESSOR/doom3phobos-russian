@@ -1,0 +1,197 @@
+
+//////**********************************************************************
+//  FUCK THE WORLD!
+//////**********************************************************************
+	
+	windowDef ItemAnimUp
+	{
+		rect	0 ,0 ,0 ,0 
+		notime 1
+
+		onTime 0
+		{
+			if("gui::itemSimple" == 1)
+			{
+				set "ItemHolder::visible" 0;
+				set "SimpleItem::visible" 1;
+			}
+			else
+			{
+				localSound	"guisounds_simplein" ;
+			/*
+				set "SimpleItem::visible" 0;
+				set "ItemHolder::visible" 1;
+								
+				
+				
+				transition "ItemHolder::rect" "320 223 300 100" "304 223 300 100" "250";
+				transition "ItemText::matcolor" "0.56 0.3 0.06 0" "0.56 0.3 0.06 .95" "150";
+				transition "ItemSlot::matcolor" "0.28 0.15 0.03 0" "0.28 0.15 0.03 0.95" "150";
+				transition "ItemIcon::matcolor" "0.8 0.6 0.2 0" "0.8 0.6 0.2 0.9" "150";
+				transition "ItemBorderTop::matcolor" "0.56 0.3 0.06 0" "0.56 0.3 0.06 0.95" "150";
+				transition "ItemBorderBottom::matcolor" "0.56 0.3 0.06 0" "0.56 0.3 0.06 0.95" "150";
+				transition "ItemBorderLeft::matcolor" "0.56 0.3 0.06 0" "0.56 0.3 0.06 0.95" "150";
+				transition "ItemBorderRight::matcolor" "0.56 0.3 0.06 0" "0.56 0.3 0.06 0.95" "150";
+				*/
+			}
+		}
+	}	
+
+	windowDef ItemAnimDown
+	{
+		rect	0 ,0 ,0 ,0 
+		notime 1
+
+		onTime 0
+		{
+			if("gui::itemSimple" == 1)
+			{
+				set "SimpleItem::visible" 0;
+				set "ItemHolder::visible" 0;
+			}
+			else
+			{
+				set "SimpleItem::visible" 0;				
+
+				//localSound	"guisounds_simpleout" ;
+			/*
+				
+				
+				transition "ItemHolder::rect" "304 223 300 100" "320 223 300 100" "150";
+				transition "ItemText::matcolor" "0.56 0.3 0.06 0.95" "0.56 0.3 0.06 0" "150";
+				transition "ItemSlot::matcolor" "0.28 0.15 0.03 0.95" "0.28 0.15 0.03 0" "150";
+				transition "ItemIcon::matcolor" "0.8 0.6 0.2 0.9" "0.8 0.6 0.2 0" "150";
+				transition "ItemBorderTop::matcolor" "0.56 0.3 0.06 0.95" "0.56 0.3 0.06 0" "150";
+				transition "ItemBorderBottom::matcolor" "0.56 0.3 0.06 0.95" "0.56 0.3 0.06 0" "150";
+				transition "ItemBorderLeft::matcolor" "0.56 0.3 0.06 0.95" "0.56 0.3 0.06 0" "150";
+				transition "ItemBorderRight::matcolor" "0.56 0.3 0.06 0.95" "0.56 0.3 0.06 0" "150";
+				*/
+			}
+		}
+
+		onTime 150
+		{
+			//set "ItemHolder::visible" 0;
+		}
+	}
+
+	windowDef SimpleItem
+	{
+		rect pdflick [ time * .0005 ] * 10 + 240, pdflick [ time * .00025 ] * 10 + 170, pdflick [ time * .0005 ] * 20 + 120, pdflick [ time * .00025 ] *20 + 100
+		background "guis/assets/hud/icons/circle"
+		matcolor 0.9,0.9,0.9,pdflick [ time * .0025 ] / 2
+		
+
+		text "gui::itemAction"
+		font "fonts/andrewscript"
+		textscale	0.35
+		textalign 1
+		textaligny 40
+		visible 0  
+	}
+
+	windowDef ItemHolder
+		{
+			rect 320 ,223 ,300 ,100
+			
+			visible 0
+
+			windowDef ItemText
+			{		
+				rect 14.5, 0, 100, 12
+			
+				background "guis/assets/border_hori"
+				matcolor 0.56,0.3,0.06,.95
+				shear 0, -0.45
+				textscale	0.2				
+				textaligny -2
+				textalignx 10
+				text		"gui::itemName"
+				forecolor 0.8,0.6,.2,.9
+
+			
+			}
+
+			windowDef ItemIcon
+			{
+				rect 16, 2, -8, 8
+				
+				background "guis/assets/hud/icons/wrench.tga"
+				matcolor 0.8,0.6,.2,.9
+				shear 0, 0.5
+			}
+
+			windowDef ItemSlot
+			{
+				rect 12, 12, 100, 45
+				background "guis/assets/ballg.jpg"				
+				matcolor 0.28 ,.15,0.03 ,.95
+
+				text "gui::itemAction"
+				textscale	0.15
+				font		"fonts/bank"
+				forecolor 0.8,0.6,.2,.9	
+
+				windowDef ItemBorderTop
+				{
+					rect	0, 0, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.56,0.3,0.06,.65
+				}
+
+				windowDef ItemBorderBottom
+				{
+					rect	0, 44, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.56,0.3,0.06,.65
+				}
+
+				windowDef ItemBorderLeft
+				{
+					rect	0, 1, 1, 43
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.56,0.3,0.06,.65
+				}
+
+				windowDef ItemBorderRight
+				{
+					rect	99, 1, 1, 43
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.56,0.3,0.06,.65
+				}
+			}
+			
+		}
+
+
+	  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  ITEM Popup
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+
+	onNamedEvent ShowItemView {
+		if ("item" == 0) {
+			set	"item" "1" ; 
+			resetTime "ItemAnimUp" "0" ; 
+		}
+	}
+
+	onNamedEvent HideItemView {
+		resetTime "ItemAnimDown" "0" ; 
+
+		if ("item" == 1) { 
+			set	"item" "0" ; 
+			
+		}
+	}		
+
+
+
+	

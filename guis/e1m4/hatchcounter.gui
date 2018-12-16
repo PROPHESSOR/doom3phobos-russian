@@ -1,0 +1,375 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,120
+	background	"guis/assets/cpuserver/bg.tga"
+	matcolor	1, 0.9, 1, 1
+	visible	1
+	
+	windowDef DigitOne
+	{
+		rect 25, 10, 100, 100
+
+		windowDef UpperHalf
+		{
+			rect 0, 0, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.2, 0.2, 0.2, 1.0			
+		}
+		
+		windowDef LowerHalf
+		{
+			rect 0, 50, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.25, 0.25, 0.25, 1.0			
+		}
+		
+		windowDef Glyph
+		{
+			rect 0, 0, 100, 100
+			background	"guis/assets/e1m4_2/glyph1.tga"
+			visible 0
+		}
+		
+		
+		windowDef Text
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.8, 0.8, 0.8, 1.0
+			font   "fonts/micro"
+			
+						
+			float "lastValue" 0
+			
+			onTrigger
+			{
+				if( "gui::gui_parm1" == 11 )
+				{
+					set "Text::text" "" ;
+					set "TextSec::text" "" ;
+					set "Glyph::visible" "1";
+				}
+				else
+				{					
+					set "Glyph::visible" "0";
+				
+				if( "Text::lastValue" != "gui::gui_parm1" )
+				{
+					set "TextSec::text" "$Text::text";
+					transition "TextSec::rect" "6 -20 100 120" "6 100 100 120" "100" ;
+					transition "Text::rect" "6 -120 100 120" "6 -20 100 120" "100" ;
+					set "text" "gui::gui_parm1";
+				}
+				}
+				set "Text::lastValue" "gui::gui_parm1" ;
+			}
+		}
+		
+		windowDef TextSec
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.8, 0.8, 0.8, 1.0
+			font   "fonts/micro"			
+		}	
+	}
+	
+	windowDef DigitTwo
+	{
+		rect 130, 10, 100, 100		
+		
+		windowDef UpperHalf2
+		{
+			rect 0, 0, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.2, 0.2, 0.2, 1.0
+		}
+		
+		windowDef LowerHalf2
+		{
+			rect 0, 50, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.25, 0.25, 0.25, 1.0
+		}
+		
+		windowDef Glyph2
+		{
+			rect 0, 0, 100, 100
+			background	"guis/assets/e1m4_2/glyph2.tga"
+			visible 0
+		}
+		
+		
+		windowDef Text2
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.8, 0.8, 0.8, 1.0
+			font   "fonts/micro"
+
+			float "lastValue" 0
+			
+			onTrigger
+			{
+				if( "gui::gui_parm2" == 11 )
+				{
+					set "Text2::text" "" ;
+					set "Text2Sec::text" "" ;
+					set "Glyph2::visible" "1";
+				}
+				else
+				{					
+					set "Glyph2::visible" "0";
+				
+				if( "Text2::lastValue" != "gui::gui_parm2" )
+				{
+					set "TextSec2::text" "$Text2::text";
+					transition "TextSec2::rect" "6 -20 100 120" "6 100 100 120" "100" ;
+					transition "Text2::rect" "6 -120 100 120" "6 -20 100 120" "100" ;
+					set "text" "gui::gui_parm2";
+				}
+				}
+				set "Text2::lastValue" "gui::gui_parm2" ;
+			}
+		}
+		
+		windowDef TextSec2
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.8, 0.8, 0.8, 1.0
+			font   "fonts/micro"			
+		}	
+	}
+	
+	windowDef DigitThree
+	{
+		rect 235, 10, 100, 100	
+		
+		windowDef UpperHalf3
+		{
+			rect 0, 0, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.2, 0.2, 0.2, 1.0
+		}
+		
+		windowDef LowerHalf3
+		{
+			rect 0, 50, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.25, 0.25, 0.25, 1.0
+		}
+		
+		windowDef Glyph3
+		{
+			rect 0, 0, 100, 100
+			background	"guis/assets/e1m4_2/glyph3.tga"
+			visible 0
+		}
+		
+		windowDef Text3
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.8, 0.8, 0.8, 1.0
+			font   "fonts/micro"
+			
+			float "lastValue" 0
+			
+			onTrigger
+			{
+				if( "gui::gui_parm3" == 11 )
+				{
+					set "Text3::text" "" ;
+					set "Text3Sec::text" "" ;
+					set "Glyph3::visible" "1";
+				}
+				else
+				{					
+					set "Glyph3::visible" "0";
+				
+					if( "Text3::lastValue" != "gui::gui_parm3" )
+					{
+						set "TextSec3::text" "$Text3::text";
+						transition "TextSec3::rect" "6 -20 100 120" "6 100 100 120" "100" ;
+						transition "Text3::rect" "6 -120 100 120" "6 -20 100 120" "100" ;
+						set "text" "gui::gui_parm3";
+					}
+				}
+				set "Text3::lastValue" "gui::gui_parm3" ;
+			}
+		}
+		
+		windowDef TextSec3
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.8, 0.8, 0.8, 1.0
+			font   "fonts/micro"			
+		}	
+	}
+	
+	windowDef DigitFour
+	{
+		rect 340, 10, 100, 100
+		
+		windowDef UpperHalf4
+		{
+			rect 0, 0, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.8, 0.8, 0.8, 1.0
+		}
+		
+		windowDef LowerHalf4
+		{
+			rect 0, 50, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.85, 0.85, 0.85, 1.0
+		}			
+		
+		windowDef Glyph4
+		{
+			rect 0, 0, 100, 100
+			background	"guis/assets/e1m4_2/glyph4.tga"
+			visible 0
+		}
+		
+		windowDef Text4
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.2, 0.2, 0.2, 1.0
+			font   "fonts/micro"
+			
+			float "lastValue" 0
+			
+			onTrigger
+			{
+				if( "gui::gui_parm4" == 11 )
+				{
+					set "UpperHalf4::matcolor" "0.8 0.2 0.2 1.0" ;
+					set "LowerHalf4::matcolor" "0.85 0.25 0.25 1.0" ;
+					set "Text4::text" "" ;
+					set "Text4Sec::text" "" ;
+					set "Glyph4::visible" "1";
+				}
+				else
+				{
+					set "UpperHalf4::matcolor" "0.8 0.8 0.8 1.0" ;
+					set "LowerHalf4::matcolor" "0.85 0.85 0.85 1.0" ;				
+					set "Glyph4::visible" "0";
+				
+					if( "Text4::lastValue" != "gui::gui_parm4" )
+					{
+						set "TextSec4::text" "$Text4::text";
+						transition "TextSec4::rect" "6 -20 100 120" "6 100 100 120" "100" ;
+						transition "Text4::rect" "6 -120 100 120" "6 -20 100 120" "100" ;
+						set "text" "gui::gui_parm4";
+					}
+				}
+				
+				set "Text4::lastValue" "gui::gui_parm4" ;
+			}
+		}
+		
+		windowDef TextSec4
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.2, 0.2, 0.2, 1.0
+			font   "fonts/micro"			
+		}	
+	}
+	
+	windowDef DigitFive
+	{
+		rect 445, 10, 100, 100					
+				
+		windowDef UpperHalf5
+		{
+			rect 0, 0, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.8, 0.8, 0.8, 1.0
+		}
+				
+		windowDef LowerHalf5
+		{
+			rect 0, 50, 100, 50
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.85, 0.85, 0.85, 1.0
+		}
+		
+		windowDef Glyph5
+		{
+			rect 0, 0, 100, 100
+			background	"guis/assets/e1m4_2/glyph5.tga"			
+			visible 0
+		}
+		
+		windowDef Text5
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.2, 0.2, 0.2, 1.0
+			font   "fonts/micro"
+			
+			float "lastValue" 0
+			
+			onTrigger
+			{
+				if( "gui::gui_parm5" == 11 )
+				{
+					set "UpperHalf5::matcolor" "0.8 0.2 0.2 1.0" ;
+					set "LowerHalf5::matcolor" "0.85 0.25 0.25 1.0" ;
+					set "Text5::text" "" ;
+					set "Text5Sec::text" "" ;
+					set "Glyph5::visible" "1";
+				}
+				else
+				{
+					set "UpperHalf5::matcolor" "0.8 0.8 0.8 1.0" ;
+					set "LowerHalf5::matcolor" "0.85 0.85 0.85 1.0" ;				
+					set "Glyph5::visible" "0";
+						
+					if( "Text5::lastValue" != "gui::gui_parm5" )
+					{
+						set "TextSec5::text" "$Text5::text";
+						transition "TextSec5::rect" "6 -20 100 120" "6 100 100 120" "100" ;
+						transition "Text5::rect" "6 -120 100 120" "6 -20 100 120" "100" ;
+						set "text" "gui::gui_parm5";
+					}
+				}
+				set "Text5::lastValue" "gui::gui_parm5" ;
+			}
+		}
+		
+		windowDef TextSec5
+		{
+			rect 6, -20, 100, 120
+			text "0"
+			textscale 2.0
+			forecolor 0.2, 0.2, 0.2, 1.0
+			font   "fonts/micro"			
+		}
+	}
+	
+	
+
+	windowDef HorizontalLine
+	{
+		rect 25, 59, 545, 2
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0.1, 0.1, 0.1, 1.0
+	}
+
+	
+}

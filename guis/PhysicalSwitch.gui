@@ -1,0 +1,61 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"A generic physical switch for basic functionality\ngui_parm1 = the button text\ngui_parm11 = the script to execute\ngui_parm13 = deny access [1 for deny, 0 for grant]"
+	visible	1
+		
+	windowDef ButtonOverlay
+	{
+		rect	80, 60, 480, 360		
+		background	"guis/assets/switchbg.tga"
+		matcolor	0.6, .7, 0.5, 0.4
+		textscale 0.5
+		forecolor	0.6, 7, 0.5, 0.2		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ButtonOverlay::matcolor" "0.6 .7 0.5 0.2" "0.4 .7 0.2 .4" "200" ;
+				transition "ButtonOverlay::forecolor" "0.6 .7 0.5 0.2" "0.4 .7 0.2 .4" "200" ;				
+				transition "Textangle::matcolor" "0.4 .6 0.4 0.2" "0.4 .6 0.4 .4" "200" ;
+				transition "Textangle::forecolor" "0.8 1 0.7 0.2" "0.8 1 0.7 .8" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ButtonOverlay::matcolor" "0.4 .7 0.2 .8" "0.6 .7 0.5 0.2" "200" ;
+				transition "ButtonOverlay::forecolor" "0.4 .7 0.2 .8" "0.6 .7 0.5 0.2" "200" ;				
+				transition "Textangle::matcolor" "0.4 .6 0.4 .4" "0.4 .6 0.4 0.2" "200" ;
+				transition "Textangle::forecolor" "0.8 1 0.7 .8" "0.8 1 0.7 0.2" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				runScript "gui::gui_parm11" ;
+			}			
+		}
+
+		windowDef Textangle
+		{
+			rect	60, 140, 350, 100	
+			background "guis/assets/e1m3/backstuff.tga"
+			matcolor 0.4, 0.6, 0.4, 0.2
+			textscale 0.75
+			forecolor	0.8, 1, 0.7, 0.4
+			textalign 1
+			textaligny 12
+			text "gui::gui_parm1"
+			visible 1
+			font "fonts/bank"
+		}
+	}
+}

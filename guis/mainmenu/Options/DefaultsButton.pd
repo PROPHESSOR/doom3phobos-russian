@@ -1,0 +1,50 @@
+windowDef OMDefaultsButton
+{
+	rect 248, 1, 62, 18
+	background "guis/assets/ballg"
+	matcolor 0.02,0.1,0.18,1
+	forecolor 0.2,0.56,0.88,.5
+	font	"fonts/bank"
+	text "По умолчанию"
+	textalign 1
+	textaligny 1
+	textscale .16
+	matscaley 	1.5
+	matscalex 	1
+
+	windowDef BackgroundBorderBottom
+	{
+		rect	0,17,62,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderRight
+	{
+		rect	61,0,1,17
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	onAction
+	{								
+		set	"cmd"	"play guisounds_clicksonar2" ;
+				
+	}
+
+	onMouseEnter
+	{
+		set	"cmd"	"play guisounds_in" ;
+		transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+		transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;								
+	}
+
+	onMouseExit
+	{
+		set	"cmd"	"play guisounds_out" ;
+		transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+		transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;				
+	}
+}

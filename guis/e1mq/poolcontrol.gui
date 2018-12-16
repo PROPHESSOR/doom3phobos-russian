@@ -1,0 +1,83 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"blah blah"
+	visible	1
+	
+	onTrigger
+	{
+		if( "gui::gui_parm13" == 1 )
+		{
+			set "InfoText::text" "мер йнмреимепю. ондмхлхре япефмх!" ;
+			set "AccessState::matcolor" "1 0.2 0.2 0.7" ;
+		}
+		else
+		{
+			set "InfoText::text" "йнмреимеп цнрнб. боепед!" ;
+			set "AccessState::matcolor" "0.2 1 0.2 0.7" ;
+		}
+		
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		
+			
+	}	
+
+	windowDef AccessState
+	{
+		rect 600, 10, 20, 20
+		visible 1
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	1, .2, .2, 0.7
+	}
+
+	windowDef InfoText
+	{
+		rect	80, 160, 280, 60	
+		visible 1
+		
+	}
+
+	windowDef ForwardButton
+	{
+		rect	80, 60, 280, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+		text "опнхгбеярх нрйкчвемхе"
+	}
+
+	windowDef ForwardButtonOverlay
+	{
+		rect	80, 60, 280, 60		
+		visible 1		
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;				
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				runScript "gui::gui_parm11" ;
+			}	
+		}
+	}
+}

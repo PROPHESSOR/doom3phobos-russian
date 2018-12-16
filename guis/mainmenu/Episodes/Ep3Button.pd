@@ -1,0 +1,196 @@
+windowDef Episode3
+{
+	rect 333, 20, 122, 170
+	background "guis/assets/ballg"
+	matcolor 0.04,0.2,0.36,.0
+	matscalex 1
+	matscaley 1
+
+	onTime 0
+	{
+		if("Desktop::EpisodeCount" > 2)
+		{
+			set "E3Shot::visible" "1";
+			set "E3Back::text" "" ;			
+		}
+		else
+		{
+			set "E3Shot::visible" "0";			
+			set "E3Back::text" "ÝÏÈÇÎÄ ÍÅÄÎÑÒÓÏÅÍ" ;
+		}
+	}
+
+	windowDef E3Title
+	{
+		rect -2, 3, 122, 40
+		forecolor 0.2,0.56,0.88,.8
+		font	"fonts/bank"
+		text "Ýïèçîä 3"
+		//textalign 1
+		textscale .2
+	}
+
+	windowDef E3Separator
+	{
+		rect 0, 17, 122, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+	
+	windowDef E3SubTitle
+	{
+		rect -2, 15, 122, 40
+		forecolor 0.2,0.56,0.88,.5
+		font	"fonts/bank"
+		text "Óïàäîê"
+		//textalign 1
+		textscale .14
+	}
+
+	windowDef E3Back
+	{
+		rect 1, 30, 120, 110
+		background "guis/assets/ballg"
+		matcolor 0.02,0.1,0.18,1
+		forecolor 0.2,0.56,0.88,.5
+		font	"fonts/bank"
+		text "ÝÏÈÇÎÄ ÍÅÄÎÑÒÓÏÅÍ"
+		textalign 1
+		textaligny 45
+		textscale .12
+	}
+
+	windowDef E3Shot
+	{
+		//rect 1, 40, 120, 90
+		rect 1, 30, 120, 110		
+		//matcolor .75,.75,1,.8
+	
+		windowDef E3Pic
+		{
+			rect 1, 10, 120, 90
+			background "guis/assets/mainmenu/levelshots/ep1"
+			matcolor .75,.75,1,.8			
+		}
+
+		windowDef BlurTop
+		{
+			rect 0, 6, 122, 8
+			background "guis/assets/gradienthori"
+			matcolor 0.1,0.1,0.15,.70
+		}
+
+		windowDef BlurBottom
+		{
+			rect 0, 96, 122, 8
+			background "guis/assets/gradienthori"
+			matcolor 0.1,0.1,0.15,.70
+		}
+	}
+
+	windowDef E3LeftLine
+	{
+		rect 0, 30, 1, 110
+		background "guis/assets/border_vert"
+		matcolor 0.2,0.56,0.88,.10
+	}
+
+	windowDef E3RightLine
+	{
+		rect 121, 30, 1, 110
+		background "guis/assets/border_vert"
+		matcolor 0.2,0.56,0.88,.10
+	}
+
+	windowDef E3TopLine
+	{
+		rect 1, 30, 120, 1
+		background "guis/assets/border_hori"
+		matcolor 0.2,0.56,0.88,.20
+	}
+
+	windowDef E3BottomLine
+	{
+		rect 1, 139, 120, 1
+		background "guis/assets/border_hori"
+		matcolor 0.2,0.56,0.88,.20½
+	}
+
+	onAction
+	{
+		if("Desktop::EpisodeCount" > 2)
+		{
+			set	"cmd"	"play guisounds_clicksonar" ;
+			set "StartGameWindowHolder::visible" "1" ;
+			set "Desktop::SelectedEpisode" "3";
+		}
+		else
+		{
+			set	"cmd"	"play guisounds_denied" ;
+		}
+	}
+			
+	onMouseEnter
+	{
+		if("Desktop::EpisodeCount" > 2)
+		{
+			set	"cmd"	"play guisounds_in" ;
+			transition "E3Title::forecolor" "0.2 0.56 0.88 .8" "0.2 0.56 0.88 1" "250";
+			transition "E3SubTitle::forecolor" "0.2 0.56 0.88 .5" "0.2 0.56 0.88 1" "250";
+			transition "E3TopLine::matcolor" "0.2 0.56 0.88 .2" "0.2 0.56 0.88 .5" "250";
+			transition "E3BottomLine::matcolor" "0.2 0.56 0.88 .2" "0.2 0.56 0.88 .5" "250";
+			transition "E3LeftLine::matcolor" "0.2 0.56 0.88 .2" "0.2 0.56 0.88 .5" "250";
+			transition "E3RightLine::matcolor" "0.2 0.56 0.88 .2" "0.2 0.56 0.88 .5" "250";
+			transition "matcolor" "0.04 0.2 0.36 .0" "0.04 0.2 0.36 .4" "250";				
+			transition "E3Pic::matcolor" ".75 .75 1 .8" ".9 .9 1 1" "250";
+			transition "E3Separator::matcolor" "0.1 0.28 0.44 .5" "0.1 0.28 0.44 1" "250";			
+		}
+		else
+		{
+			set	"cmd"	"play guisounds_in" ;
+			transition "E3Title::forecolor" "0.2 0.56 0.88 .8" "0.88 0.2 0.2 1" "250";
+			transition "E3SubTitle::forecolor" "0.2 0.56 0.88 .5" "0.88 0.2 0.2 1" "250";
+			transition "E3TopLine::matcolor" "0.2 0.56 0.88 .2" "0.88 0.2 0.2 .5" "250";
+			transition "E3BottomLine::matcolor" "0.2 0.56 0.88 .2" "0.88 0.2 0.2 .5" "250";
+			transition "E3LeftLine::matcolor" "0.2 0.56 0.88 .2" "0.88 0.2 0.2 .5" "250";
+			transition "E3RightLine::matcolor" "0.2 0.56 0.88 .2" "0.88 0.2 0.2 .5" "250";
+			transition "matcolor" "0.04 0.2 0.36 .0" "0.36 0.1 0.04 .4" "250";				
+			transition "E3Shot::matcolor" ".75 .75 1 .8" ".9 .9 1 1" "250";
+			transition "E3Separator::matcolor" "0.1 0.28 0.44 .5" "0.44 0.1 0.1 1" "250";
+			transition "E3Back::matcolor" "0.02 0.1 0.18 1" "0.18 0.02 0.02 1" "250";
+			transition "E3Back::forecolor" "0.02 0.56 0.88 .5" "0.88 0.2 0.02 1" "250";
+		}
+	}
+
+	onMouseExit
+	{
+		if("Desktop::EpisodeCount" > 2)
+		{
+			set	"cmd"	"play guisounds_out" ;
+			transition "E3Title::forecolor" "0.2 0.56 0.88 1" "0.2 0.56 0.88 .8" "250";
+			transition "E3SubTitle::forecolor" "0.2 0.56 0.88 1" "0.2 0.56 0.88 .5" "250";
+			transition "E3TopLine::matcolor" "0.2 0.56 0.88 .5" "0.2 0.56 0.88 .2" "250";
+			transition "E3BottomLine::matcolor" "0.2 0.56 0.88 .5" "0.2 0.56 0.88 .2" "250";
+			transition "E3LeftLine::matcolor" "0.2 0.56 0.88 .5" "0.2 0.56 0.88 .2" "250";
+			transition "E3RightLine::matcolor" "0.2 0.56 0.88 .5" "0.2 0.56 0.88 .2" "250";
+			transition "matcolor" "0.04 0.2 0.36 .4" "0.04 0.2 0.36 .0" "250";				
+			transition "E3Pic::matcolor" ".9 .9 1 1" ".75 .75 1 .8" "250";
+			transition "E3Separator::matcolor" "0.1 0.28 0.44 1" "0.1 0.28 0.44 .5" "250";
+		}
+		else
+		{
+			set	"cmd"	"play guisounds_in" ;
+			transition "E3Title::forecolor" "0.88 0.2 0.2 1" "0.2 0.56 0.88 .8" "250";
+			transition "E3SubTitle::forecolor" "0.88 0.2 0.2 1" "0.2 0.56 0.88 .5" "250";
+			transition "E3TopLine::matcolor" "0.88 0.2 0.2 .5" "0.2 0.56 0.88 .2" "250";
+			transition "E3BottomLine::matcolor" "0.88 0.2 0.2 .5" "0.2 0.56 0.88 .2" "250";
+			transition "E3LeftLine::matcolor" "0.88 0.2 0.2 .5" "0.2 0.56 0.88 .2" "250";
+			transition "E3RightLine::matcolor" "0.88 0.2 0.2 .5" "0.2 0.56 0.88 .2" "250";
+			transition "matcolor" "0.36 0.1 0.04 .4" "0.04 0.2 0.36 .0" "250";				
+			transition "E3Shot::matcolor" ".9 .9 1 1" ".75 .75 1 .8" "250";
+			transition "E3Separator::matcolor" "0.44 0.1 0.1 1" "0.1 0.28 0.44 .5" "250";
+			transition "E3Back::matcolor" "0.18 0.02 0.02 1" "0.02 0.1 0.18 1" "250";
+			transition "E3Back::forecolor" "0.88 0.2 0.02 1" "0.02 0.56 0.88 .5" "250";
+		}
+	}
+}

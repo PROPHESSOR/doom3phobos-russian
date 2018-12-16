@@ -1,0 +1,140 @@
+windowDef Desktop {
+	rect	0 ,0 ,640 ,480
+	nocursor	1
+	float	talk 	0
+	float	item	0
+		
+
+	onEvent {
+		if ("gui::talkcursor" == 0) { 
+			if ("talk" == 0) {
+				set	"talk" "1" ; 		
+				set "centerOff::visible" "1" ;			
+				resetTime "crosshairFrame" "0" ;
+			}			
+		} 
+		if ("gui::talkcursor" == 1) { 
+			if ("talk" == 1) { 
+				set	"talk" "0" ; 
+				set "centerOff::visible" "1" ;
+				resetTime "crosshairLight" "0" ;
+			}
+		}
+
+		if("gui::itemcursor" == 0)
+		{
+			if("item" == 0)
+			{
+				set "item" 1 ;
+				set "centerOff::visible" "1" ;
+				resetTime "crosshairFrame" "0" ;
+			}
+		}
+		if("gui::itemcursor" == 1)
+		{
+			if ("item" == 1) { 
+				set	"item" "0" ; 
+				set "centerOff::visible" "1" ;
+				resetTime "crosshairLight" "0" ;
+			}
+		}
+
+		
+	}
+
+	onNamedEvent hitTime {
+		set "hitOn::visible" "1" ;		
+		resetTime "hitOn" "0" ;
+	}
+
+
+		
+	windowDef crosshairParent {
+		rect		304,224 ,100 ,32  
+		
+		//text "gui::aspectCorrection"
+
+		windowDef centerOff {
+			rect	0,0,32,32
+			visible		1			
+
+			windowDef crosshairCenter {
+				rect		(32 - (12 * "gui::aspectCorrection")) / 2,10,12 * "gui::aspectCorrection",12
+				background	"guis/assets/crosshair/c2"
+				visible		1
+				matcolor 0.2,0.6,1,.4
+			}
+			
+			windowDef CrosshairBusy {
+				rect		(32 - (12 * "gui::aspectCorrection")) / 2,10,12 * "gui::aspectCorrection",12
+				background	"guis/assets/crosshair/chit2"
+				visible		1
+				matcolor .9,.6,0,0
+			}
+		}		
+
+		windowDef crosshairLight {
+			rect		(32 - (16 * "gui::aspectCorrection")) / 2 ,8 ,16 * "gui::aspectCorrection",16  
+			background	"guis/assets/crosshair/custom_42"
+			visible		0
+			matcolor	0.2, 0.6, 1, 0.9
+			notime		1
+
+			onTime 0 {
+				//transition "crosshairLight::matcolor" "1 1 1 0.6" "0.1 0.5 0.35 1" "150" ;
+				transition "crosshairFrame::matcolor" "1 1 1 0.4" "0.1 0.5 0.4 0.5" "150" ;
+				transition "CrosshairBusy::matcolor" ".9 .6 0 0" ".9 .6 0 .5" "150";
+				transition "CrosshairCenter::matcolor" ".2 .6 1 .4" ".9 .6 0 .5" "150";
+				//transition "crosshairParent::rect" "304 224 100 32" "288 224 100 32" "250" ;
+			}
+
+		}
+		windowDef crosshairFrame {
+			rect		4 ,4 ,24 ,24 
+			background	"guis/assets/crosshair/custom_41"
+			visible		0
+			matcolor	0.45, 0.7, 0.65, 0.1
+			notime		1
+
+			onTime 0 {
+				//transition "crosshairLight::matcolor" "0 1 0.5 0.5" "0.45 0.7 0.65 0.2" "140" ;
+				transition "crosshairFrame::matcolor" "0 1 0.5 0.2" "0.45 0.7 0.65 0.1" "140" ;
+				transition "CrosshairBusy::matcolor" ".9 .6 0 .5" ".9 .6 0 0" "150";
+				transition "CrosshairCenter::matcolor" ".9 .6 0 .5" ".2 .6 1 .4" "150";
+				//transition "crosshairParent::rect" "288 224 100 32" "304 224 100 32" "140" ; 
+			}				
+		}	
+		
+		windowDef hitOn {
+			rect	0,0,32,32
+			notime	1
+			visible 0
+
+			windowDef crosshairCenter {
+				rect		(32 - (12 * "gui::aspectCorrection")) / 2,10,12 * "gui::aspectCorrection",12
+				background	"guis/assets/crosshair/chit2"
+				visible		1
+				matcolor .9,0,0,.5
+			}
+
+			windowDef crosshairCenter2 {
+				rect		(32 - (12 * "gui::aspectCorrection")) / 2,10,12 * "gui::aspectCorrection",12
+				background	"guis/assets/crosshair/c2"
+				visible		1
+				matcolor .9,0,0,.5
+			}
+
+			
+			windowDef crosshairCenter3 {
+				rect		(32 - (32 * "gui::aspectCorrection")) / 2,0,32 * "gui::aspectCorrection",32
+				background	"guis/assets/crosshair/custom_42"
+				visible		1
+				matcolor .9,0,0,1
+			}
+						
+			onTime 200 {
+				set "hitOn::visible" "0" ;
+			}
+		}
+	}
+}

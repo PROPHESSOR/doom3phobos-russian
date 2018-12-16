@@ -1,0 +1,164 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"blah blah"
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		
+	}
+
+	windowDef TopButton
+	{
+		rect	80, 60, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef TopText
+	{
+		rect 180, 60, 300, 60
+		forecolor	0.1, .2, 0.8, 0.7
+		text "Управление"
+		textscale	1
+		visible 1
+	}
+	
+	windowDef MiddleButton
+	{
+		rect	80, 140, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef MiddleText
+	{
+		rect 180, 140, 300, 60
+		forecolor	0.1, .2, 0.8, 0.7
+		text "Доступ"
+		textscale	1
+		visible 1
+	}
+	
+	windowDef BottomButton
+	{
+		rect	80, 220, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef BottomText
+	{
+		rect 180, 220, 300, 60
+		forecolor	0.1, .2, 0.8, 0.7
+		text "Ремонтный блок"
+		textscale	1
+		visible 1
+	}
+
+	windowDef TopButtonOverlay
+	{
+		rect	80, 60, 80, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm11" != 3 && "gui::gui_parm11" != 4 )
+			{
+				transition "TopButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+				//transition "TopText::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm11" != 3 && "gui::gui_parm11" != 4)
+			{
+				transition "TopButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+				//transition "TopText::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			//if("gui::gui_parm11" != 3 && "gui::gui_parm11" != 4 )
+			//{
+				runScript "gui::gui_parm12" ;
+			//}	
+		}
+	}
+	
+	windowDef MiddleButtonOverlay
+	{
+		rect	80, 140, 80, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm11" != 2 && "gui::gui_parm11" != 4 )
+			{
+				transition "MiddleButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+				transition "MiddleText::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm11" != 2 && "gui::gui_parm11" != 4)
+			{
+				transition "MiddleButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+				transition "MiddleText::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			//if( "gui::gui_parm12" != 3 && "gui::gui_parm11" != 4 )
+			//{
+				runScript "gui::gui_parm13" ;
+			//}	
+		}
+	}
+	
+	windowDef BottomButtonOverlay
+	{
+		rect	80, 220, 80, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm11" != 1 && "gui::gui_parm11" != 4 )
+			{
+				transition "BottomButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+				transition "BottomText::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm11" != 1 && "gui::gui_parm11" != 4)
+			{
+				transition "BottomButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+				transition "BottomText::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			//if( "gui::gui_parm11" != 1 && "gui::gui_parm11" != 4 )
+			//{
+				runScript "gui::gui_parm14" ;
+			//}	
+		}
+	}
+}

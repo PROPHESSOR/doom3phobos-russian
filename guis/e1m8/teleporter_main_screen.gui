@@ -1,0 +1,214 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		if( "gui::gui_parm21" == 0 )
+		{
+			set "PowerImage::matcolor" ".6 .1 .2 .2";
+			set "PowerText::text" "Питание выкл";
+			set "PowerText::forecolor" "1 1 1 .25";
+		}
+		else
+		{
+			set "PowerImage::matcolor" ".6 .1 .2 1";
+			set "PowerText::text" "Питание вкл";
+			set "PowerText::forecolor" "1 1 1 1";
+		}
+
+		if( "gui::gui_parm22" == 0 )
+		{
+			set "CoolantImage::matcolor" ".2 .5 .9 .2";
+			set "CoolantText::text" "Охладитель Откл";
+			set "CoolantText::forecolor" "1 1 1 .25";
+		}
+		else
+		{
+			set "CoolantImage::matcolor" ".2 .5 .9 1";
+			set "CoolantText::text" "Охладитель вкл";
+			set "CoolantText::forecolor" "1 1 1 1";
+		}
+
+		if("gui::gui_parm23" == 0)
+		{
+			set "ForwardText::text" "Включить телепорт";
+		}
+		else
+		{
+			set "ForwardText::text" "Телепорт вкл";
+		}
+	}
+
+	windowDef ForwardButton
+	{
+		rect	80, 60, 520, 60
+		background	"guis/assets/e1m3/backstuff.tga"		
+		matcolor	0.5, .5, 0.5, 0.7
+		visible 1		
+	}
+
+	windowDef ForwardText
+	{
+		rect 100, 60, 400, 60
+		textscale .8
+		text "Включить телепорт"
+		forecolor 1, 1, 1, .4
+	}
+
+	windowDef PowerImage
+	{
+		rect	80, 170, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"		
+		matcolor	0.6, .1, 0.2, 0.3
+		visible 1		
+	}
+
+	windowDef PowerText
+	{
+		rect 200, 170, 400, 60
+		textscale .8
+		forecolor 1, 1, 1, .25
+		text "Питание откл"
+	}
+
+	windowDef CoolantImage
+	{
+		rect	80, 260, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"		
+		matcolor	0.2, .5, 0.9, 0.3
+		visible 1		
+	}
+
+	windowDef CoolantText
+	{
+		rect 200, 260, 400, 60
+		textscale .8
+		forecolor 1, 1, 1, .25
+		text "Охладитель откл"
+	}
+
+	windowDef Line1
+	{
+		rect	80, 150, 520, 5
+		background	"guis/assets/e1m3/backstuff.tga"		
+		matcolor	1,1,1,0.5
+		visible 1		
+	}
+
+	windowDef Line2
+	{
+		rect	80, 340, 520, 5
+		background	"guis/assets/e1m3/backstuff.tga"		
+		matcolor	1,1,1,0.5
+		visible 1		
+	}
+
+	windowDef ForwardButtonOverlay
+	{
+		rect	80, 60, 520, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm21" == 1 && "gui::gui_parm22" == 1)
+			{
+				transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm21" == 1 && "gui::gui_parm22" == 1)
+			{
+				transition "ForwardButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm21" == 1 && "gui::gui_parm22" == 1)
+			{
+				runScript "gui::gui_parm11" ;
+				set "cmd" "play guisounds_click" ;
+			}
+			else
+			{
+				set "cmd" "play guisounds_error" ;
+			}
+		}
+	}
+
+	windowDef Addhighlight1
+	{
+		rect	0,0,-640,480
+		background	"gui/addhighlight"
+		matcolor	0.6,0.6,0.4,1
+		visible	1
+	}
+	windowDef scanlinesAlt11
+	{
+		rect	0,0,-640,480
+		matcolor	0.15,0.15,0.15,1
+		background	"gui/test/gui_scanlines5"
+		matscaley	1.5
+		visible	1
+	}
+	windowDef Static
+	{
+		rect	-9,-9,-660,500
+		visible	1
+		background	"gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 8
+	}
+	windowDef Outershadow
+	{
+		rect	0,0,-640,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Dirt
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.2
+		visible	1
+		background	"guis/assets/common/dirt3"
+		noevents	1
+	}
+	windowDef Reflect
+	{
+		rect	10,5,-620,470
+		matcolor	1 ,1 ,1 ,0.2
+		visible	0
+		background	"gui/reflect1"
+	}
+	windowDef bgScroll
+	{
+		rect	20,15,-600,450
+		visible	1
+		background	"gui/scrollbig"
+		matcolor	1, 1,  1, flickertable [ time * 5 ] / 20
+	}
+	windowDef Glow1
+	{
+		rect	5,5,630,470
+		matcolor	0.02,0.08,0.1,0.5
+		visible	1
+		background	"guis/assets/waste/glow.tga"
+	}
+	windowDef Bglow
+	{
+		rect	0,0,640,480
+		background	"guis/assets/cpuserver/bglow"
+		visible	1
+		matcolor	0.2, 0.4, 1, 0.1
+	}
+}

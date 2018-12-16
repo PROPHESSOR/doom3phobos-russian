@@ -1,0 +1,170 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"blah blah"
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		if( "gui::gui_parm12" == 0 )
+		{
+			set "Slider::rect" "130 140 20 140";
+		}
+		else if( "gui::gui_parm12" == 1 )
+		{
+			set "Slider::rect" "230 140 20 140";
+		}
+		else if( "gui::gui_parm12" == 2 )
+		{
+			set "Slider::rect" "330 140 20 140";
+		}
+		else if( "gui::gui_parm12" == 3 )
+		{
+			set "Slider::rect" "430 140 20 140";
+		}
+	}
+
+	windowDef Slider
+	{
+		rect 130, 140, 20, 140
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.3, .3, 0.3, 0.7
+		visible 1
+	}
+
+	windowDef NullTop
+	{
+		rect 100, 100, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.3, .3, 0.3, 0.7
+		visible 1
+	}
+	
+	windowDef NullBottom
+	{
+		rect 100, 300, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.3, .3, 0.3, 0.7
+		visible 1
+	}
+	
+	windowDef A1Text
+	{
+		rect 210, 40, 80, 20
+		forecolor	0.1, .2, 0.8, 1
+		text "A1"
+		textscale	1
+		visible 1
+	}
+	
+	windowDef A1Top
+	{
+		rect 200, 100, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef A1Bottom
+	{
+		rect 200, 300, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef A2Text
+	{
+		rect 310, 40, 80, 20
+		forecolor	0.1, .2, 0.8, 1
+		text "A2"
+		textscale	1
+		visible 1
+	}
+	
+	windowDef A2Top
+	{
+		rect 300, 100, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef A2Bottom
+	{
+		rect 300, 300, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef A3Text
+	{
+		rect 410, 40, 80, 20
+		forecolor	0.1, .2, 0.8, 1
+		text "A3"
+		textscale	1
+		visible 1
+	}
+	
+	windowDef A3Top
+	{
+		rect 400, 100, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+	
+	windowDef A3Bottom
+	{
+		rect 400, 300, 80, 20
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+
+
+	windowDef ForwardButton
+	{
+		rect	280, 360, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+
+	windowDef ForwardButtonOverlay
+	{
+		rect	280, 360, 80, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				runScript "gui::gui_parm11" ;
+			}	
+		}
+	}
+}

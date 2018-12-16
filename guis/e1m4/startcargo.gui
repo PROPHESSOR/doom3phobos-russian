@@ -1,0 +1,104 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"A generic placeholder button for basic functionality\ngui_parm1 = the button text\ngui_parm11 = the script to execute\ngui_parm13 = deny access [1 for deny, 0 for grant]"
+	visible	1
+
+	float "done" 0
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";		
+	}
+	
+	onTime 0
+	{
+		set "ForwardButton::text" "gui::gui_parm1" ;
+
+		if( "Desktop::done" == 0 )
+		{
+			if( "gui::gui_parm8" == 1 )
+			{
+				set "ForwardButton::visible" "0" ;
+				set "ErrorScreen::visible" "1" ;
+			}
+			else
+			{
+				set "ForwardButton::visible" "1" ;
+				set "ErrorScreen::visible" "0" ;
+			}
+		}
+		else
+		{
+			set "ForwardButton::visible" "0" ;
+			set "ErrorScreen::visible" "0" ;
+			set "DoneScreen::visible" "1" ;
+		}
+	}
+
+	windowDef ErrorScreen
+	{
+		rect 10, 10, 520, 460
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.5, .1, 0.0, 0.7
+		visible 0
+		text "“ŒœÀ»¬Õ€… ¡¿  Œœ”—“≈À. «¿œŒÀÕ»“≈ ≈√Œ!"
+		textscale 2
+	}
+
+	windowDef DoneScreen
+	{
+		rect 10, 10, 520, 460
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .5, 0.0, 0.7
+		visible 0
+		text "√–”« Œ“œ–¿¬À≈Õ!"
+		textscale 2
+	}
+
+	windowDef ForwardButton
+	{
+		rect	100, 150, 400, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+		text "Õ‡ÊÏË Ò˛‰‡"
+		textscale 0.5		
+	}
+
+	windowDef ForwardButtonOverlay
+	{
+		rect	100, 150, 400, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;			
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				runScript "gui::gui_parm11" ;
+
+				set "Desktop::done" "1";
+				set "ForwardButton::visible" "0" ;
+				set "ErrorScreen::visible" "0" ;
+				set "DoneScreen:visible" "1" ;
+			}			
+		}
+	}
+}

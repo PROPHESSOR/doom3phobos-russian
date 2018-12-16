@@ -1,0 +1,1113 @@
+onNamedEvent ammoPulse {
+		resetTime "AmmoBarFlash" "0" ; 		
+	}
+
+	onNamedEvent weaponPulse {
+		resetTime "WeaponSlotFlash" "0" ; 
+	}	
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  New Weapon Pickup
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	onNamedEvent newWeapon {
+		//if ("gui::newweapon" == 1) { 
+		//	resetTime "WeapIcon1Large" "0" ;
+		//}
+		if ("gui::newweapon" == 2) { 
+			resetTime "WeapIcon2Large" "0" ;
+		}
+		if ("gui::newweapon" == 3) { 
+			resetTime "WeapIcon3Large" "0" ;
+		}
+		if ("gui::newweapon" == 4) { 
+			resetTime "WeapIcon4Large" "0" ;
+		}
+		if ("gui::newweapon" == 5) { 
+			resetTime "WeapIcon5Large" "0" ;
+		}
+		if ("gui::newweapon" == 6) { 
+			resetTime "WeapIcon6Large" "0" ;
+		}
+		if ("gui::newweapon" == 7) { 
+			resetTime "WeapIcon7Large" "0" ;
+		}
+		if ("gui::newweapon" == 8) { 
+			resetTime "WeapIcon8Large" "0" ;
+		}
+		if ("gui::newweapon" == 9) { 
+			resetTime "WeapIcon9Large" "0" ;
+		}
+		if ("gui::newweapon" == 10) { 
+			resetTime "WeapIcon10Large" "0" ;
+		}
+		if ("gui::newweapon" == 11) { 
+			resetTime "WeapIcon11Large" "0" ;
+		}
+		if ("gui::newweapon" == 12) { 
+			resetTime "WeapIcon12Large" "0" ;
+		}
+		if ("gui::newweapon" == 13) { 
+			resetTime "WeapIcon13Large" "0" ;
+		}
+		if ("gui::newweapon" == 14) { 
+			resetTime "WeapIcon14Large" "0" ;
+		}
+		if ("gui::newweapon" == 15) { 
+			resetTime "WeapIcon15Large" "0" ;
+		}
+		
+	}
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//  Weapon Icon Flash
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	onNamedEvent weaponChange {
+		
+		//Flashlight
+		if ("gui::weapon0" == 2) { 
+			resetTime "WeapIcon0" "0" ; 			
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+			
+		} 
+
+		//Fists
+		if ("gui::weapon1" == 2) { 
+			resetTime "WeapIcon1" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		} 
+
+		//Chainsaw
+		if ("gui::weapon2" == 2) { 
+			resetTime "WeapIcon2" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 .56 .65" ;
+			set	"weapon12::matcolor" "0.12 0.6 1 .95" ;
+		} 
+
+		//Pistol
+		if ("gui::weapon3" == 2) { 
+			resetTime "WeapIcon3" "0" ; 
+			set	"weapon0::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		
+		} 
+		
+		//Shotgun
+		if ("gui::weapon4" == 2) { 
+			resetTime "WeapIcon4" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+			
+		} 
+		
+		//Double Barrel Shotgun
+		if ("gui::weapon5" == 2) { 
+			resetTime "WeapIcon5" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		
+		}  
+		
+		//Machinegun
+		if ("gui::weapon6" == 2) { 
+			resetTime "WeapIcon6" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		
+		} 
+		
+		//Chaingun
+		if ("gui::weapon7" == 2) { 
+			resetTime "WeapIcon7" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		} 
+		
+		//Grenade
+		if ("gui::weapon8" == 2) { 
+			resetTime "WeapIcon8" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		} 
+		
+		//Plasmagun
+		if ("gui::weapon9" == 2) { 
+			resetTime "WeapIcon9" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+			
+		} 
+		
+		//Rocket Launcher
+		if ("gui::weapon10" == 2) { 
+			resetTime "WeapIcon10" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		} 
+		
+		//BFG
+		if ("gui::weapon11" == 2) { 
+			resetTime "WeapIcon11" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		
+		} 
+		
+		//Grabber
+		if ("gui::weapon12" == 2) { 
+			resetTime "WeapIcon12" "0" ; 
+			set	"weapon0::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon1::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon2::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon3::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon4::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon5::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon6::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon7::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon8::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon9::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon10::matcolor" "0.06 0.3 0.56 .65" ;
+			set	"weapon11::matcolor" "0.12 0.6 1 .95" ;
+			set	"weapon12::matcolor" "0.06 0.3 .56 .65" ;
+		
+		} 
+	
+	}
+
+	windowDef Hardware
+	{
+		rect 300, 400, 340, 225
+		visible "gui::influenceVisible"
+
+
+		windowDef WeapName 
+		{
+			text	" "
+			rect	5 ,51,220 ,20 
+			forecolor 0.2,0.6,.8,.9
+			visible	1
+			textscale	0.25
+			font		"fonts/bank"
+			textalign	2
+			notime		1
+			
+
+			onTime 0 
+			{
+				transition "forecolor" "0.2 0.6 0.8 .9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+			}
+		}
+
+		windowDef WeapIcons
+		{
+			rect 277, 15, 100, 16		
+
+			//Flashlight
+			windowDef WeapIcon0
+			{
+				visible		1		
+				rect		0, 0, 32, 16 
+				background	"guis/assets/hud/icons/flashlightw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon0" == 2)
+				notime		1
+
+				onTime 0 {
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100187" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Fists
+			windowDef WeapIcon1 
+			{
+				rect		0, 0, 16, 16 
+				background	"guis/assets/hud/icons/fistw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon1" == 2)
+				notime		1
+
+				onTime 0 
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100188" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Chainsaw
+			windowDef WeapIcon2
+			{
+				rect		0, 0, 32, 16 
+				background	"guis/assets/hud/icons/chainsaww"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon2" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "Бензопила" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Pistol
+			windowDef WeapIcon3
+			{
+				visible		1
+				rect		0, 0, 16, 16 
+				background	"guis/assets/hud/icons/pistolw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon3" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100178" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Shotgun
+			windowDef WeapIcon4
+			{
+				visible		1
+				rect		0, 0, 40, 16 
+				background	"guis/assets/hud/icons/shotgunw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon4" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100190" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Double Barrel Shotgun
+			windowDef WeapIcon5
+			{
+				visible		1
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/doublebarrelw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon5" == 2)
+				notime		1
+
+				onTime 0 {
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100191" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Machinegun
+			windowDef WeapIcon6
+			{
+				visible		1
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/machinegunw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon6" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100192" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Chaingun
+			windowDef WeapIcon7
+			{
+				visible		1
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/chaingunw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon7" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100193" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Grenade
+			windowDef WeapIcon8
+			{
+				visible		1
+				rect		0, 0, 16, 16
+				background	"guis/assets/hud/icons/grenadew"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon8" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100194" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Plasma Gun
+			windowDef WeapIcon9
+			{
+				visible		1
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/plasmagunw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon9" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100195" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Rocket Launcher
+			windowDef WeapIcon10
+			{
+				visible		1
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/rocketlauncherw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon10" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100196" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//BFG
+			windowDef WeapIcon11
+			{
+				visible		1
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/bfgw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon11" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "#str_00100197" ;
+					resetTime "weapname" "0" ;
+				}
+			}
+
+			//Grabber
+			windowDef WeapIcon12
+			{
+				rect		0, 0, 32, 16
+				background	"guis/assets/hud/icons/grabberw"
+				matcolor 0.2,0.6,.8,0
+				visible	("gui::weapon12" == 2)
+				notime		1
+
+				onTime 0
+				{
+					transition "matcolor" "0.2 0.6 0.8 0.9" "0.2 0.6 0.8 0" "1000" "1" "0" ;
+					set "weapname::text" "Гравихват" ;
+					resetTime "weapname" "0" ; 
+				}
+			}
+		}
+		 
+		windowDef Ammo
+		{
+			rect 215, 35, 300, 200
+
+			windowDef AmmoText
+			{
+				rect 57.25, 0, 52, 12
+
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+				shear 0, 0.45
+				textscale	0.2				
+				textaligny -2
+				text		"gui::player_ammo"
+				forecolor 0.2,0.6,.8,.9
+			}
+
+			windowDef AmmoText2
+			{
+				rect 77.25, 0, 32, 12
+				
+				matcolor 0.06,0.3,0.56,.65
+				shear 0, 0.45
+				textscale	0.2				
+				textalign 2
+				textalignx -2
+				textaligny -2
+				text		"gui::player_totalammo"
+				forecolor 0.2,0.6,.8,.9
+			}
+
+			windowDef AmmoIcon
+			{
+				rect 76, 2, 8, 8
+				shear 0, 0.45
+				background "guis/assets/hud/ammo.tga"
+				matcolor 0.2,0.6,.8,.9
+				
+			}
+
+			windowDef AmmoSlot
+			{
+				rect 12, 12, 100, 21
+				background "guis/assets/ballg.jpg"
+				matcolor 0.03,0.15,0.28,.9
+
+
+				windowDef AmmoBar
+				{
+					rect 2, 2, (96 * ("gui::player_ammo") / "gui::player_clip_size"), 8
+
+					background "guis/assets/ballg.jpg"
+					matcolor 0.56,0.42,0.14,.65
+				}
+
+				windowDef AmmoBarFlash
+				{					
+					rect 2, 2, (96 * ("gui::player_ammo") / "gui::player_clip_size"), 8
+
+					background "guis/assets/ballg.jpg"
+					matcolor 1, 1, 1, 0
+
+					notime 1
+
+					onTime 0
+					{
+						transition "matcolor" "1 1 1 .95" "0.56 0.42 0.14 .65" "150";
+					}
+				}
+
+				windowDef BorderTop
+				{
+					rect	0, 0, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderBottom
+				{
+					rect	0, 11, 100, 10
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderLeft
+				{
+					rect	0, 1, 1, 10
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderRight
+				{
+					rect	99, 1, 1, 10
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef WeaponSlot
+				{
+					rect 1, 12, 98, 8
+					background "guis/assets/ballg.jpg"
+					matcolor 0.03,0.15,0.28,.9
+
+					windowDef Weapon0
+					{
+						rect	1 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon3" != 0)
+					}
+
+					windowDef Weapon1
+					{
+						rect	8.5 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon4" != 0)
+					}
+
+					windowDef Weapon2
+					{
+						rect	16 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon5" != 0)
+					}
+
+					windowDef Weapon3
+					{
+						rect	23.5 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon6" != 0)
+					}
+
+					windowDef Weapon4
+					{
+						rect	31 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon7" != 0)
+					}
+
+					windowDef Weapon5
+					{
+						rect	38.5 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon8" != 0)
+					}
+
+					windowDef Weapon6
+					{
+						rect	46 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon9" != 0)
+					}
+
+					windowDef Weapon7
+					{
+						rect	53.5 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon10" != 0)
+					}
+
+					windowDef Weapon8
+					{
+						rect	61 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon11" != 0)
+					}
+
+					windowDef Weapon9
+					{
+						rect	68.5 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon1" != 0)
+					}
+
+					windowDef Weapon10
+					{
+						rect	76 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon0" != 0)
+					}
+
+					windowDef Weapon11
+					{
+						rect	83.5 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon2" != 0)
+					}
+
+					windowDef Weapon12
+					{
+						rect	91 ,1.5 ,7 ,6 
+						background	"guis/assets/hud/weapons"
+						matcolor 0.06,0.3,0.56,.65
+						visible	("gui::weapon5" != 0)
+					}
+				}
+
+				windowDef WeaponSlotFlash
+				{
+					rect 1, 12, 98, 8
+					background "guis/assets/ballg.jpg"
+					matcolor 1, 1, 1, 0
+					notime 1
+
+					onTime 0
+					{
+						//transition "matcolor" "1 1 1 1" "1 1 1 0" "150";
+					}
+				}
+			}
+		}
+	}
+
+	windowDef WeapIcon2Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/chainsaww"
+
+		matcolor	1, 1, 1, 0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName2Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName2Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName2Large {
+		text	"#str_9900017"
+		rect	287 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	
+
+
+	windowDef WeapIcon3Large {
+		visible		1
+		rect		288, 280, 24, 24
+		background	"guis/assets/hud/icons/pistolw"
+		matcolor	1, 1, 1, 0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 24 24" "300 280 24 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName3Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 24 24" "315 280 24 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName3Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName3Large {
+		text	"#str_00100178"
+		rect	301 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}
+
+	windowDef WeapIcon4Large {
+		visible		1
+		rect		256,280,64,24
+		background	"guis/assets/hud/icons/shotgunw"
+		matcolor	1, 1, 1, 0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 64 24" "300 280 64 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName4Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 64 24" "315 280 64 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName4Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName4Large {
+		text	"#str_00100190"
+		rect	288 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}
+
+	windowDef WeapIcon5Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/doublebarrelw"
+		matcolor	1, 1, 1, 0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName5Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName5Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName5Large {
+		text	"#str_00100191"
+		rect	228 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}
+
+	windowDef WeapIcon6Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/machinegunw"
+		matcolor	1, 1, 1, 0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName6Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName6Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName6Large {
+		text	"#str_00100180"
+		rect	276 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	
+
+	windowDef WeapIcon7Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/chaingunw"
+		matcolor 0.2,0.6,.8,0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName7Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName7Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName7Large {
+		text	"#str_00100181"
+		rect	300 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	
+
+	windowDef WeapIcon8Large {
+		visible		1
+		rect		256,280,24,24
+		background	"guis/assets/hud/icons/grenadew"
+		matcolor 0.2,0.6,.8,0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 24 24" "300 280 24 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName8Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 24 24" "315 280 24 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName8Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}		
+	}
+	windowDef WeapName8Large {
+		text	"#str_00100194"
+		rect	276 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	
+	
+
+	windowDef WeapIcon9Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/plasmagunw"
+		matcolor 0.2,0.6,.8,0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName9Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName9Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName9Large {
+		text	"#str_00100183"
+		rect	276 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}
+
+	windowDef WeapIcon10Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/rocketlauncherw"
+		matcolor 0.2,0.6,.8,0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName10Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName10Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName10Large {
+		text	"#str_00100196"
+		rect	254 ,265 ,220 ,20 
+		forecolor	0.6, 1, 0.9, 0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	
+
+	windowDef WeapIcon11Large
+	{
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/bfgw"
+		matcolor 0.2,0.6,.8,0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName11Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName11Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName11Large {
+		text	"#str_00100197"
+		rect	282 ,265 ,220 ,20 
+		forecolor 0.2,0.6,.8,0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	
+
+	windowDef WeapIcon12Large {
+		visible		1
+		rect		256,280,48,24
+		background	"guis/assets/hud/icons/grabberw"
+		matcolor 0.2,0.6,.8,0
+		visible 1
+		notime 1
+		
+		onTime 0 {
+			transition "rect" "285 280 48 24" "300 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+			transition "WeapName12Large::forecolor" ".2 .6 .8 0" ".2 .6 .8 .9" "300" ;
+		}
+		onTime 1000 {
+			transition "rect" "300 280 48 24" "315 280 48 24" "300" "0" "1" ;
+			transition "matcolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+			transition "WeapName12Large::forecolor" ".2 .6 .8 .9" ".2 .6 .8 0" "300" ;
+		}
+	}
+	windowDef WeapName12Large {
+		text	"#str_9900016"
+		rect	288 ,265 ,220 ,20 
+		forecolor 0.2,0.6,.8,0
+		visible	1
+		textscale	0.25
+		font		"fonts/bank"
+	}	

@@ -1,0 +1,429 @@
+windowDef LoadGameMenu
+{
+	rect 0, 480, 640, 350
+	background "guis/assets/ballg"
+	matcolor 0.04,0.2,0.56,.4
+	visible 1
+
+	onTime 0
+	{		
+		if("Desktop::menu" == 2)
+		{
+			set "visible" "1" ;
+			if("Desktop::MenuUp" == 0)
+			{				
+				transition "rect" "0 480 640 350" "0 80 640 350" "500";
+				set "Desktop::MenuUp" "1";
+			}
+			else
+			{
+				if("Desktop::prevMenu" == 1)
+				{
+					transition "rect" "640 80 640 350" "0 80 640 350" "500";
+				}
+				else if("Desktop::prevMenu" == 4)
+				{
+					transition "rect" "640 80 640 350" "0 80 640 350" "500";
+				}
+				else if("Desktop::prevMenu" == 3)
+				{
+					transition "rect" "-640 80 640 350" "0 80 640 350" "500";
+				}
+			}
+		}
+		else
+		{
+			if("visible" == 1)	
+			{
+				if("Desktop::menu" == 1 || "Desktop::menu" == 4)
+				{
+					transition "rect" "0 80 640 350" "640 80 640 350" "500";
+				}
+				else if("Desktop::menu" == 3)
+				{
+					transition "rect" "0 80 640 350" "-640 80 640 350" "500";
+				}
+			}
+		}
+	}
+
+	onTime 500
+	{
+		if( "Desktop::menu" != 2)
+		{
+			set "visible" "0" ;
+		}
+	}
+
+	windowDef LoadGameContent {
+		rect		53, 22, 540, 330
+		visible 1
+
+		//Title
+		windowDef LGTitleText {
+			rect		3, 5, 320, 20
+			text		"ÇÀÃÐÓÇÈÒÜ ÈÃÐÓ"
+			forecolor 0.2,0.56,0.88,.8
+			font "fonts/bank"
+			textscale	0.25
+			textaligny	0			
+		}
+		//Title bar
+		windowDef LGCTitleBar {
+			rect		5, 23, 510, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		//black background
+		windowDef LGCBG1 {
+			rect		5, 50, 410, 240			
+			background "guis/assets/ballg"
+			matcolor 0.01,0.05,0.09,1
+			
+		}
+
+		windowDef LGCTop {
+			rect		4, 49, 412, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCBottom {
+			rect		4, 290, 412, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCLeft {
+			rect		4, 50, 1, 240
+			background "guis/assets/border_vert"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCRight {
+			rect		415, 50, 1, 240
+			background "guis/assets/border_vert"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		//LOAD GAME CONTENT
+		windowDef LGCLoadGames {
+			rect		7, 56, 406, 232
+
+			listDef LGCLoadList {
+				rect	0, 0, 406, 232
+				foreColor	1, 1, 1, 1
+				bordercolor	0.3 ,0.52 ,0.5 ,0.5
+				textscale	0.2
+				listName	"loadGame"
+				tabstops	"2, 230, 312"
+				font	"fonts/an"
+
+				onAction {
+					set "cmd" "play guisounds_clickr" ;
+					set "cmd" "updateSaveGameInfo" ;
+					resetTime "LoadBGameButton" "0" ;
+					resetTime "DeleteBGameButton" "0" ;
+				}
+
+				onEnter {
+					set "cmd" "play guisounds_clicksonar" ;
+					set "cmd" "loadGame" ;
+				}
+			}
+		}
+
+		//Title Text
+			windowDef LGCText1 {
+			rect		7, 38, 195, 10
+			text		"ÍÀÇÂÀÍÈÅ"
+			font		"fonts/bank"
+			textscale	0.15
+			textaligny	-3
+			forecolor 0.2,0.56,0.88,.5
+		}
+
+		//Title Text
+		windowDef LGCText2 {
+			rect		240, 38, 195, 10
+			text		"ÄÀÒÀ"
+			font		"fonts/bank"
+			textscale	0.15
+			textaligny	-3
+			forecolor 0.2,0.56,0.88,.5
+		}
+
+		//Title Text
+		windowDef LGCText3 {
+			rect		322, 38, 195, 10
+			text		"ÂÐÅÌß"
+			font		"fonts/bank"
+			textscale	0.15
+			textaligny	-3
+			forecolor 0.2,0.56,0.88,.5
+		}
+
+		windowDef LGCLevelshot {
+			rect		422, 50, 105, 79
+			background	"gui::loadgame_shot"
+			matcolor 	1, 1, 1, 1			
+			noevents	1
+		}
+
+		windowDef LGCLSTop {
+			rect		421, 49, 107, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCLSBottom {
+			rect		421, 129, 107, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCLSLeft {
+			rect		421, 50, 1, 79
+			background "guis/assets/border_vert"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCLSRight {
+			rect		527, 50, 1, 79
+			background "guis/assets/border_vert"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef LGCBox1_2 {
+			rect		421, 130, 107, 115
+			backcolor	0.6, 0.8, 1, 0.1
+			noevents	1
+		}
+
+		//LOAD GAME CONTENT
+		windowDef LGCLoadGameSpecific {
+			rect		425, 140, 90, 100
+
+			//Title Text
+			windowDef LGCTextTempS1 {
+				rect		0, 30, 90, 60
+			//	text		"gui::saveGameDescription"
+				text		"gui::saveGameDifficulty"
+				font		"fonts/bank"
+				textscale	0.24
+				textaligny	-9
+				forecolor	0.6, 0.8, 0.8, 1
+				visible 0
+			}
+			//Title Text
+			windowDef LGCTextTempS2 {
+				rect		0, 0, 90, 10
+				text		"gui::saveGameDate"
+				font		"fonts/bank"
+				textscale	0.15
+				textaligny	-6
+				forecolor	1, 1, 1, 1
+			}
+			windowDef LGCTextTempS3 {
+				rect		0, 10, 90, 10
+				text		"gui::saveGameTime"
+				font		"fonts/bank"
+				textscale	0.15
+				textaligny	-6
+				textalign	0
+				forecolor	0.6, 0.8, 0.8, 1
+				visible 1
+			}
+		}		
+
+		windowDef LoadBGameButton
+		{
+			rect		422, 252, 105, 16
+			background "guis/assets/ballg"
+			matcolor 0.02,0.1,0.18,1
+			forecolor 0.2,0.56,0.88,.5
+			font	"fonts/bank"
+			text "ÇÀÃÐÓÇÈÒÜ ÈÃÐÓ"
+			textalign 1
+			textaligny 0
+			textscale .16
+			matscaley 	1.5
+			matscalex 	1
+
+			onTime 0 {
+				if ( "gui::loadGame_sel_0" >= 0 ) {					
+					set "noevents" "0"
+				} else {
+					set "forecolor" "1 1 1 0.5" ;
+					set "noevents" "1"
+				}
+			}
+
+			windowDef BackgroundBorderTop
+			{
+				rect	0,0,107,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderBottom
+			{
+				rect	0,15,107,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderLeft
+			{
+				rect	0,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderRight
+			{
+				rect	104,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			onAction {
+				set	"cmd"	"play guisounds_clicksonar" ;
+			}
+			onActionRelease {
+				set	"cmd"	"loadGame" ;
+			}
+
+			onMouseEnter
+			{
+				set	"cmd"	"play guisounds_in" ;
+				transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+				transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+				//transition "LoadBGameBack::matcolor" "0.1 0.28 0.44 .0" "0.1 0.28 0.44 .2" "250" ;
+				
+				//transition "rect" "4 8 102 22" "11 11 182 22" "250" ;
+			}
+
+			onMouseExit
+			{
+				set	"cmd"	"play guisounds_out" ;
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;
+				//transition "LoadBGameBack::matcolor" "0.1 0.28 0.44 .2" "0.1 0.28 0.44 .0" "250" ;
+
+
+				//transition "rect" "11 11 182 32" "31 11 142 32" "250" ;
+			}
+		}
+
+		windowDef DeleteBGameButton
+		{
+			rect		422, 272, 105, 16
+			background "guis/assets/ballg"
+			matcolor 0.02,0.1,0.18,1
+			forecolor 0.2,0.56,0.88,.5
+			font	"fonts/bank"
+			text "ÓÄÀËÈÒÜ ÑÎÕÐÀÍÅÍÈÅ"
+			textalign 1
+			textaligny 0
+			textscale .16
+			matscaley 	1.5
+			matscalex 	1
+
+			onTime 0 {
+				if ( "gui::loadGame_sel_0" >= 0 ) {					
+					set "noevents" "0"
+				} else {
+					set "forecolor" "1 1 1 0.5" ;
+					set "noevents" "1"
+				}
+			}
+
+			windowDef BackgroundBorderTop
+			{
+				rect	0,0,107,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderBottom
+			{
+				rect	0,15,107,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderLeft
+			{
+				rect	0,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderRight
+			{
+				rect	104,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			onMouseEnter {
+				set	"cmd"	"play guisounds_in" ;
+				transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+				transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+
+				resetTime "ToolTip1" "0" ;
+				set "ToolTip1::text" "#str_02191" ;
+				set "ToolTip2::text" "#str_02191" ;				
+			}
+			onMouseExit {
+				set	"cmd"	"play guisounds_out" ;
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;				
+				
+				resetTime "ToolTip2" "0" ;				
+			}
+
+			onAction {
+				set	"cmd"	"play guisounds_clicksonar" ;
+				set "DeleteGameWindowHolder::visible" "1" ;
+			}
+		}
+	}
+
+
+
+	windowDef TopBorder
+	{
+		rect 0, 0, 640, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BottomBorder
+	{
+		rect 0, 349, 640, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+}
+
+#include "guis/mainmenu/DeleteGame.pd"

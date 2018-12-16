@@ -1,0 +1,312 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	background	"guis/assets/cpuserver/bg.tga"
+	matcolor	1, 0.9, 1, 1
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" 0 ;
+	}
+	
+	onTime 0
+	{		
+		if( "gui::gui_parm1" == 1 )
+		{
+			transition "FuelHatch2::matcolor" "0.5 0.1 0.2 0.7" "0.1 0.5 0.2 0.7" "500" ;
+		
+			set "Fuel1DrainButtonOverlay::visible" 0 ;
+			set "FuelBox1LiquidText::visible" 0 ;
+		}	
+	}
+	
+	onTime 500
+	{
+	
+		if( "gui::gui_parm1" == 1 )
+		{
+			transition "FuelBox1Liquid::rect" "200 60 240 210" "200 210 240 210" "5000" ;					
+		}
+	}
+	
+	onTime 5500
+	{		
+		if( "gui::gui_parm1" == 1 )
+		{
+			transition "FuelHatch1::matcolor" "0.1 0.5 0.2 0.7" "0.5 0.1 0.2 0.7" "500" ;					
+		}	
+	}
+	
+	onTime 6000
+	{
+		if( "gui::gui_parm1" == 1 )
+		{
+			set "FuelBox1Accessible::visible" 1 ;
+		}
+	}
+	
+	windowDef FuelBox1
+	{
+		rect	100, 75, 110, 300
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0, 0, 0, 0.6
+		visible	1		
+	}
+
+	windowDef FuelBox1Liquid
+	{
+		rect	200, 60, 240, 210
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+		
+	windowDef FuelHatch1
+	{
+		rect 300, 195, 40, 15
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0.1, .5, 0.2, 0.7
+		visible 1
+	}
+	
+	windowDef FuelHatch2
+	{
+		rect 300, 270, 40, 15
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0.5, .1, 0.2, 0.7
+		visible 1
+	}
+
+	
+	windowDef OverlayLines
+	{
+		rect	5, 5, 630, 470		
+		background	"guis/assets/e1m4/draincore.tga"
+		matcolor	1, 0.85, 0.4, 1
+		visible	1
+		
+	}		
+	
+	windowDef FuelBox1LiquidText
+	{
+		rect 200, 110, 240, 100
+		text "якхрэ"
+		textscale	.4
+		textalign 1
+		forecolor	1, 0.85, 0.4, pdflick [ time * .025 ]	
+		visible 1						
+	}
+	
+	windowDef FuelBox1Accessible
+	{
+		rect 200, 110, 240, 100
+		text "днярсомн"
+		textscale	.4
+		textalign 1
+		forecolor	.4, 0.85, 0.4, pdflick [ time * .0025 ]	
+		visible 0
+	}
+				
+	windowDef Text1
+	{
+		rect	102, 0, 540, 70
+		text	"сопюбкемхе рнокхбнл"
+		textscale	0.50
+		forecolor	1, 0.7, 0.3, 0.8
+		visible	1
+		font	"fonts/micro"
+	}			
+	
+	windowDef Bglow
+	{
+		rect	0, 0, 640, 480
+		background	"guis/assets/cpuserver/bglow.tga"
+		visible	1
+		matcolor	0.6, 0.4, 0.2, 0.1
+	}
+	
+	
+	windowDef Transferring
+	{
+		rect	10 ,10 ,620 ,460
+		background	"guis/assets/e1m3/backstuff"
+		
+		matcolor	1 ,0.6 ,0.3 , 0.3
+		visible	0
+		
+		windowDef TransferText
+		{
+			rect 25, 200, 600, 100
+			textscale	0.86
+			forecolor	1, 0.7, 0.3, 0.5
+		background	"gui/line/horizwarn2"				
+			visible	0
+			font	"fonts/micro"		
+			text	"оепелеыемхе рнокхбю"
+		}
+	}
+	
+	windowDef Static
+	{
+		rect	-10 ,-10 ,660 ,500
+		visible	1
+		background	"gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 10
+	}
+	windowDef Outerglow
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"guis/assets/common/outerglow"
+		matcolor	1 ,0.8 ,0.3 , 0.2
+		visible	1
+	}
+	windowDef Outershadow
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Addhighlight
+	{
+		rect	0 ,0 ,-640 ,-480
+		background	"gui/addhighlight"
+		matcolor	0.5 ,0.3 ,0.1 ,1
+		visible	1
+	}
+	windowDef scanlinesAlt
+	{
+		rect	0,0,640,480
+		matcolor	0.1,0.1,0.1,1
+		background	"gui/test/gui_scanlines5"
+		matscaley	2
+	}
+	windowDef OuterGlowBar
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"gui/outerglowbar"
+		matcolor	1 ,0.7 ,0.4 ,1
+		visible	0
+	}
+	windowDef Reflect
+	{
+		rect	10 ,-10 ,-620 ,470
+		matcolor	1 ,0.8 ,0.5 ,0.1
+		visible	0
+		background	"gui/reflect2"
+	}
+	windowDef Dirt2
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.7
+		visible	1
+		background	"guis/assets/common/dirt2"
+		noevents	1
+	}
+	windowDef Dirt21
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt4"
+		noevents	1
+	}
+	windowDef GlassScratch1
+	{
+		rect	-36,-7,839,-530
+		background	"guis/assets/common/scratch1d"
+		visible	1
+		matcolor	0,0,0,0.4
+	}
+	windowDef GlassScratch
+	{
+		rect	-36,-10,839,-530
+		background	"gui/common/scratch1d"
+		visible	1
+		matcolor	0.6,0.6,0.6,1
+	}
+	windowDef Dirt211
+	{
+		rect	0,0,-640,-480
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt4"
+		noevents 1	
+	}	
+	
+			windowDef Addhighlight1
+	{
+		rect	0,0,-640,480
+		background	"gui/addhighlight"
+		matcolor	0.6,0.6,0.4,1
+		visible	1
+	}
+	windowDef scanlinesAlt11
+	{
+		rect	0,0,-640,480
+		matcolor	0.15,0.15,0.15,1
+		background	"gui/test/gui_scanlines5"
+		matscaley	1.5
+		visible	1
+	}
+	windowDef Static
+	{
+		rect	-9,-9,-660,500
+		visible	1
+		background	"gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 8
+	}
+	windowDef Outershadow
+	{
+		rect	0,0,-640,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Dirt
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.2
+		visible	1
+		background	"guis/assets/common/dirt3"
+		noevents	1
+	}
+	windowDef Reflect
+	{
+		rect	10,5,-620,470
+		matcolor	1 ,1 ,1 ,0.2
+		visible	0
+		background	"gui/reflect1"
+	}
+	windowDef bgScroll
+	{
+		rect	20,15,-600,450
+		visible	1
+		background	"gui/scrollbig"
+		matcolor	1, 1,  1, flickertable [ time * 5 ] / 20
+	}
+	
+	
+	windowDef Fuel1DrainButtonOverlay
+	{
+		rect	200, 60, 240, 210		
+		visible 1
+				
+		onMouseEnter
+		{
+		
+			transition "FuelBox1Liquid::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+		}
+		
+		onMouseExit
+		{
+			transition "FuelBox1Liquid::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+		}
+		
+		onAction
+		{
+			runScript "gui::gui_parm2" ;
+		}
+	}	
+}

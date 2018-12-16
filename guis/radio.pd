@@ -1,0 +1,177 @@
+﻿OnMouseEnter {
+
+}
+
+OnMouseExit {
+
+}
+
+OnAction {
+
+}
+
+windowDef Close {
+	rect 10, 20, 100, 20
+	text "Закрыть"
+	background	"guis/assets/e1m3/backstuff.tga"
+	matcolor .8, .4, .4, 1
+	
+	onMouseEnter
+	{
+		transition "matcolor" ".8 .4 .4 1" "1 .4 .4 1" "200";
+	}
+	
+	onMouseExit
+	{
+		transition "matcolor" "1 .4 .4 1" ".8 .4 .4 1" "200";
+	}
+	
+	OnAction
+	{
+		transition "RadioScreen::rect" "0 0 640 480" "400" "-640 0 640 480";
+	}
+}
+
+// **********************************************************
+// PHOBOS : Zeroth, Radio Dialog
+// **********************************************************
+
+windowDef rdialog_contacts {
+	rect	0,0,640,480
+	visible ("gui::rdialog_container" == 0)
+	
+	
+	windowDef call_sam {
+		noevents	0
+		rect	0,320,640,20
+		visible 1
+		textscle	0.4
+		textalign	1
+		text		"Позвонить Сэму"
+
+		onAction {
+			set "gui::radioname" "idAI_sam_42" ; // the entity name of who we're going to call
+			set	"cmd"	"callonradio" ;
+		}
+		onMouseEnter {
+			set "call_sam::forecolor" "1 0.5 1 1" ;
+		}
+		onMouseExit {
+			set "call_sam::forecolor" "1 1 1 1" ;
+		}
+	}
+}
+	
+windowDef rdialog_container {
+	rect	0,0,640,480
+	visible "gui::rdialog_container"
+	
+	windowDef npcrdialog_npc_says {
+		rect	180,200,320,80
+		visible 1
+		textscle	0.4
+		forecolor	1, 0.2, 1, 1
+		textalign	0
+		text		"gui::rdialog_npc"
+	}
+
+	windowDef npcrdialog_option1 {
+		noevents	0
+		rect	0,320,640,20
+		visible "gui::rdialog_option1_vis"
+		textscle	0.4
+		textalign	1
+		text		"gui::rdialog_option1"
+		
+		onAction {
+			set "gui::rdoptselect" "1" ;
+			set	"cmd"	"radioopt" ;
+		}
+		onMouseEnter {
+			set "npcrdialog_option1::forecolor" "1 0.5 1 1" ;
+		}
+		onMouseExit {
+			set "npcrdialog_option1::forecolor" "1 1 1 1" ;
+		}
+	}
+
+	windowDef npcrdialog_option2 {
+		noevents	0
+		rect	0,350,640,20
+		visible "gui::rdialog_option2_vis"
+		textscle	0.4
+		textalign	1
+		text		"gui::rdialog_option2"
+		
+		onAction {
+			set "gui::rdoptselect" "2" ;
+			set	"cmd"	"radioopt" ;
+		}
+		onMouseEnter {
+			set "npcrdialog_option2::forecolor" "1 0.5 1 1" ;
+		}
+		onMouseExit {
+			set "npcrdialog_option2::forecolor" "1 1 1 1" ;
+		}
+	}
+
+	windowDef npcrdialog_option3 {
+		noevents	0
+		rect	0,380,640,20
+		visible "gui::rdialog_option3_vis"
+		textscle	0.4
+		textalign	1
+		text		"gui::rdialog_option3"
+
+		onAction {
+			set "gui::rdoptselect" "3" ;
+			set	"cmd"	"radioopt" ;
+		}
+		onMouseEnter {
+			set "npcrdialog_option3::forecolor" "1 0.5 1 1" ;
+		}
+		onMouseExit {
+			set "npcrdialog_option3::forecolor" "1 1 1 1" ;
+		}
+	}
+
+	windowDef npcrdialog_option4 {
+		noevents	0
+		rect	0,410,640,20
+		visible "gui::rdialog_option4_vis"
+		textscle	0.4
+		textalign	1
+		text		"gui::rdialog_option4"
+
+		onAction {
+			set "gui::rdoptselect" "4" ;
+			set	"cmd"	"radioopt" ;
+		}
+		onMouseEnter {
+			set "npcrdialog_option4::forecolor" "1 0.5 1 1" ;
+		}
+		onMouseExit {
+			set "npcrdialog_option4::forecolor" "1 1 1 1" ;
+		}
+	}
+	
+	windowDef npcrdialog_option5 {
+		noevents	0
+		rect	0,450,640,20
+		visible "gui::rdialog_option5_vis"
+		textscle	0.4
+		textalign	1
+		text		"gui::rdialog_option5"
+
+		onAction {
+			set "gui::rdoptselect" "5" ;
+			set	"cmd"	"radioopt" ;
+		}
+		onMouseEnter {
+			set "npcrdialog_option5::forecolor" "1 0.5 1 1" ;
+		}
+		onMouseExit {
+			set "npcrdialog_option5::forecolor" "1 1 1 1" ;
+		}
+	}
+}

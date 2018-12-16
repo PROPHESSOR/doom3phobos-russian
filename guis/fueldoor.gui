@@ -1,0 +1,227 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0,0,0,1
+	visible	1
+	float	"red"	1
+
+	onTrigger
+	{
+		resetTime "Desktop" "0"
+	}
+
+	onTime 0
+	{
+		set "TextTitle2::text" "gui::gui_parm1";
+
+		
+		if("gui::gui_parm2" == 1)
+		{		
+			set "ToggleButton::visible" "0";
+			//set "ToggleButtonOverlay::visible" "0";
+			set "FloodedText::visible" "1";
+			set "BgFull::visible" "1";
+		}
+		else
+		{
+			set "ToggleButton::visible" "1";
+			//set "ToggleButtonOverlay::visible" "1";
+			set "FloodedText::visible" "0";
+			set "BgFull::visible" "0";
+		}
+	}
+
+	windowDef Bg
+	{
+		rect	5 ,5 ,630 ,470
+		matcolor	0.9 ,0.7 ,0.6,1
+		visible	0
+		background	"guis/assets/smdoor/bg"
+	}
+
+	windowDef BgFull
+	{
+		rect	5 ,5 ,630 ,470
+		matcolor	0.9 ,0.2 ,0.1,.8
+		visible	0
+		background	"guis/assets/e1m3/backstuff.tga"
+		
+	}
+
+	windowDef Glow
+	{
+		rect	5 ,5 ,630 ,470
+		matcolor	1 ,1 ,1 ,1
+		visible	0
+		background	"gui/doorglow"
+	}
+
+	windowDef TextTitle1
+	{
+		rect	69,36,513,55
+		visible	1
+		text	"днярсо й рнокхбнопнбндс"
+		forecolor	1,1,1,0.8
+		textscale	0.9
+		font	"fonts/micro"
+	}
+
+	windowDef TextTitle2
+	{
+		rect	69,350,513,55
+		visible	1
+		text	"леярнонкнфемхе"
+		forecolor	1,1,1,0.8
+		textscale	0.9
+		font	"fonts/micro"
+	}
+
+	windowDef FuelLevel1
+	{
+		rect	80,125,40,190
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	1, 0.15, 0.1, 1.0
+	}
+
+	windowDef FuelLevel2
+	{
+		rect	150,225,40,90
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	1, 0.15, 0.1, 1.0
+	}
+
+	windowDef FuelLevel2
+	{
+		rect	220,175,40,140
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	1, 0.15, 0.1, 1.0
+	}
+
+	windowDef ToggleButton
+	{
+		rect 300, 160, 200, 100
+		text "оЕПЕЙКЧВХРЭ"
+		textscale .5
+		forecolor 0.7, .7, .9, .7
+
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.4, .5, 0.2, 0.7
+		visible 1
+	}
+
+	
+	windowDef FloodedText
+	{
+		rect 200, 95, 400, 100
+		text "гюрнокемн"
+		textscale 1
+		forecolor 1, 1, 1, .7
+		
+		font	"fonts/micro"
+		visible 0
+	}
+
+	windowDef ToggleButtonOverlay
+	{
+		rect 0, 0, 640, 480
+		visible 1
+				
+		onMouseEnter
+		{			
+			//transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			//transition "ToggleButton::matcolor" "0.4 .5 0.2 0.7" ".3 0.6 0.15 1" "200" ;			
+		}
+		
+		onMouseExit
+		{			
+			//transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			//transition "ToggleButton::matcolor" ".3 0.6 0.15 1" "0.4 .5 0.2 0.7" "200" ;			
+		}
+		
+		onAction
+		{
+			if("gui::gui_parm2" == 0)
+			{
+				set	"cmd" "activate ; play guisounds_action" ;		
+				runScript "gui::gui_parm11" ;							
+			}
+			else
+			{
+				set "cmd" "play guisounds_error" ;
+			}
+		}
+	}
+
+	windowDef Border41
+	{
+		rect	3,5,634,35
+		matcolor	1 ,0.80 ,0.3 ,0.6
+		visible	1
+		background	"gui/line/horizwarn3"
+	}
+	windowDef Border4
+	{
+		rect	6,409,627,64
+		matcolor	1 ,0.80 ,0.3 ,0.6
+		visible	1
+		background	"gui/line/horizwarn3"
+		matscalex	0.7
+	}
+	windowDef Bglow
+	{
+		rect	0,0,640,480
+		background	"guis/assets/cpuserver/bglow.tga"
+		visible	1
+		matcolor	0.4, 0.8, 1, 0.1
+	}
+	windowDef Outerglow
+	{
+		rect	0,0,-640,480
+		background	"guis/assets/common/outerglow"
+		matcolor	1 ,1 ,1 , pdflick [ time * .0025 ] / 5
+		visible	1
+	}
+	windowDef Outershadow
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Outershadow2
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Addhighlight
+	{
+		rect	17,11,-611,457
+		background	"gui/addhighlight"
+		matcolor	0.1 ,0.5 ,0.5 ,1
+		visible	1
+	}
+	windowDef Scanlines
+	{
+		rect	0,0,-640,480
+		matcolor	0.1,0.1,0.1,1
+		background	"gui/test/gui_scanlines5"
+		visible	1
+		matscaley	0.8
+	}
+	windowDef Dirt
+	{
+		rect	0 ,0 ,-640 ,480
+		matcolor	0, 0, 0 ,1
+		visible	1
+		background	"guis/assets/common/dirt1"
+	}
+	windowDef fadeglass
+	{
+		rect	0 ,0 ,640 ,-480
+		visible	1
+		background	"gui/fadeglass2"
+		matcolor	0.15 ,0.15 ,0.15 ,1
+	}
+}

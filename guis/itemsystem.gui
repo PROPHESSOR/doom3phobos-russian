@@ -1,0 +1,108 @@
+windowDef Desktop
+{
+	rect	0,0,640,480	
+	visible 1
+	menugui 1
+	
+	float "currentItem" 1
+	noTime 1
+	cursor 0
+
+	onActivate
+	{
+		
+
+	}
+
+	windowDef Overlay
+	{
+	
+		rect	0,0,640,480
+		background "guis/assets/border_vert.tga"
+		matcolor 0.15, 0.15, 0.15, pdfullfade[ time * 0.0001 ] / 6 + 0.83
+		cursor 0
+
+		windowDef BackItem1
+		{
+			rect 320 - (400 * "gui::aspectCorrection") / 2, 40, 400 * "gui::aspectCorrection", 400
+			visible "Desktop::currentItem" == 1
+			background "gui::item1"
+		
+		}
+
+		windowDef BackItem2
+		{
+			rect 320 - (400 * "gui::aspectCorrection") / 2, 40, 400 * "gui::aspectCorrection", 400
+			visible "Desktop::currentItem" == 2
+			background "gui::item2"
+		
+		}
+
+		windowDef BackItem3
+		{
+			rect 320 - (400 * "gui::aspectCorrection") / 2, 40, 400 * "gui::aspectCorrection", 400
+			visible "Desktop::currentItem" == 3
+			background "gui::item3"
+		
+		}
+
+		windowDef Prev
+		{
+			rect 200, 380, 40,40
+			visible "Desktop::currentItem" > 1
+			background "guis/assets/border_vert.tga"
+		cursor 0
+		text "<"
+		font	"fonts/bank"
+
+			onAction {
+				set "cmd" "play guisounds_click" ;
+				
+				if("Desktop::currentItem" == 3)
+				{
+					set "Desktop::currentItem" 2;
+				}
+				else
+				{
+					set "Desktop::currentItem" 1;
+				}
+			}
+		}
+
+		windowDef Next
+		{
+			rect 360, 380, 40,40
+			visible "Desktop::currentItem" < 3
+			background "guis/assets/border_vert.tga"
+			cursor 0
+			text ">"
+			font	"fonts/bank"
+		
+		onMouseEnter
+			{
+				set	"cmd"	"play guisounds_in" ;
+				
+			}
+
+			onMouseExit
+			{
+				set	"cmd"	"play guisounds_out" ;
+				
+			}
+
+			onAction {
+				set "cmd" "play guisounds_click" ;
+				
+				if("Desktop::currentItem" == 1)
+				{
+					set "Desktop::currentItem" 2;
+				}
+				else
+				{
+					set "Desktop::currentItem" 3;
+				}
+			}
+		}
+
+	}
+}

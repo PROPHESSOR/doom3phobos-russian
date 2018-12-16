@@ -1,0 +1,29 @@
+windowDef Desktop {
+	rect	0 ,0 ,640 ,480 
+	backcolor	0 ,0 ,0 ,0 
+	visible	1
+	menugui 1
+	nocursor 1
+
+	windowDef TextDefBack
+	{
+		rect 0.5, 0.5, 640, 480
+		forecolor 0.81, 0.15, 0.61, .25
+		text "gui::gui_parm1"
+		textalign 1
+		textaligny 220
+		textscale 0.4
+		font "fonts/bank"
+	}
+
+	windowDef TextDef
+	{
+		rect 1, 1, 640, 480
+		forecolor 0.1, 0.45, 0.81, 1
+		text "gui::gui_parm1"
+		textalign 1
+		textaligny 220
+		textscale 0.4
+		font "fonts/bank"
+	}
+}

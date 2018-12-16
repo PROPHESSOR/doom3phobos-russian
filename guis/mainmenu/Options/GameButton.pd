@@ -1,0 +1,388 @@
+windowDef OMGameOptionsButton
+{
+	rect 62, 1, 62, 18
+	background "guis/assets/ballg"
+	matcolor 0.02,0.1,0.18,1
+	forecolor 0.2,0.56,0.88,.5
+	font	"fonts/bank"
+	text "Игра"
+	textalign 1
+	textaligny 1
+	textscale .16
+	matscaley 	1.5
+	matscalex 	1
+
+	float active 0
+	float last 0
+
+	onTime 0
+	{
+		if("active" == 0)
+		{
+			if("last" == 1)
+			{
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;			
+			}
+
+			set "last" 0;
+		}
+		else
+		{
+			set "last" 1;
+		}
+	}
+
+	windowDef BackgroundBorderBottom
+	{
+		rect	0,17,62,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderRight
+	{
+		rect	61,0,1,17
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	onAction
+	{								
+		set	"cmd"	"play guisounds_clicksonar2" ;
+		set "ControlsPanel::visible" "0" ;
+		set "AudioPanel::visible" "0" ;
+		set "GamePanel::visible" "1" ;
+		set "VideoPanel::visible" "0" ;
+	
+		set "OMControlsButton::active" "0";
+		set "OMAudioButton::active" "0";
+		set "OMGameOptionsButton::active" "1";
+		set "OMVideoButton::active" "0";
+
+		resetTime "OMControlsButton" "0";
+		resetTime "OMAudioButton" "0";
+		resetTime "OMGameOptionsButton" "0";
+		resetTime "OMVideoButton" "0";
+	}
+
+	onMouseEnter
+	{
+		if("active" == 0)
+		{
+			set	"cmd"	"play guisounds_in" ;
+			transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+			transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+		}
+	}
+
+	onMouseExit
+	{
+		if("active" == 0)
+		{
+			set	"cmd"	"play guisounds_out" ;
+			transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+			transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;				
+		}
+	}
+}
+
+windowDef GamePanel
+{
+	rect 53, 47, 540, 330
+	visible 0
+		
+	//Title
+	windowDef GPLGTitleText {
+		rect		3, 5, 320, 20
+		text		"Настройки игры"
+		forecolor 0.2,0.56,0.88,.8
+		font "fonts/bank"
+		textscale	0.25
+		textaligny	0			
+	}
+
+	windowDef GPLGCTitleBar {
+		rect		5, 23, 510, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef AutoReload
+	{
+		rect		3, 50, 380, 14
+
+		windowDef AutoReloadTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02134"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef AutoReloadSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04221"
+			cvar		"ui_autoReload"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 66, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef AutoSwitch
+		{
+			rect		3, 64, 380, 14
+
+		windowDef AutoSwitchTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02135"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef AutoSwitchSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04221"
+			cvar		"ui_autoSwitch"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+		windowDef Divider3
+		{
+			rect		5, 81, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef ShowHud
+		{
+			rect		3, 79, 380, 14
+
+		windowDef ShowHudTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02136"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef ShowHudSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04221"
+			cvar		"g_showHud"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+		}
+
+		windowDef Divider4
+		{
+			rect		5, 96, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef ShowGun
+		{
+			rect		3, 94, 380, 14
+
+			windowDef ShowGunTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02137"
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			choiceDef ShowGunSelector
+			{
+				rect		129, 0, 90, 14
+				choices		"#str_04221"
+				cvar		"ui_showGun"			
+				choiceType	0
+				font		"fonts/bank"
+				textscale	0.15			
+				forecolor 0.2,0.56,0.88,.8
+			}
+		}
+
+		windowDef Divider5
+		{
+			rect		5, 111, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef InvertMouse
+		{
+			rect		3, 109, 380, 14
+
+			windowDef InvertMouseTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02138"
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			choiceDef InvertMouseSelector
+			{
+				rect		129, 0, 90, 14
+				choices		"#str_04221"
+				cvar		"m_pitch"			
+				choiceType	1
+				values		"0.022;-0.022"
+				font		"fonts/bank"
+				textscale	0.15			
+				forecolor 0.2,0.56,0.88,.8
+			}
+		}
+
+		windowDef Divider6
+		{
+			rect		5, 126, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef SmoothMouseSetup
+		{
+			rect		3, 124, 380, 14
+
+			windowDef SmoothMouseTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02139"
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			windowDef SMOS9SliderBG
+			{
+				rect		131, 4, 90, 14
+				background	"guis/assets/mainmenu/slider_bg"
+				matcolor	0.6, 0.8, 0.8, 0.5
+				noevents	1
+			}
+
+			sliderDef SmoothMouseSlider
+			{
+				rect		131, 4, 51, 14
+				forecolor 0.2,0.56,0.88,.8
+				matcolor	1, 1, 1, 1
+				low			1
+				high		8
+				step		1
+				thumbShader	"guis/assets/mainmenu/slider_bar"
+				cvar		"m_smooth"
+			}
+		}
+
+		windowDef Divider7
+		{
+			rect		5, 141, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef MouseSensitivitySetup
+		{
+			rect		3, 139, 380, 14
+
+			windowDef MouseSensitivityTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02140"
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			windowDef SMOS9SliderBG
+			{
+				rect		131, 4, 90, 14
+				background	"guis/assets/mainmenu/slider_bg"
+				matcolor	0.6, 0.8, 0.8, 0.5
+				noevents	1
+			}
+
+			sliderDef MouseSensitivitySlider
+			{
+				rect		131, 4, 51, 14
+				forecolor 0.2,0.56,0.88,.8
+				matcolor	1, 1, 1, 1
+				low			1
+				high		30
+				step		0.5
+				thumbShader	"guis/assets/mainmenu/slider_bar"
+				cvar		"sensitivity"
+			}
+		}
+
+		windowDef Divider8
+		{
+			rect		5, 156, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef FreeLookSetup
+		{
+			rect		3, 154, 380, 14
+
+			windowDef FreeLookTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02141"
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			choiceDef FreeLookSelector
+			{
+				rect		129, 0, 90, 14
+				choices		"#str_04221"
+				cvar		"in_freeLook"			
+				choiceType	0				
+				font		"fonts/bank"
+				textscale	0.15			
+				forecolor 0.2,0.56,0.88,.8
+			}
+		}
+}

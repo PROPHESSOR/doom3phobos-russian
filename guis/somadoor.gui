@@ -1,0 +1,156 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0,0,0,1
+	visible	1
+	float	"red"	1
+
+	onTrigger
+	{
+		if( "Desktop::red" == 1 )
+		{
+			set "Desktop::red" 0;			
+		}
+		else
+		{
+			set "Desktop::red" 1;
+		}
+
+		resetTime "Desktop" "0";
+
+		
+	}
+
+	onTime 0
+	{
+		if( "Desktop::red" == 1 && "gui::gui_parm3" == 0)
+		{
+			set "Bg::matcolor" "0.7 0.1 0.1 1";	
+		}
+		else
+		{
+			set "Bg::matcolor" "0.3 0.7 0.3 1";	
+		}
+	}
+
+	windowDef Bg
+	{
+		rect	75 ,75 ,490 ,330
+		matcolor	0.3 ,0.7 ,0.3,1
+		visible	1
+		background	"guis/assets/doors/openswitch01.tga"
+	}
+	
+	windowDef ToggleButtonOverlay
+	{
+		rect 0, 0, 640, 480
+		visible 1
+				
+		onMouseEnter
+		{			
+			if( "Desktop::red" == 1  && "gui::gui_parm3" == 0)
+			{
+				transition "Bg::matcolor" "0.7 0.1 0.1 1" "0.9 0.3 0.3 1" "200" ;
+			}
+			else
+			{
+				transition "Bg::matcolor" "0.3 0.7 0.3 1" "0.3 0.9 0.3 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{			
+			if( "Desktop::red" == 1  && "gui::gui_parm3" == 0)
+			{
+				transition "Bg::matcolor" "0.9 0.3 0.3 1" "0.7 0.1 0.1 1" "200" ;
+			}
+			else
+			{
+				transition "Bg::matcolor" "0.3 0.9 0.3 1" "0.3 0.7 0.3 1" "200" ;
+			}
+		}
+		
+		onAction
+		{	
+			if("gui::gui_parm3" == 1)
+			{
+				set	"cmd" "activate ; play guisounds_action" ;		
+				runScript "gui::gui_parm11" ;							
+			}			
+		}
+	}
+
+	windowDef Border41
+	{
+		rect	6,5,627,64
+		matcolor	1 ,0.80 ,0.3 ,0.6
+		visible	1
+		background	"gui/line/horizwarn3"
+		matscalex	0.7
+	}
+	windowDef Border4
+	{
+		rect	6,409,627,64
+		matcolor	1 ,0.80 ,0.3 ,0.6
+		visible	1
+		background	"gui/line/horizwarn3"
+		matscalex	0.7
+	}
+	windowDef Bglow
+	{
+		rect	0,0,640,480
+		background	"guis/assets/cpuserver/bglow.tga"
+		visible	1
+		matcolor	0.4, 0.8, 1, 0.1
+	}
+	windowDef Outerglow
+	{
+		rect	0,0,-640,480
+		background	"guis/assets/common/outerglow"
+		matcolor	1 ,1 ,1 , pdflick [ time * .0025 ] / 5
+		visible	1
+	}
+	windowDef Outershadow
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Outershadow2
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Addhighlight
+	{
+		rect	17,11,-611,457
+		background	"gui/addhighlight"
+		matcolor	0.1 ,0.5 ,0.5 ,1
+		visible	1
+	}
+	windowDef Scanlines
+	{
+		rect	0,0,-640,480
+		matcolor	0.1,0.1,0.1,1
+		background	"gui/test/gui_scanlines5"
+		visible	1
+		matscaley	0.8
+	}
+	windowDef Dirt
+	{
+		rect	0 ,0 ,-640 ,480
+		matcolor	0, 0, 0 ,1
+		visible	1
+		background	"guis/assets/common/dirt1"
+	}
+	windowDef fadeglass
+	{
+		rect	0 ,0 ,640 ,-480
+		visible	1
+		background	"gui/fadeglass2"
+		matcolor	0.15 ,0.15 ,0.15 ,1
+	}
+}

@@ -1,0 +1,256 @@
+windowDef OMAudioButton
+{
+	rect 186, 1, 62, 18
+	background "guis/assets/ballg"
+	matcolor 0.02,0.1,0.18,1
+	forecolor 0.2,0.56,0.88,.5
+	font	"fonts/bank"
+	text "Аудио"
+	textalign 1
+	textaligny 1
+	textscale .16
+	matscaley 	1.5
+	matscalex 	1
+
+	float active 0
+	float last 0
+
+	onTime 0
+	{
+		if("active" == 0)
+		{
+			if("last" == 1)
+			{
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;			
+			}
+
+			set "last" 0;
+		}
+		else
+		{
+			set "last" 1;
+		}
+	}
+
+	windowDef BackgroundBorderBottom
+	{
+		rect	0,17,62,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderRight
+	{
+		rect	61,0,1,17
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	onAction
+	{								
+		set	"cmd"	"play guisounds_clicksonar2" ;
+		set "ControlsPanel::visible" "0" ;
+		set "AudioPanel::visible" "1" ;
+		set "GamePanel::visible" "0" ;
+		set "VideoPanel::visible" "0" ;
+	
+		set "OMControlsButton::active" "0";
+		set "OMAudioButton::active" "1";
+		set "OMGameOptionsButton::active" "0";
+		set "OMVideoButton::active" "0";
+		
+		resetTime "OMControlsButton" "0";
+		resetTime "OMAudioButton" "0";
+		resetTime "OMGameOptionsButton" "0";
+		resetTime "OMVideoButton" "0";
+	}
+
+	onMouseEnter
+	{
+		if("active" == 0)
+		{
+			set	"cmd"	"play guisounds_in" ;
+			transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+			transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+		}
+	}
+
+	onMouseExit
+	{
+		if("active" == 0)
+		{
+			set	"cmd"	"play guisounds_out" ;
+			transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+			transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;				
+		}	
+	}
+}
+
+windowDef AudioPanel
+{
+		rect 53, 47, 540, 330
+		visible 0
+		
+		//Title
+		windowDef LGTitleText {
+			rect		3, 5, 320, 20
+			text		"Настройки звука"
+			forecolor 0.2,0.56,0.88,.8
+			font "fonts/bank"
+			textscale	0.25
+			textaligny	0			
+		}
+
+		windowDef LGCTitleBar {
+			rect		5, 23, 510, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}		
+
+		windowDef SpeakerSetup
+		{
+			rect		3, 50, 380, 14
+
+			windowDef SpeakerSetupTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_07225" // Speakers
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			choiceDef SpeakerSetupSelector
+			{
+				rect		129, 0, 90, 14
+				choices		"#str_07226"
+				cvar		"s_numberOfSpeakers"
+				values		"2;6"
+				choiceType	1
+				font		"fonts/bank"
+				textscale	0.15			
+				forecolor 0.2,0.56,0.88,.8
+
+				onAction {
+					set "cmd" "sound speakers" ;
+				}
+			}
+		}
+
+		windowDef Divider2
+		{
+			rect		5, 66, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef EAXSetup
+		{
+			rect		3, 64, 380, 14
+
+			windowDef EAXTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_07227" // Speakers
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			choiceDef EAXSelector
+			{
+				rect		129, 0, 90, 14
+				choices		"#str_07228" // On;Off
+				values		"1;0"
+				cvar		"s_useEAXReverb"				
+				choiceType	1
+				font		"fonts/bank"
+				textscale	0.15			
+				forecolor 0.2,0.56,0.88,.8
+
+				onAction {
+					set "cmd" "sound eax" ;
+				}
+			}
+		}
+
+		windowDef Divider3
+		{
+			rect		5, 81, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef ReverseChannelsSetup
+		{
+			rect		3, 79, 380, 14
+
+			windowDef ReverseChannelsTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02161" // Reverse channels
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			choiceDef ReverseChannelsSelector
+			{
+				rect		129, 0, 90, 14
+				choices		"#str_04221"				
+				cvar		"s_reverse"
+				choiceType	0
+				font		"fonts/bank"
+				textscale	0.15			
+				forecolor 0.2,0.56,0.88,.8
+			}
+		}
+
+		windowDef Divider4
+		{
+			rect		5, 96, 180, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}
+
+		windowDef VolumeSetup
+		{
+			rect		3, 94, 380, 14
+
+			windowDef VolumeTitle
+			{
+				rect		0, 0, 100, 14
+				text		"#str_02163"
+				font		"fonts/bank"
+				textscale	0.15
+				forecolor 0.15,0.42,0.66,.8
+			}
+
+			windowDef OS9SliderBG
+			{
+				rect		131, 4, 90, 14
+				background	"guis/assets/mainmenu/slider_bg"
+				matcolor	0.6, 0.8, 0.8, 0.5
+				noevents	1
+			}
+
+			sliderDef VolumeSlider
+			{
+				rect		131, 4, 51, 14
+				forecolor 0.2,0.56,0.88,.8
+				matcolor	1, 1, 1, 1
+				low			-40
+				high		0
+				step		1
+				thumbShader	"guis/assets/mainmenu/slider_bar"
+				cvar		"s_volume_dB"
+			}
+		}
+}

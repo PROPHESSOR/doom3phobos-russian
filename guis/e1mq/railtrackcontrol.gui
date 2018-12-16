@@ -1,0 +1,88 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"This is a control capable of changing rail tracks"
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		set "TrackA::text" "gui::gui_parm1" ;
+		set "TrackB::text" "gui::gui_parm2" ;
+
+		if( "gui::gui_parm3" == 0 )
+		{		
+			set "TrackA::matcolor" "0.2 0.4 0.2 0.7";
+			set "TrackB::matcolor" "0.4 0.2 0.2 0.7";
+		}
+		else
+		{
+			set "TrackA::matcolor" "0.4 0.2 0.2 0.7";
+			set "TrackB::matcolor" "0.2 0.4 0.2 0.7";			
+		}
+	}
+
+	windowDef TrackA
+	{
+		rect 20, 60, 290, 60
+		text "ÊÎËÅß A"
+		textscale .5
+		forecolor 0.7, .7, .9, .7
+
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.4, .2, 0.2, 0.7
+		visible 1
+	}
+
+	windowDef TrackB
+	{
+		rect 330, 60, 290, 60
+		text "ÊÎËÅß B"
+		textscale .5
+		forecolor 0.7, .7, .9, .7
+
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.4, .2, 0.2, 0.7
+		visible 1
+	}
+
+	windowDef ToggleButton
+	{
+		rect 200, 260, 200, 100
+		text "Ïåðåêëþ÷èòü"
+		textscale .5
+		forecolor 0.7, .7, .9, .7
+
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.4, .5, 0.2, 0.7
+		visible 1
+	}
+
+	windowDef ToggleButtonOverlay
+	{
+		rect 200, 260, 200, 100
+		visible 1
+				
+		onMouseEnter
+		{			
+			//transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			//transition "ToggleButton::matcolor" "0.4 .5 0.2 0.7" ".3 0.6 0.15 1" "200" ;			
+		}
+		
+		onMouseExit
+		{			
+			//transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			//transition "ToggleButton::matcolor" ".3 0.6 0.15 1" "0.4 .5 0.2 0.7" "200" ;			
+		}
+		
+		onAction
+		{			
+			runScript "gui::gui_parm11" ;				
+		}
+	}
+}

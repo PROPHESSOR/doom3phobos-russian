@@ -1,0 +1,2510 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+
+	windowDef Black
+	{
+		rect	0,0,640,480
+		backcolor	0,0,0,1
+	}
+
+	windowDef Header_0
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Эпизод 1: Опоздавший"
+		textalign 1
+
+		onTime 3100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_1
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Team Future"
+		textalign 1
+
+		onTime 6200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_2
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Руководители"
+		textalign 1
+
+		onTime 9300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_3
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джейкоб Крузе"
+		textalign 1
+
+		onTime 10000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_4
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Саймон Нигард Йенсен"
+		textalign 1
+
+		onTime 10700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_5
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Авторы текстов"
+		textalign 1
+
+		onTime 13800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_6
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джейкоб Крузе"
+		textalign 1
+
+		onTime 14500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_7
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Саймон Нигард Йенсен"
+		textalign 1
+
+		onTime 15200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_8
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительные тексты"
+		textalign 1
+
+		onTime 18300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_9
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'DSM'"
+		textalign 1
+
+		onTime 19000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_10
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Sp1ke'"
+		textalign 1
+
+		onTime 19700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_11
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дизайнеры уровней"
+		textalign 1
+
+		onTime 22800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_12
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джейкоб Крузе"
+		textalign 1
+
+		onTime 23500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_13
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Саймон Нигард Йенсен"
+		textalign 1
+
+		onTime 24200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_14
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Бен Монро"
+		textalign 1
+
+		onTime 24900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_15
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительный дизайн уровней:"
+		textalign 1
+
+		onTime 28000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_16
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Пелле Янссон"
+		textalign 1
+
+		onTime 28700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_17
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Алекс Шеннон"
+		textalign 1
+
+		onTime 29400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_18
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Гай Буркхарт"
+		textalign 1
+
+		onTime 30100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_19
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Кристиан Кь`лл"
+		textalign 1
+
+		onTime 30800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_20
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Координатор Де`тельности"
+		textalign 1
+
+		onTime 33900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_21
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Бен Монро"
+		textalign 1
+
+		onTime 34600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_22
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Создаение 3D-моделей"
+		textalign 1
+
+		onTime 37700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_23
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Мартин Санчес"
+		textalign 1
+
+		onTime 38400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_24
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Assmaster'"
+		textalign 1
+
+		onTime 39100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_25
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Bobbeh'"
+		textalign 1
+
+		onTime 39800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_26
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Художники"
+		textalign 1
+
+		onTime 42900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_27
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джулианна Стоун"
+		textalign 1
+
+		onTime 43600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_28
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Павел Зарчинский"
+		textalign 1
+
+		onTime 44300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_29
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительна` графика"
+		textalign 1
+
+		onTime 47400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_30
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джейкоб Крузе"
+		textalign 1
+
+		onTime 48100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_31
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Саймон Нигард Йенсен"
+		textalign 1
+
+		onTime 48800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_32
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Бен Монро"
+		textalign 1
+
+		onTime 49500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_33
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Vladimir'"
+		textalign 1
+
+		onTime 50200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_34
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Кристиан Кь`лл"
+		textalign 1
+
+		onTime 50900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_35
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Создатели концепт-артов"
+		textalign 1
+
+		onTime 54000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_36
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Vladimir'"
+		textalign 1
+
+		onTime 54700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_37
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Программист"
+		textalign 1
+
+		onTime 55400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_38
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Программисты"
+		textalign 1
+
+		onTime 58500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_39
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джейкоб Крузе"
+		textalign 1
+
+		onTime 59200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_40
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительное программирование"
+		textalign 1
+
+		onTime 62300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_41
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Кэмерон Лоу"
+		textalign 1
+
+		onTime 63000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_42
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Ivan'"
+		textalign 1
+
+		onTime 63700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_43
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Zeroth'"
+		textalign 1
+
+		onTime 64400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_44
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Использована музыка с сайтов"
+		textalign 1
+
+		onTime 67500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_45
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"FreeMusicArchive.org"
+		textalign 1
+
+		onTime 68200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_46
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"FreeSounds.org"
+		textalign 1
+
+		onTime 68900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_47
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Создатели оригинальной музыки"
+		textalign 1
+
+		onTime 72000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_48
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Julian'"
+		textalign 1
+
+		onTime 72700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_49
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Fanatic'"
+		textalign 1
+
+		onTime 73400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_50
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Филипп Крузе"
+		textalign 1
+
+		onTime 74100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_51
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Использованы звуки с сайтов"
+		textalign 1
+
+		onTime 77200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_52
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"FreeSounds.org"
+		textalign 1
+
+		onTime 77900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_53
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Zapsplat.com"
+		textalign 1
+
+		onTime 78600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_54
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Звукорежиссеры"
+		textalign 1
+
+		onTime 81700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_55
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джейкоб Крузе"
+		textalign 1
+
+		onTime 82400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_56
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Саймон Нигард Йенсен"
+		textalign 1
+
+		onTime 83100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_57
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Бэн Монро"
+		textalign 1
+
+		onTime 83800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_58
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительные звуки"
+		textalign 1
+
+		onTime 86900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_59
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Кристиан Кь`лл"
+		textalign 1
+
+		onTime 87600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_60
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Dea7h'"
+		textalign 1
+
+		onTime 88300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_61
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Argonaut'"
+		textalign 1
+
+		onTime 89000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_62
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Использованы текстуры с сайтов"
+		textalign 1
+
+		onTime 92100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_63
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Textures.com"
+		textalign 1
+
+		onTime 92800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_64
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Philipk.net"
+		textalign 1
+
+		onTime 93500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_65
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"moddb.com"
+		textalign 1
+
+		onTime 94200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_66
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Использована графика с сайтов"
+		textalign 1
+
+		onTime 97300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_67
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"DeviantArt.com"
+		textalign 1
+
+		onTime 98000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_68
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Pexels.com"
+		textalign 1
+
+		onTime 98700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_69
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Flickr.com"
+		textalign 1
+
+		onTime 99400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_70
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Создание анимации"
+		textalign 1
+
+		onTime 102500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_71
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Бэн Монро"
+		textalign 1
+
+		onTime 103200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_72
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительна` анимаци`"
+		textalign 1
+
+		onTime 106300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_73
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Кристан Кь`лл"
+		textalign 1
+
+		onTime 107000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_74
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Роли озвучили"
+		textalign 1
+
+		onTime 110100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_75
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Ли"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Карли Уокер"
+			textalign 0
+		}
+		onTime 110800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_76
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Сэм"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Исаак Уэллс"
+			textalign 0
+		}
+		onTime 111500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_77
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Саманта Майлз"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Эбигейл Тернер"
+			textalign 0
+		}
+		onTime 112200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_78
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Доктор Нильсен"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Лео Х. Виггинс"
+			textalign 0
+		}
+		onTime 112900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_79
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительные голоса"
+		textalign 1
+
+		onTime 116000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_80
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Марлон Данн"
+		textalign 1
+
+		onTime 116700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_81
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Лео Х. Виггинс"
+		textalign 1
+
+		onTime 117400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_82
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джеймс Балог"
+		textalign 1
+
+		onTime 118100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_83
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'EmNudge'"
+		textalign 1
+
+		onTime 118800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_84
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джон Гренард"
+		textalign 1
+
+		onTime 119500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_85
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джош Муссер"
+		textalign 1
+
+		onTime 120200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_86
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Майк Лайтнер"
+		textalign 1
+
+		onTime 120900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_87
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Rottking'"
+		textalign 1
+
+		onTime 121600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_88
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'Poppyvoiceovers'"
+		textalign 1
+
+		onTime 122300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_89
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Тестеры"
+		textalign 1
+
+		onTime 125400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_90
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джимми Хант"
+		textalign 1
+
+		onTime 126100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_91
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Деннис Болл"
+		textalign 1
+
+		onTime 126800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_92
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Патрик Муг"
+		textalign 1
+
+		onTime 127500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_93
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Филипп Крузе"
+		textalign 1
+
+		onTime 128200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_94
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Дополнительное тестирование"
+		textalign 1
+
+		onTime 131300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_95
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Борис Иванский"
+		textalign 1
+
+		onTime 132000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_96
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Алекс Шеннон"
+		textalign 1
+
+		onTime 132700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_97
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Гай Буркхарт"
+		textalign 1
+
+		onTime 133400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_98
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'AgentSpork'"
+		textalign 1
+
+		onTime 134100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_99
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"'DSM'"
+		textalign 1
+
+		onTime 134800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_100
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Doom 3 разработан Id Software"
+		textalign 1
+
+		onTime 137900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_101
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Адриан Кармак"
+			textalign 0
+		}
+		onTime 138600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_102
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Технический директор"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Джон Кармак"
+			textalign 0
+		}
+		onTime 139300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_103
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Кевин Клауд"
+			textalign 0
+		}
+		onTime 140000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_104
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Звукорежиссер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Кристиан Антков"
+			textalign 0
+		}
+		onTime 140700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_105
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Мэл Блэквелл"
+			textalign 0
+		}
+		onTime 141400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_106
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Энди Чанг"
+			textalign 0
+		}
+		onTime 142100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_107
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Программист"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Джим Досе"
+			textalign 0
+		}
+		onTime 142800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_108
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Медиа-художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Пат Даффи"
+			textalign 0
+		}
+		onTime 143500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_109
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Ведущий программист"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Роберт А. Даффи"
+			textalign 0
+		}
+		onTime 144200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_110
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"CEO"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Тодд Холленсхед"
+			textalign 0
+		}
+		onTime 144900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_111
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Мэтт Хупер"
+			textalign 0
+		}
+		onTime 145600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_112
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Аниматор"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Джеймс Хоуска"
+			textalign 0
+		}
+		onTime 146300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_113
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Офис-менеджер и всеобща` мама id"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Донна Джексон"
+			textalign 0
+		}
+		onTime 147000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_114
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Джерри Киан"
+			textalign 0
+		}
+		onTime 147700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_115
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Сенека Менард"
+			textalign 0
+		}
+		onTime 148400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_116
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Аниматор"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Фредрик Нильсон"
+			textalign 0
+		}
+		onTime 149100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_117
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Стив Роско"
+			textalign 0
+		}
+		onTime 149800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_118
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Главный художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Кеннет Скотт"
+			textalign 0
+		}
+		onTime 150500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_119
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Директор по развитию бизнеса"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Марти Страттон"
+			textalign 0
+		}
+		onTime 151200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_120
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Патрик Томас"
+			textalign 0
+		}
+		onTime 151900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_121
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Аниматор, помощник по разработке"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Эрик Вебб"
+			textalign 0
+		}
+		onTime 152600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_122
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Программист"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Жан Поль Ван Ваверен"
+			textalign 0
+		}
+		onTime 153300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_123
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Ведущий дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Тим Уиллитс"
+			textalign 0
+		}
+		onTime 154000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_124
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Тимоти Бессет"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Программист"
+			textalign 0
+		}
+		onTime 154700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_125
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Эд Лима"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Звукооператор"
+			textalign 0
+		}
+		onTime 155400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_126
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Doom 3: Resurrection of Evil разработан компанией Nerve Software"
+		textalign 1
+
+		onTime 158500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_127
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Аниматор"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Джей Брашвуд"
+			textalign 0
+		}
+		onTime 159200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_128
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Аниматор"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Ронн Харбин"
+			textalign 0
+		}
+		onTime 159900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_129
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Тед Андерсон"
+			textalign 0
+		}
+		onTime 160600
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_130
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Художник"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Пэт Джонс"
+			textalign 0
+		}
+		onTime 161300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_131
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Адам Беллфил"
+			textalign 0
+		}
+		onTime 162000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_132
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Патрик Хук"
+			textalign 0
+		}
+		onTime 162700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_133
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Брэндон Джеймс"
+			textalign 0
+		}
+		onTime 163400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_134
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Дизайнер"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Дэвид Кельвин"
+			textalign 0
+		}
+		onTime 164100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_135
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Программист"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Брайан Мэтт"
+			textalign 0
+		}
+		onTime 164800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_136
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Программист"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Дарин Макнейл"
+			textalign 0
+		}
+		onTime 165500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_137
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Программист"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Шон Митчел"
+			textalign 0
+		}
+		onTime 166200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_138
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Особые благодарности"
+		textalign 1
+
+		onTime 169300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_139
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"id Software"
+		textalign 1
+
+		onTime 170000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_140
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Dontnod Entertainment"
+		textalign 1
+
+		onTime 170700
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_141
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Deck Nine"
+		textalign 1
+
+		onTime 171400
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_142
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Giant Sparrow"
+		textalign 1
+
+		onTime 172100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_143
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Frictional Games"
+		textalign 1
+
+		onTime 172800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_144
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Дэвид Линч"
+		textalign 1
+
+		onTime 173500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_145
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Джей Джей Абрамс"
+		textalign 1
+
+		onTime 174200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_146
+	{
+		rect	0,480,640,30
+		forecolor	1,1,1,1
+		text	"Семье и друзь`м"
+		textalign 1
+
+		onTime 174900
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_147
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"И тем, про кого забыли"
+		textalign 1
+
+		onTime 178000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_148
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Doom 3: Phobos основан на"
+		textalign 1
+
+		onTime 181100
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_149
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Doom 3"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Id software"
+			textalign 0
+		}
+		onTime 181800
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_150
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"Doom 3: Resurrection of Evil"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Nerve Software"
+			textalign 0
+		}
+		onTime 182500
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_151
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"RTC 3057"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"Team Future"
+			textalign 0
+		}
+		onTime 183200
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_152
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Doom 3: Phobos использует"
+		textalign 1
+
+		onTime 186300
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Sub_153
+	{
+		rect	0,480,640,30
+		windowDef Left
+		{
+			rect	0,0,315,30
+			forecolor	1, .5, 0, 1
+			text	"IdTech 4"
+			textalign 2
+		}
+
+		windowDef Right
+		{
+			rect	325,0,315,30
+			forecolor	1,1,1,1
+			text	"idSoftware"
+			textalign 0
+		}
+		onTime 187000
+		{
+			transition "rect" "0 480 640 30" "0 -30 640 30" "20000"
+		}
+	}
+
+	windowDef Header_154
+	{
+		rect	0,480,640,30
+		forecolor	0.1, 0.45, 0.81, 1
+		text	"Спасибо за игру"
+		textalign 1
+
+		onTime 193200
+		{
+			transition "rect" "0 480 640 30" "0 240 640 30" "10000"
+		}
+	}
+
+}

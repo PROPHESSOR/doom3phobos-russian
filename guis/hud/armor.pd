@@ -1,0 +1,112 @@
+onNamedEvent armorPulse {
+		resetTime "ArmorBarFlash" "0" ; 
+	}
+
+	windowDef Armor
+		{
+			rect 0, 33, 300, 100
+			visible "gui::influenceVisible"
+
+
+			windowDef ArmorText
+			{		
+				rect 14.5, 12, 32, 12
+			
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+				shear 0, 0.45
+				textscale	0.2				
+				textaligny -2
+				text		"gui::player_armor"
+				forecolor 0.2,0.6,.8,.9
+
+			
+			}
+
+			windowDef ArmorIcon
+			{
+				rect 35, 14, 8, 8
+				
+				background "guis/assets/hud/armor.tga"				
+				matcolor 0.2,0.6,.8,.9
+			}			
+
+			windowDef ArmorSlot
+			{
+				rect 12, 0, 100, 12
+				
+
+				background "guis/assets/ballg.jpg"
+				
+				font		"fonts/bank"
+				forecolor	.6 + (1 - ("gui::player_armor" / 125)) * .4,.6 - (1 - ("gui::player_armor" / 125)) * .6,.1,1
+				
+			
+				matcolor 0.03,0.15,0.28,.9
+
+				windowDef ArmorBar
+				{
+					rect 2, 2, (96 * ("gui::player_armor") / 125), 8
+					
+					background "guis/assets/ballg.jpg"
+					matcolor 0.56,0.42,0.14,.65
+				}
+
+				windowDef ArmorBarFlash
+				{
+					rect 2, 2, (96 * ("gui::player_armor") / 125), 8
+					
+					background "guis/assets/ballg.jpg"
+					matcolor 1, 1, 1, 0
+					notime 1
+
+					onTime 0
+					{
+						transition "matcolor" "1 1 1 1" "1 1 1 0" "150";
+					}
+				}
+
+				windowDef BorderTop
+				{
+					rect	0, 0, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderBottom
+				{
+					rect	0, 11, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderLeft
+				{
+					rect	0, 1, 1, 10
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderRight
+				{
+					rect	99, 1, 1, 10
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.06,0.3,0.56,.65
+				}
+			}
+
+			windowDef ArmorBarFlashing
+			{
+				rect 13, 1, 98, 10
+				background "guis/assets/ballg.jpg"
+				matcolor 0.42, 0.56, 0.14, pdfullfade[ time * 0.002 ] / 8
+			}
+		}

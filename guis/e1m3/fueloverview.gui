@@ -1,0 +1,582 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	
+	float	"power"			0
+	float	"fuelLevel"		1
+
+
+	onTrigger
+	{			
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		if( "gui::gui_parm91" == 1 && "Desktop::power" == 0 )
+		{			
+			transition "Desktop::rect" "0 0 640 480" "320 240 0 0" "100";
+			transition "ShutdownPanel::matcolor" "0 0 0 0" "0 0 0 .5" "20";
+		}
+		else if( "gui::gui_parm91" == 0 && "Desktop::power" == 1 )
+		{			
+			transition "Desktop::rect" "320 240 0 0" "0 0 640 480" "100";
+			transition "ShutdownPanel::matcolor" "0 0 0 .5" "0 0 0 0" "20";
+		}
+		
+		set "Desktop::power" "gui::gui_parm91";				
+		
+
+	}	
+	
+	onTime 2000
+	{
+		if( "gui::gui_parm1" == 1 )
+		{
+			set "MainCacheText::text" "цкюбмне упюмхкхые" ;
+			set "MainCacheText::forecolor" "0 0.7 .25 0.9" ;
+			set "UpperFrameLeftFill::matcolor" "0.3 .9 0.4 1" ;
+			set "UpperFrameRightFill::matcolor" "0.3 .9 0.4 1" ;
+		}
+		else 
+		{
+			set "MainCacheText::forecolor" "0.9 0 .25 0.9" ;
+			set "UpperFrameLeftFill::matcolor" "0.8 .2 0.2 1" ;
+			set "UpperFrameRightFill::matcolor" "0.8 .2 0.2 1" ;
+			
+			set "MainCacheText::text" "цкюбмне упюмхкхые гюрнокемн" ;
+		}
+
+		if( "gui::gui_parm2" == 1 )
+		{
+			set "SecondCacheText::text" "2-е упюмхкхые" ;
+			set "SecondCacheText::forecolor" "0 0.7 .25 0.9" ;
+			set "UpperFrameLeft2Fill::matcolor" "0.3 .9 0.4 1" ;
+			set "UpperFrameRight2Fill::matcolor" "0.3 .9 0.4 1" ;
+		}
+		else 
+		{
+			set "SecondCacheText::forecolor" "0.9 0 .25 0.9" ;
+			set "UpperFrameLeft2Fill::matcolor" "0.8 .2 0.2 1" ;
+			set "UpperFrameRight2Fill::matcolor" "0.8 .2 0.2 1" ;
+			
+			set "SecondCacheText::text" "2-е упюмхкхые гюрнокемн" ;
+		}
+
+		if( "gui::gui_parm3" == 1 )
+		{
+			set "PipeText::text" "опнунд й рнокхбнопнбндс";
+			set "PipeText::forecolor" "0 0.7 .25 0.9" ;
+			set "UpperFrameLeft3Fill::matcolor" "0.3 .9 0.4 1" ;
+			set "UpperFrameRight3Fill::matcolor" "0.3 .9 0.4 1" ;
+		}
+		else 
+		{
+			set "PipeText::forecolor" "0.9 0 .25 0.9" ;
+			set "UpperFrameLeft3Fill::matcolor" "0.8 .2 0.2 1" ;
+			set "UpperFrameRight3Fill::matcolor" "0.8 .2 0.2 1" ;
+			
+			set "PipeText::text" "рнокхбнопнбнд гюонкмем" ;
+		}
+
+		if( "gui::gui_parm1" == 1 && "gui::gui_parm2" == 1 && "gui::gui_parm3" == 1 )
+		{
+			set "ExitText::text" "CORE ACCESS" ;
+			set "ExitText::forecolor" "0 0.7 .25 0.9" ;
+			set "UpperFrameLeft4Fill::matcolor" "0.3 .9 0.4 1" ;
+			set "UpperFrameRight4Fill::matcolor" "0.3 .9 0.4 1" ;
+		}
+		else 
+		{
+			set "ExitText::forecolor" "0.9 0 .25 0.9" ;
+			set "UpperFrameLeft4Fill::matcolor" "0.8 .2 0.2 1" ;
+			set "UpperFrameRight4Fill::matcolor" "0.8 .2 0.2 1" ;
+			
+			set "ExitText::text" "ъдпн меднярсомн" ;
+		}
+	}
+	
+	windowDef bgClip
+	{
+		rect	0,381,639,100
+		visible	1
+		windowDef Bg
+		{
+			rect	5,-347,636,-460
+			background	"guis/assets/cpuserver/bg2.tga"
+			visible	1
+			matcolor	1, 0.8, .4, 1
+		}
+	}
+	
+	windowDef StatusArea
+	{
+		rect	1,1,638,112
+		visible	1
+		windowDef bar1Left
+		{
+			rect	5,3,-32,32
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar1Mid
+		{
+			rect	37,3,560,32
+			visible	1
+			background	"guis/assets/common/titlebar_mid"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar1Right
+		{
+			rect	597,3,38,32
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar2Left
+		{
+			rect	5,57,-32,-32
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar2Mid
+		{
+			rect	37,57,560,32
+			visible	1
+			background	"guis/assets/common/titlebar_mid"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar2Right
+		{
+			rect	597,57,38,-32
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+	}
+	
+	
+	
+	windowDef FrameBack1
+	{
+		rect	90, 90, 450, 338
+		background	"guis/assets/e1m3/frameback.tga"
+		matcolor	1, 0.7, 0.25, 1
+		visible	1
+		
+		windowDef MCLLevel5	{	rect	40, 110, 370, 180	}
+		windowDef MCLLevel4	{	rect	40, 146, 370, 144	}
+		windowDef MCLLevel3	{	rect	40, 182, 370, 108	}
+		windowDef MCLLevel2	{	rect	40, 218, 370, 72	}
+		windowDef MCLLevel1	{	rect	40, 254, 370, 36	}
+		windowDef MCLLevel0	{	rect	40, 270, 370, 24	}
+		
+		
+		
+		windowDef MainCacheText
+		{
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.1, .1, 0.1, .9
+			
+			rect	40,50, 368,34
+			text	"цкюбмне упюмхкхые гюрнокемн"
+			font	"fonts/micro"
+			textscale	0.45
+			forecolor	0.7,0,.25,0.9
+			visible	1
+			textalign	1			
+			
+		}
+
+		windowDef SecondCacheText
+		{
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.1, .1, 0.1, .9
+			
+			rect	40,120, 368,34
+			text	"2-е упюмхкхые гюрнокемн"
+			font	"fonts/micro"
+			textscale	0.45
+			forecolor	0.7,0,.25,0.9
+			visible	1
+			textalign	1			
+			
+		}
+
+		windowDef PipeText
+		{
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.1, .1, 0.1, .9
+			
+			rect	40,190, 368,34
+			text	"рнокхбнопнбнд гюрнокем"
+			font	"fonts/micro"
+			textscale	0.45
+			forecolor	0.7,0,.25,0.9
+			visible	1
+			textalign	1			
+			
+		}
+
+		windowDef ExitText
+		{
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0.1, .1, 0.1, .9
+			
+			rect	40,260, 368,34
+			text	"ъдпн меднярсомн"
+			font	"fonts/micro"
+			textscale	0.45
+			forecolor	0.7,0,.25,0.9
+			visible	1
+			textalign	1			
+			
+		}
+	}
+
+	windowDef UpperFrameLeft
+	{
+		rect	60, 130, 80, 60
+		
+		windowDef UpperFrameLeftFill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameLeftStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Left
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+
+	windowDef UpperFrameLeft2
+	{
+		rect	60, 200, 80, 60
+		
+		windowDef UpperFrameLeft2Fill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameLeftStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Left
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}
+	}
+
+	windowDef UpperFrameLeft3
+	{
+		rect	60, 270, 80, 60
+		
+		windowDef UpperFrameLeft3Fill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameLeftStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Left
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+
+	windowDef UpperFrameLeft4
+	{
+		rect	60, 340, 80, 60
+		
+		windowDef UpperFrameLeft4Fill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameLeftStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Left
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+	
+	windowDef UpperFrameRight
+	{
+		rect	490, 130, 80, 60
+		
+		windowDef UpperFrameRightFill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameRightStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Right
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+
+	windowDef UpperFrameRight2
+	{
+		rect	490, 200, 80, 60
+		
+		windowDef UpperFrameRight2Fill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameRightStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Right
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+
+	windowDef UpperFrameRight3
+	{
+		rect	490, 270, 80, 60
+		
+		windowDef UpperFrameRight3Fill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameRightStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Right
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+
+		windowDef UpperFrameRight4
+	{
+		rect	490, 340, 80, 60
+		
+		windowDef UpperFrameRight4Fill
+		{
+			rect	2, 2, 76, 56
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.8, .2, 0.2, 1
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef UpperFrameRightStatic
+		{
+			rect	-9,-9,-660,500
+			visible	1
+			background	"gui/static"
+			matcolor	.1, 1, .4, .1
+		}
+								
+		windowDef FrameBack2Right
+		{
+			rect	0, 0, 80, 60
+			background	"guis/assets/e1m3/framebackhole.tga"
+			matcolor	1, 0.7, 0.25, 1
+			visible	1
+		}		
+	}
+
+	windowDef TextLadderOpen
+	{
+		rect	31,118,580,73
+		text	"#str_00237"
+		font	"fonts/micro"
+		textscale	0.75
+		forecolor	1,1,1,0
+		visible	1
+		textalign	1
+	}
+	windowDef Text1
+	{
+		rect	15,19,610,51
+		text	"нагнп"
+		font	"fonts/micro"
+		textscale	0.75
+		forecolor	1,0.7,.25,0.8
+		visible	1
+		textalign	1
+	}
+	windowDef Addhighlight1
+	{
+		rect	0,0,-640,480
+		background	"gui/addhighlight"
+		matcolor	0.4,0.6,0.6,1
+		visible	1
+	}
+	windowDef scanlinesAlt11
+	{
+		rect	0,0,-640,480
+		matcolor	0.15,0.15,0.15,1
+		background	"gui/test/gui_scanlines5"
+		matscaley	1.5
+		visible	1
+	}
+	windowDef Static
+	{
+		rect	-9,-9,-660,500
+		visible	1
+		background	"gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 8
+	}
+	windowDef Outershadow
+	{
+		rect	0,0,-640,480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Dirt
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.2
+		visible	1
+		background	"guis/assets/common/dirt3"
+		noevents	1
+	}
+		windowDef GlassScratch1
+	{
+		rect	-36,-7,839,-530
+		background	"guis/assets/common/scratch1d"
+		visible	1
+		matcolor	0,0,0,0.4
+	}
+	windowDef GlassScratch
+	{
+		rect	-36,-10,839,-530
+		background	"gui/common/scratch1d"
+		visible	1
+		matcolor	0.6,0.6,0.6,1
+	}
+	windowDef Dirt211
+	{
+		rect	0,0,-640,-480
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt4"
+		noevents	1
+	}
+	
+	windowDef Reflect
+	{
+		rect	10,5,-620,470
+		matcolor	1 ,1 ,1 ,0.2
+		visible	1
+		background	"gui/reflect1"
+	}
+	windowDef bgScroll
+	{
+		rect	20,15,-600,450
+		visible	1
+		background	"gui/scrollbig"
+		matcolor	1, 1,  1, flickertable [ time * 5 ] / 20
+	}
+	
+	windowDef ShutdownPanel
+	{
+		rect	0, 0, -640, -480
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0, 0, 0, 0
+		visible	1		
+	}
+
+}

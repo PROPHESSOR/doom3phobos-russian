@@ -1,0 +1,95 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//  Helmet Gui
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	onNamedEvent noHelmet
+	{
+		if ( "HelmetWin::visible" == 1 ) {
+				set "HelmetWin::visible" "0" ;
+				transition "HelmetWin::rect" "0 0 640 480" "200" "0 -480 640 180" ;
+			}
+	}
+
+	onNamedEvent helmet
+	{
+		if ( "HelmetWin::visible" == 0 ) {
+				set "HelmetWin::visible" "1" ;
+				transition "HelmetWin::rect" "0 -480 640 480" "0 0 640 480" "100" ;
+			}
+	}
+
+	
+
+	windowDef HelmetWin
+	{
+		rect 0, 0, 640, 480
+		visible 0
+		background "gui/helmet/overlay/"
+
+	
+			windowDef Static {
+			rect	-10 ,-10 ,660 ,500 
+			visible	1
+			background "gui/static"		
+			matcolor	.25, .75, 0, pdhalffade[ time * 0.001 ] / 4
+		}
+
+		windowDef Mask {
+			rect	-10 ,-10 ,660 ,500 
+			visible	1
+			background "guis/assets/common/mask"
+			matcolor	.25, .75, 0, 1
+		}
+		windowDef Addhighlight1 {
+			rect	0 ,0 ,-640 ,480 
+			background	"gui/addhighlight"
+			matcolor	.25, .75, 0, 1
+			visible	1
+		}
+		windowDef Addhighlight2 {
+			rect	0 ,200 ,640 ,-280 
+			background	"gui/addhighlight"
+			matcolor	.25, .75, 0, 1
+			visible	1
+		}
+		windowDef Scanlines {
+		//scrolling raster lines
+			rect	-10,-10,660,500
+			matcolor	0.15,0.15,0.15,1
+			background	"gui/test/gui_scanlines5"
+			visible	1
+			matscaley 5
+			matcolor	.25, .75, 0, 1
+
+		}
+		windowDef Outershadow {
+			rect	-10 ,-10 ,660 ,500 
+			background	"guis/assets/common/outershadow"
+			matcolor	.25, .75, 0, 1
+			visible	1
+		}
+		windowDef Dirt {
+			rect	-10 ,-10 ,660 ,500 
+			matcolor	.25, .75, 0, .25
+			visible	1
+			background	"guis/assets/common/dirt1"
+		}
+
+		windowDef Green {
+			rect	0 ,0 ,640 ,480 
+			matcolor	.25, .75, 0, .35
+			forecolor	.25, 1, 0, 1
+			font "fonts/bank"
+			visible	1
+			background	"guis/assets/e1m3/backstuff"
+			text	"œ–¿¬»“≈À‹—“¬≈ÕÕ€… «¿Ÿ»“Õ€… ÿÀ≈Ã v 1.81"
+			textscale 0.1
+		}
+
+		windowDef GreenLine
+		 {
+			rect 0, 479, 640, 1
+			background "guis/assets/e1m3/backstuff"
+			matcolor .25, 1, 0, 1
+		 }
+	}	

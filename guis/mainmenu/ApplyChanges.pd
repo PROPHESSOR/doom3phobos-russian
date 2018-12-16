@@ -1,0 +1,219 @@
+windowDef ApplyChangesWindowHolder
+{
+	rect 0, 0, 640, 480
+	background "guis/assets/ballg"
+	matcolor 0,0,0,.9
+	modal 1
+	visible 0	
+
+	windowDef DGWTitle
+	{
+		rect 245, 160, 150, 20
+		background "guis/assets/ballg"
+		matcolor 0.04,0.2,0.56,.8
+		forecolor 0.2,0.56,0.88,.75
+		font "fonts/bank"
+		text "ПЕРЕЗАПУСК ВИДЕО"
+		textalign 1
+		textaligny 2
+		textscale .18
+	}
+
+	windowDef ApplyChangesWindow
+	{
+		rect 245, 180, 150, 160
+		background "guis/assets/ballg"
+		matcolor 0.04,0.2,0.56,.6
+
+		windowDef BackgroundBorderTop
+		{
+			rect	0,0,150,1
+			visible	1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+		}
+
+		windowDef BackgroundBorderBottom
+		{
+			rect	0,159,150,1
+			visible	1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+		}
+
+		windowDef BackgroundBorderLeft
+		{
+			rect	0,1,1,158
+			visible	1
+			background "guis/assets/border_vert"
+			matcolor 0.1,0.28,0.44,.5
+		}
+
+		windowDef BackgroundBorderRight
+		{
+			rect	149,1,1,158
+			visible	1
+			background "guis/assets/border_vert"
+			matcolor 0.1,0.28,0.44,.5
+		}
+
+		windowDef DGWTitle
+		{
+			rect	10, 30, 128, 150			
+			forecolor 0.2,0.56,0.88,.75
+			font "fonts/bank"
+			text "Вы действительно хотите перезапустить видео?"
+			textalign 0
+			textaligny -2
+			textscale .15
+		}
+
+		windowDef DGWOkButton
+		{
+			rect 10, 138, 62, 18
+			background "guis/assets/ballg"
+			matcolor 0.02,0.1,0.18,1
+			forecolor 0.2,0.56,0.88,.5
+			font	"fonts/bank"
+			text "OK"
+			textalign 1
+			textaligny 1
+			textscale .16
+			matscaley 	1.5
+			matscalex 	1			
+
+			windowDef BackgroundBorderTop
+			{
+				rect	0,0,62,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderBottom
+			{
+				rect	0,17,62,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderLeft
+			{
+				rect	0,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderRight
+			{
+				rect	61,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			onAction
+			{								
+				set	"cmd"	"video restart" ;
+				set "ApplyChangesWindowHolder::visible" "0" ;
+			}
+
+			onMouseEnter
+			{
+				set	"cmd"	"play guisounds_in" ;
+				transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+				transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+				transition "NewGameBack::matcolor" "0.1 0.28 0.44 .0" "0.1 0.28 0.44 .2" "250" ;
+				
+				//transition "rect" "4 8 102 22" "11 11 182 22" "250" ;
+			}
+
+			onMouseExit
+			{
+				set	"cmd"	"play guisounds_out" ;
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;
+				transition "NewGameBack::matcolor" "0.1 0.28 0.44 .2" "0.1 0.28 0.44 .0" "250" ;
+
+
+				//transition "rect" "11 11 182 32" "31 11 142 32" "250" ;
+			}
+		}
+
+		windowDef DGWCancelButton
+		{
+			rect 77, 138, 62, 18
+			background "guis/assets/ballg"
+			matcolor 0.02,0.1,0.18,1
+			forecolor 0.2,0.56,0.88,.5
+			font	"fonts/bank"
+			text "Отмена"
+			textalign 1
+			textaligny 1
+			textscale .16
+			matscaley 	1.5
+			matscalex 	1
+
+			windowDef BackgroundBorderTop
+			{
+				rect	0,0,62,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderBottom
+			{
+				rect	0,17,62,1
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderLeft
+			{
+				rect	0,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			windowDef BackgroundBorderRight
+			{
+				rect	61,1,1,16
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.1,0.28,0.44,.5
+			}
+
+			onAction
+			{								
+				set	"cmd"	"play guisounds_clicksonar2" ;
+				set "ApplyChangesWindowHolder::visible" "0" ;
+			}
+
+			onMouseEnter
+			{
+				set	"cmd"	"play guisounds_in" ;
+				transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+				transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+				transition "NewGameBack::matcolor" "0.1 0.28 0.44 .0" "0.1 0.28 0.44 .2" "250" ;
+				
+				//transition "rect" "4 8 102 22" "11 11 182 22" "250" ;
+			}
+
+			onMouseExit
+			{
+				set	"cmd"	"play guisounds_out" ;
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;
+				transition "NewGameBack::matcolor" "0.1 0.28 0.44 .2" "0.1 0.28 0.44 .0" "250" ;
+
+
+				//transition "rect" "11 11 182 32" "31 11 142 32" "250" ;
+			}
+		}
+	}
+}

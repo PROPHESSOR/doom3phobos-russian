@@ -1,0 +1,55 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,0
+	comment	"blah blah"
+	visible	1
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		
+	}
+
+	windowDef ForwardButton
+	{
+		rect	280, 60, 80, 60
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.1, .2, 0.5, 0.7
+		visible 1
+	}
+
+	windowDef ForwardButtonOverlay
+	{
+		rect	280, 60, 80, 60		
+		visible 1
+				
+		onMouseEnter
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" "0.1 .2 0.5 0.7" ".3 0.6 0.15 1" "200" ;
+			}
+		}
+		
+		onMouseExit
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				transition "ForwardButton::matcolor" ".3 0.6 0.15 1" "0.1 .2 0.5 0.7" "200" ;
+			}
+		}
+		
+		onAction
+		{
+			if( "gui::gui_parm13" == 0 )
+			{
+				runScript "gui::gui_parm11" ;
+			}	
+		}
+	}
+}

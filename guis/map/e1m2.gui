@@ -1,0 +1,124 @@
+windowDef Desktop
+{
+	menugui	1
+	nocursor	1
+	rect	0,0,640,480
+	backcolor 0,0,0,1
+
+	windowDef Scanlines2
+	{
+		rect	0,0,640,480
+		matcolor	0.02,0.02,0.02,1
+		background	"gui/test/gui_scanlines4"
+		matscaley	3.75
+		noevents	1
+		visible	1
+	}
+	
+	
+	windowDef HealthText
+	{		
+		rect	244,241,152,14
+			
+		background "guis/assets/border_hori"
+		matcolor 0.06,0.3,0.56,.65
+		shear 0, -0.45
+		textscale	0.2				
+		textaligny -2
+	}
+			
+	windowDef LoadingLine
+	{
+		rect	246,243,148,10
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor	0.0, 0.0, 0.1, 1
+		shear 0, -0.45
+	}
+	windowDef TextLoading
+	{
+		rect	246,225,123,30
+		visible	1
+		text	""
+		
+		textscale	0.25
+		forecolor	0.1, 0.45, 0.81, 1
+	}
+
+	
+	windowDef LoadingFillClip
+	{
+		rect	246,243,( "gui::map_loading" * 148 ),10
+		visible	1
+		windowDef LoadingFill
+		{
+			rect	0,0,148,10
+			visible	1
+			background "guis/assets/border_hori"
+			matcolor	0.8, 0.6, 0.1, .7
+			shear 0, -0.45
+		}
+	}
+
+
+	windowDef FlareBox
+	{
+		rect	0,0,640,480
+		background	"gui/mainmenu/textflare"
+		matcolor	0.06, 0.3, 0.56, .65
+		visible	1
+	}
+	windowDef BlackFade
+	{
+		rect	0,0,640,480
+		backcolor	0, 0, 0, 1
+		visible	1
+	}
+	windowDef Anim
+	{
+		rect	0,0,0,0
+		visible	1
+
+		onTime 0 {
+			transition "BlackFade::backcolor" "0 0 0 1" "0 0 0 0" "400" ;
+			set "TextLoading::text" "L" ;
+			transition "FlareBox::matcolor" "0.06, 0.3, 0.56, 0" "0.06, 0.3, 0.56, .65" "200" ;
+					
+		}
+
+		onTime 50 {
+			set "TextLoading::text" "#str_03469" ;
+			set "FlareBox::rect" "246 233 148 30" ;
+		} 
+
+		onTime 100 {
+			set "TextLoading::text" "#str_03470" ;
+			set "FlareBox::rect" "256 233 148 30" ;
+		}
+
+		onTime 150 {
+			set "TextLoading::text" "#str_03343" ;
+			set "FlareBox::rect" "266 233 148 30" ;
+			
+		}
+
+		onTime 200 {
+			set "TextLoading::text" "#str_03471" ;
+			set "FlareBox::rect" "276 233 0 148 30" ;
+		}
+
+		onTime 250 {
+			set "TextLoading::text" "#str_03472" ;
+			set "FlareBox::rect" "296 233 0 148 30" ;
+		}
+
+		onTime 300 {
+			set "TextLoading::text" "#str_00408" ;
+			set "FlareBox::rect" "306 233 0 148 30" ;
+			transition "FlareBox::matcolor" "0.06, 0.3, 0.56, .65" "0.06, 0.3, 0.56, 0" "200" ;
+			transition "LoadingLine::matcolor" "1 1 1 0" "0.0 0.0 0.1 1" "600" ;
+			transition "TextLoading::forecolor" "1 1 1 1" "0.1 0.45 0.81 1" "200" ;			
+		}
+
+	}
+}

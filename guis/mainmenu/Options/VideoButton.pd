@@ -1,0 +1,604 @@
+windowDef OMVideoButton
+{
+	rect 124, 1, 62, 18
+	background "guis/assets/ballg"
+	matcolor 0.02,0.1,0.18,1
+	forecolor 0.2,0.56,0.88,.5
+	font	"fonts/bank"
+	text "Видео"
+	textalign 1
+	textaligny 1
+	textscale .16
+	matscaley 	1.5
+	matscalex 	1
+
+	float active 0
+	float last 0
+
+	onTime 0
+	{
+		if("active" == 0)
+		{
+			if("last" == 1)
+			{
+				transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+				transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;			
+			}
+
+			set "last" 0;
+		}
+		else
+		{
+			set "last" 1;
+		}
+	}
+
+	windowDef BackgroundBorderBottom	
+	{
+		rect	0,17,62,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderRight
+	{
+		rect	61,0,1,17
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	onAction
+	{								
+		set	"cmd"	"play guisounds_clicksonar2" ;
+		set "ControlsPanel::visible" "0" ;
+		set "AudioPanel::visible" "0" ;
+		set "GamePanel::visible" "0" ;
+		set "VideoPanel::visible" "1" ;
+	
+		set "OMControlsButton::active" "0";
+		set "OMAudioButton::active" "0";
+		set "OMGameOptionsButton::active" 0;
+		set "OMVideoButton::active" "1";
+		
+		resetTime "OMControlsButton" "0";
+		resetTime "OMAudioButton" "0";
+		resetTime "OMGameOptionsButton" "0";
+		resetTime "OMVideoButton" "0";
+	}
+
+	onMouseEnter
+	{
+		if("active" == 0)
+		{
+			set	"cmd"	"play guisounds_in" ;
+			transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+			transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;
+		}
+	}
+
+	onMouseExit
+	{
+		if("active" == 0)
+		{
+			set	"cmd"	"play guisounds_out" ;
+			transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+			transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;				
+		}
+	}
+}
+
+windowDef VideoPanel
+{
+	rect 53, 47, 540, 330
+	visible 0
+
+
+	//Title
+		windowDef LGTitleText {
+			rect		3, 5, 320, 20
+			text		"Настройки видео"
+			forecolor 0.2,0.56,0.88,.8
+			font "fonts/bank"
+			textscale	0.25
+			textaligny	0			
+		}		
+
+		windowDef LGCTitleBar {
+			rect		5, 23, 510, 1
+			background "guis/assets/border_hori"
+			matcolor 0.1,0.28,0.44,.5
+			noevents	1
+		}		
+
+	windowDef VideoQuality
+	{
+		rect		3, 50, 380, 14
+
+		windowDef VideoQualityTitle
+		{
+			rect		0, 0, 100, 14
+			text		"Ширина экрана"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef Width
+		{
+			rect		129, 0, 90, 14
+			choices		"1024;1152;1280;1366;1600;1680;1920;2560;3440"			
+			cvar		"r_customWidth"
+			updateGroup	render
+			choiceType	1
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 66, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef VideoQuality2
+	{
+		rect		3, 65, 380, 14
+
+		windowDef VideoQualityTitle
+		{
+			rect		0, 0, 100, 14
+			text		"Высота экрана"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef Height
+		{
+			rect		129, 0, 90, 14
+			choices		"768;864;900;960;1024;1080;1200;1440"			
+			cvar		"r_customHeight"
+			updateGroup	render
+			choiceType	1
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+	
+	windowDef Divider2
+	{
+		rect		5, 81, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef VideoQuality3
+	{
+		rect		3, 80, 380, 14
+
+		windowDef VideoQualityTitle
+		{
+			rect		0, 0, 100, 14
+			text		"Соотношение сторон"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef Height
+		{
+			rect		129, 0, 90, 14
+			choices		"4:3;16:9;16:10;21:9"
+			values		"0;1;2;3"
+			cvar		"r_aspectRatio"
+			updateGroup	render
+			choiceType	1
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 96, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+windowDef ApplyVideoChanges
+{
+//rect 124, 1, 62, 18
+	rect 5, 111, 180, 18
+	background "guis/assets/ballg"
+	matcolor 0.02,0.1,0.18,1
+	forecolor 0.2,0.56,0.88,.5
+	font	"fonts/bank"
+	text "Перезапустить видео"
+	textalign 1
+	textaligny 1
+	textscale .16
+	matscaley 	1.5
+	matscalex 	1
+
+	windowDef BackgroundBorderBottom	
+	{
+		rect	0,17,180,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderRight
+	{
+		rect	179,1,1,16
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderTop
+	{
+		rect	0,0,180,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BackgroundBorderLeft
+	{
+		rect	0,1,1,16
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	onAction
+	{								
+		set	"cmd"	"play guisounds_clicksonar" ;
+		set "ApplyChangesWindowHolder::visible" "1" ;
+	}
+
+	onMouseEnter
+	{
+		set	"cmd"	"play guisounds_in" ;
+		transition "forecolor" "0.02 0.56 0.88 .5" "0.02 0.56 0.88 1" "250" ;
+		transition "matcolor" "0.02 0.1 0.18 1" "0.04 0.2 0.36 1" "250" ;								
+	}
+
+	onMouseExit
+	{
+		set	"cmd"	"play guisounds_out" ;
+		transition "forecolor" "0.02 0.56 0.88 1" "0.02 0.56 0.88 .5" "250" ;
+		transition "matcolor" "0.04 0.2 0.36 1" "0.02 0.1 0.18 1" "250" ;				
+	}
+}
+
+
+	windowDef FullScreen
+	{
+		rect		3, 140, 380, 14
+
+		windowDef FullScreenTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02154"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef FullScreenSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04221"			
+			cvar		"r_fullscreen"
+			updateGroup	render
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 156, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Brightness
+	{
+		rect		3, 155, 380, 14
+
+		windowDef BrightnessTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02155"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+			windowDef SMOS9SliderBG
+			{
+				rect		131, 4, 90, 14
+				background	"guis/assets/mainmenu/slider_bg"
+				matcolor	0.6, 0.8, 0.8, 0.5
+				noevents	1
+			}
+	
+		sliderDef BrightnessSlider
+		{
+			rect		131, 4, 51, 14
+			forecolor 0.2,0.56,0.88,.8
+			matcolor	1, 1, 1, 1
+			low		0.5
+			high		2.0
+			step		0.1
+			thumbShader	"guis/assets/mainmenu/slider_bar"
+			cvar		"r_brightness"
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 171, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef LGTitleText2 {
+			rect		335, 5, 320, 20
+			text		"Расширенные настройки"
+			forecolor 0.2,0.56,0.88,.8
+			font "fonts/bank"
+			textscale	0.25
+			textaligny	0			
+		}
+
+	windowDef Effects
+	{
+		rect		333, 50, 380, 14
+
+		windowDef EffectsTitle
+		{
+			rect		0, 0, 150, 14
+			text		"#str_04122"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef EffectsSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04230"			
+			cvar		"r_skipNewAmbient"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 66, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Shadows
+	{
+		rect		333, 65, 380, 14
+
+		windowDef ShadowsTitle
+		{
+			rect		0, 0, 150, 14
+			text		"#str_04123"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef ShadowsSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04221"			
+			cvar		"r_shadows"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 81, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Specular
+	{
+		rect		333, 80, 380, 14
+
+		windowDef SpecularTitle
+		{
+			rect		0, 0, 150, 14
+			text		"#str_04124"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef SpecularSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04230"			
+			cvar		"r_skipSpecular"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 96, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef BumpMaps
+	{
+		rect		333, 95, 380, 14
+
+		windowDef BumpMapsTitle
+		{
+			rect		0, 0, 150, 14
+			text		"#str_04125"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef BumpMapsSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04230"			
+			cvar		"r_skipBump"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 111, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef VideoSync
+	{
+		rect		333, 110, 380, 14
+
+		windowDef VideoSyncTitle
+		{
+			rect		0, 0, 150, 14
+			text		"#str_04126"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef VideoSyncSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04221"			
+			cvar		"r_swapInterval"			
+			choiceType	0
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 126, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef AA
+	{
+		rect		333, 125, 380, 14
+
+		windowDef AATitle
+		{
+			rect		0, 0, 150, 14
+			text		"#str_04128"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef AASelector
+		{
+			rect		129, 0, 90, 14
+			choices		"#str_04231"
+			values		"0;2;4;8;16"
+			cvar		"r_multisamples"
+			choiceType	1
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 141, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Bloom
+	{
+		rect		333, 140, 380, 14
+
+		windowDef BloomTitle
+		{
+			rect		0, 0, 150, 14
+			text		"Bloom"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		choiceDef BloomSelector
+		{
+			rect		129, 0, 90, 14
+			choices		"None;Medium;High"
+			values		"0;1;2"
+			cvar		"r_bloom"
+			choiceType	1
+			font		"fonts/bank"
+			textscale	0.15			
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		335, 156, 180, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+}

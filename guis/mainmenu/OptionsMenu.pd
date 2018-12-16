@@ -1,0 +1,77 @@
+windowDef OptionsMenu
+{
+	rect 0, 480, 640, 350
+	background "guis/assets/ballg"
+	matcolor 0.04,0.2,0.56,.4
+	visible 1
+
+	onTime 0
+	{	
+
+		if("Desktop::menu" == 3)
+		{
+			set "visible" "1" ;
+			if("Desktop::MenuUp" == 0)
+			{				
+				transition "rect" "0 480 640 350" "0 80 640 350" "500";
+				set "Desktop::MenuUp" "1";
+			}
+			else
+			{
+				transition "rect" "640 80 640 350" "0 80 640 350" "500";
+			}			
+		}
+		else
+		{
+			if("visible" == 1)	
+			{
+				transition "rect" "0 80 640 350" "640 80 640 350" "500";
+			}			
+		}
+	}
+
+	onTime 500
+	{
+		if( "Desktop::menu" != 3)
+		{
+			set "visible" "0" ;
+		}		
+	}
+
+	windowDef TopBorder
+	{
+		rect 0, 0, 640, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef BottomBorder
+	{
+		rect 0, 349, 640, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	#include "guis/mainmenu/options/controlsbutton.pd"
+	#include "guis/mainmenu/options/gamebutton.pd"
+	#include "guis/mainmenu/options/videobutton.pd"
+	#include "guis/mainmenu/options/audiobutton.pd"	
+
+	windowDef TopInaccMiddle
+	{
+		rect	248,1,1024,17
+		visible	1
+		background "guis/assets/border_vert"
+		matcolor 0.1,0.28,0.44,.5
+	}
+
+	windowDef TopInaccBottom
+	{
+		rect	248,18,1024,1
+		visible	1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+	}
+}
+
+#include "guis/mainmenu/ApplyChanges.pd"

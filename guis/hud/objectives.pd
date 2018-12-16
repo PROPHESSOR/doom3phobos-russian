@@ -1,0 +1,217 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  Objective Window Popup Trigger
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	onNamedEvent newObjective {
+		resetTime "AnimNewUp" "0" ; 
+		
+		
+
+		set "objdone2" "1" ;
+	}
+
+	onNamedEvent newObjectiveComplete {
+		resetTime "AnimComUp" "0" ; 
+		
+		set "objdone2" "1" ;
+	}
+	
+	onNamedEvent closeObjective {
+		if ("objdone2" == 1) { 
+			resetTime "AnimObjDown" "0" ; 
+			//set "ObjectivesInfo::visible" 0;
+			set "objdone2" "0" ;
+		}
+	}
+
+
+windowDef AnimComUp
+	{
+		rect 0, 0, 0, 0
+		notime 1
+
+		onTime 0
+		{
+			localSound	"guisounds_objdone_up" ;
+			transition "ObjectivesInfo::rect" "640 480 0 0" "415 150 300 200" "200" ;
+			
+			set "NewObjective::visible" 0;
+			set "ObjectiveCompleted::visible" 1;
+			set "ObjectivesInfo::visible" 1;
+			
+		}
+
+		onTime 200 {
+			
+
+			transition "ObjectivesSlot::forecolor" "0.6 0.6 .8 .9" "0.2 0.6 .8 .9" "200" ;
+			transition "ObjectivesSlot::matcolor" "0.6 0.6 0.8 .9" "0.03 0.15 0.28 .9" "200" ;
+
+		
+		}
+
+		onTime 3800 {
+			set "desktop::objdone" "1" ;
+		} 
+	}
+
+	windowDef AnimObjDown
+	{
+		rect	0 ,0 ,0 ,0 
+		notime	1
+
+		//wait for opening animation to finish
+		onTime 50 {
+			if ("desktop::objdone" == 0) {
+				resetTime "0" ;
+			}
+		}
+		
+		//New Objective Down
+		onTime 1200 {
+			localSound	"guisounds_obj_down" ;
+
+			transition "ObjectivesSlot::forecolor" "0.6 0.6 .8 .9" "0.2 0.6 .8 .9" "200" ;
+			transition "ObjectivesSlot::matcolor" "0.6 0.6 0.8 .9" "0.03 0.15 0.28 .9" "200" ;
+			transition "ObjectivesInfo::rect" "415 150 300 200" "640 480 0 0" "200" ;
+			
+		}
+
+		onTime 1400 {
+			
+			set "ObjectivesInfo::visible" 0;			
+			set "desktop::objdone" "0" ;
+		}
+		
+	}
+
+	windowDef AnimNewUp
+	{
+		rect	0 ,0 ,0 ,0 
+		notime	1
+
+		onTime 0
+		{
+			localSound	"guisounds_objnew_up" ;
+			transition "ObjectivesInfo::rect" "640 480 0 0" "415 150 300 200" "200" ;
+
+			set "NewObjective::visible" 1;
+			set "ObjectiveCompleted::visible" 0;
+			set "ObjectivesInfo::visible" 1;
+			
+		}
+
+		onTime 200 {
+			
+
+			transition "ObjectivesSlot::forecolor" "0.6 0.6 .8 .9" "0.2 0.6 .8 .9" "200" ;
+			transition "ObjectivesSlot::matcolor" "0.6 0.6 0.8 .9" "0.03 0.15 0.28 .9" "200" ;
+
+		
+		}
+
+		onTime 3800 {
+			set "desktop::objdone" "1" ;
+		}
+
+	}
+
+	windowDef ObjectivesInfo
+	{
+		rect 640, 480, 0, 0
+		visible 0
+		windowDef ObjectivesText
+		{		
+			rect 14.5, 0, 130, 12
+			
+			background "guis/assets/border_hori"
+			matcolor 0.06,0.3,0.56,.65
+			shear 0, -0.45
+			textscale	0.15				
+			textaligny -1
+			text		"gui::objectivetitle"
+			forecolor 0.3,0.6,.9,1
+		}
+
+		windowDef NewObjective
+		{		
+			rect 144.5, 0, 70, 12
+			
+			background "guis/assets/border_vert"
+			matcolor 0.75,0.65,0.14,.75
+			forecolor .95, .85, .64, 1
+			shear 0, -0.45
+			textscale	0.15
+			textaligny -1
+			text "ÕŒ¬Œ≈ «¿ƒ¿Õ»≈"
+			visible 1
+		}
+
+		windowDef ObjectiveCompleted
+		{		
+			rect 144.5, 0, 70, 12
+			
+			background "guis/assets/border_vert"				
+			matcolor .1, .5, .1, .75
+			forecolor .7, .9, .7, 1
+			shear 0, -0.45
+			textscale	0.15
+			textalign 1
+			textaligny -1
+			visible 0
+			text "«¿¬≈–ÿ≈ÕŒ"
+		}
+
+		windowDef ObjectivesSlot
+		{
+			rect 12, 12, 200, 42
+								
+			background "guis/assets/ballg.jpg"
+										
+			matcolor 0.03,0.15,0.28,.9
+
+			windowDef Text
+			{
+				rect 2, 2, 194, 36
+				text		"gui::objectivetext"
+				textscale	0.15
+				font		"fonts/bank"
+				forecolor 0.2,0.6,.8,.9	
+			}			
+
+			windowDef BorderTop
+			{
+				rect	0, 0, 200, 1
+					
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderBottom
+			{
+				rect	0, 41, 200, 1
+					
+				visible	1
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderLeft
+			{
+				rect	0, 1, 1, 40
+					
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.06,0.3,0.56,.65
+			}
+
+			windowDef BorderRight
+			{
+				rect	199, 1, 1, 40
+					
+				visible	1
+				background "guis/assets/border_vert"
+				matcolor 0.06,0.3,0.56,.65
+			}
+		}
+	}

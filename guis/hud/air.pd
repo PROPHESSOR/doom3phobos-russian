@@ -1,0 +1,120 @@
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  Air Indicator
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	onNamedEvent noAir {
+		if ( "AirInfo::visible" == 0 ) {
+			localSound "guisounds_air" ;
+			set "AirInfo::visible" "1" ;
+			transition "AirInfo::rect" "32 398 0 200" "32 398 300 200" "400" ;
+		}
+	}
+
+	onNamedEvent Air {
+		if ( "AirInfo::visible" == 1 ) {
+			set "AirInfo::visible" "0" ;
+			//transition "AirInfo::rect" "100 422 200 50" "200" "100 422 0 200" ;
+			//transition "RadioWin::rect" "146 400 128 64" "135 435 128 64" "100" ;
+		}
+	}	
+
+
+windowDef AirInfo
+	{
+		rect 32, 398, 300, 200
+		visible 0
+
+		windowDef Air
+		{
+			rect 0, 10, 300, 100
+
+			windowDef AirText
+			{		
+				rect 14.5, 12, 32, 12
+			
+				background "guis/assets/border_hori"
+				matcolor 0.06,0.3,0.56,.65
+				shear 0, -0.45
+				textscale	0.2				
+				textaligny -2
+				text		"gui::player_air"
+				forecolor 0.2,0.6,.8,.9
+
+			
+			}
+
+			windowDef AirIcon
+			{
+				rect 35, 14, 8, 8
+				
+				background "guis/assets/hud/air.tga"				
+				matcolor 0.2,0.6,.8,.9
+				
+			}
+
+			windowDef AirSlot
+			{
+				rect 17, 0, 100, 12
+				
+
+				background "guis/assets/ballg.jpg"
+				
+				font		"fonts/bank"
+				
+				matcolor 0.03,0.15,0.28,.9
+
+
+				windowDef AirBar
+				{
+					rect 2, 2, (96 * ("gui::player_air") / 100), 8
+					
+					background "guis/assets/ballg.jpg"
+					matcolor 0.56,0.42,0.14,.65
+				}
+
+				windowDef BorderTop
+				{
+					rect	0, 0, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderBottom
+				{
+					rect	0, 11, 100, 1
+					
+					visible	1
+					background "guis/assets/border_hori"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderLeft
+				{
+					rect	0, 1, 1, 10
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.06,0.3,0.56,.65
+				}
+
+				windowDef BorderRight
+				{
+					rect	99, 1, 1, 10
+					
+					visible	1
+					background "guis/assets/border_vert"
+					matcolor 0.06,0.3,0.56,.65
+				}
+			}	
+
+			windowDef AirBarFlashing
+			{
+				rect 18, 1, 98, 10
+				background "guis/assets/ballg.jpg"
+				matcolor 0.8, 0.15, 0, pdfullfade[ time * 0.002 ] / 3
+			}
+		}
+	}

@@ -1,0 +1,1461 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	background	"guis/assets/cpuserver/bg.tga"
+	matcolor	1, 0.9, 1, 1
+	visible	1
+	cursor 0
+	
+	float	"tankSelected"	0
+	float	"transferring"	0
+	float	"power"			0
+	float	"screen"		1
+	
+	windowDef F1CurrentLevel	{	text	""		visible 0 }
+	windowDef F2CurrentLevel	{	text	""		visible 0 }
+	windowDef F3CurrentLevel	{	text	""		visible 0 }
+	
+	windowDef F1NewLevel		{	text	""		visible 0 }
+	windowDef F2NewLevel		{	text	""		visible 0 }
+	windowDef F3NewLevel		{	text	""		visible 0 }
+	
+	windowDef FuelBox1Level8	{	rect	100, 75, 110, 300	visible	0 }
+	windowDef FuelBox1Level7	{	rect	100, 112, 110, 263	visible	0 }
+	windowDef FuelBox1Level6	{	rect	100, 150, 110, 225	visible	0 }
+	windowDef FuelBox1Level5	{	rect	100, 188, 110, 187	visible	0 }
+	windowDef FuelBox1Level4	{	rect	100, 225, 110, 150	visible	0 }
+	windowDef FuelBox1Level3	{	rect	100, 263, 110, 112	visible	0 }
+	windowDef FuelBox1Level2	{	rect	100, 300, 110, 75	visible	0 }
+	windowDef FuelBox1Level1	{	rect	100, 338, 110, 37	visible	0 }
+	windowDef FuelBox1Level0	{	rect	100, 375, 110, 0	visible	0 }
+		
+	windowDef FuelBox2Level5	{	rect	248, 188, 110, 187	visible	0 }
+	windowDef FuelBox2Level4	{	rect	248, 225, 110, 150	visible	0 }
+	windowDef FuelBox2Level3	{	rect	248, 263, 110, 112	visible	0 }
+	windowDef FuelBox2Level2	{	rect	248, 300, 110, 75	visible	0 }
+	windowDef FuelBox2Level1	{	rect	248, 338, 110, 37	visible	0 }
+	windowDef FuelBox2Level0	{	rect	248, 375, 110, 0	visible	0 }
+	
+	windowDef FuelBox3Level3	{	rect	395, 263, 110, 112	visible	0 }
+	windowDef FuelBox3Level2	{	rect	395, 300, 110, 75	visible	0 }
+	windowDef FuelBox3Level1	{	rect	395, 338, 110, 37	visible	0 }
+	windowDef FuelBox3Level0	{	rect	395, 375, 110, 0	visible	0 }
+	
+	windowDef FuelBoxLevelHolder	{	text "" visible 1 matcolor 1, 1, 1, 1 }
+	
+	onTrigger
+	{			//d
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+	
+		//set "fuelBoxLiquid1::rect" "$FB1Holder::text" ;	
+		//set "FB1Holder::text" "50 75 119 300" ;		
+		//set "fuelBoxLiquid1::rect" "$FB1Holder::text" ;
+	
+		if( "gui::gui_parm91" == 1 && "Desktop::power" == 0 )
+		{			
+			
+			transition "Desktop::rect" "0 0 640 480" "320 240 0 0" "100";
+			transition "ShutdownPanel::matcolor" "0 0 0 0" "0 0 0 .5" "20";
+		}
+		else if( "gui::gui_parm91" == 0 && "Desktop::power" == 1 )
+		{			
+			transition "Desktop::rect" "320 240 0 0" "0 0 640 480" "100";
+			transition "ShutdownPanel::matcolor" "0 0 0 .5" "0 0 0 0" "20";
+		}
+		
+		set "Desktop::power" "gui::gui_parm91";
+		
+			if( "gui::gui_parm31" == 0 )
+			{
+				set "Fuel1AM::text" "¿¬“Œ”œ–¿¬À≈Õ»≈";
+				set "Fuel1AM::forecolor" ".4, 0.1, 0.1, pdflick [ time * .0025 ]";
+						
+			}
+			else
+			{
+				set "Fuel1AM::text" "–”◊ÕŒ≈ ”œ–¿¬À≈Õ»≈";
+				set "Fuel1AM::forecolor" "1, 0.85, 0.4, pdflick [ time * .0025 ]";
+			}
+			
+			if( "gui::gui_parm32" == 0 )
+			{
+				set "Fuel2AM::text" "¿¬“Œ”œ–¿¬À≈Õ»≈";
+				set "Fuel2AM::forecolor" ".4, 0.1, 0.1, pdflick [ time * .0025 ]";
+			}
+			else
+			{
+				set "Fuel2AM::text" "–”◊ÕŒ≈ ”œ–¿¬À≈Õ»≈";
+				set "Fuel2AM::forecolor" "1, 0.85, 0.4, pdflick [ time * .0025 ]";
+			}
+			
+			if( "gui::gui_parm33" == 0 )
+			{
+				set "Fuel3AM::text" "¿¬“Œ”œ–¿¬À≈Õ»≈";
+				set "Fuel3AM::forecolor" ".4, 0.1, 0.1, pdflick [ time * .0025 ]";
+			}
+			else
+			{
+				set "Fuel3AM::text" "–”◊ÕŒ≈ ”œ–¿¬À≈Õ»≈";
+				set "Fuel3AM::forecolor" "1, 0.85, 0.4, pdflick [ time * .0025 ]";
+			}
+		
+		
+			//transition "fuelBoxLiquid1::rect" "$fuelBoxLiquid1::rect" "$FuelBoxLevelHolder::text" "1000";
+			//transition "fuelBoxLiquid1::matcolor" "$fuelBoxLiquid1::matcolor" "$redflicker" "1000";		
+		
+		if( "gui::gui_parm7" != "gui::gui_parm4" )
+		{
+			set "transferring" "1";
+		
+			if ( "gui::gui_parm7" == 8 )
+			{
+				if	   ( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level8::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level8::rect" "2000";	}
+			}
+			else if	(	"gui::gui_parm7" == 7 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level7::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level7::rect" "2000";	}
+			}
+			else if	(	"gui::gui_parm7" == 6 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level6::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level6::rect" "2000";	}
+			}
+			else if	(	"gui::gui_parm7" == 5 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level5::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level5::rect" "2000";	}
+			}
+			else if	(	"gui::gui_parm7" == 4 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level4::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level4::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm7" == 3 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level3::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level3::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm7" == 2 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level2::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level2::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm7" == 1 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level1::rect" "2000";	}
+				else if( "gui::gui_parm4" == 0 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level0::rect" "$FuelBox1Level1::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm7" == 0 )
+			{
+				if	   ( "gui::gui_parm4" == 8 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level8::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 7 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level7::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 6 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level6::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 5 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level5::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 4 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level4::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 3 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level3::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 2 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level2::rect" "$FuelBox1Level0::rect" "2000";	}
+				else if( "gui::gui_parm4" == 1 )	{	transition "fuelBoxLiquid1::rect" "$FuelBox1Level1::rect" "$FuelBox1Level0::rect" "2000";	}
+			}
+
+		}
+		else
+		{			
+			if		("gui::gui_parm4" == 8 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level8::rect";	}
+			else if	("gui::gui_parm4" == 7 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level7::rect";	}
+			else if	("gui::gui_parm4" == 6 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level6::rect";	}
+			else if	("gui::gui_parm4" == 5 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level5::rect";	}
+			else if	("gui::gui_parm4" == 4 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level4::rect";	}
+			else if	("gui::gui_parm4" == 3 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level3::rect";	}
+			else if	("gui::gui_parm4" == 2 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level2::rect";	}
+			else if	("gui::gui_parm4" == 1 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level1::rect";	}
+			else if	("gui::gui_parm4" == 0 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox1Level0::rect";	}
+		}
+		
+		if( "gui::gui_parm8" != "gui::gui_parm5" )
+		{
+			set "transferring" "1";
+			
+			if	(	"gui::gui_parm8" == 5 )
+			{
+				if	   ( "gui::gui_parm5" == 8 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level8::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 7 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level7::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 6 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level6::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 4 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level4::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 3 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level3::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 2 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level2::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 1 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level1::rect" "$FuelBox2Level5::rect" "2000";	}
+				else if( "gui::gui_parm5" == 0 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level0::rect" "$FuelBox2Level5::rect" "2000";	}
+			}
+			else if	(	"gui::gui_parm8" == 4 )
+			{
+				if	   ( "gui::gui_parm5" == 8 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level8::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 7 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level7::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 6 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level6::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 5 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level5::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 3 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level3::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 2 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level2::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 1 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level1::rect" "$FuelBox2Level4::rect" "2000";	}
+				else if( "gui::gui_parm5" == 0 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level0::rect" "$FuelBox2Level4::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm8" == 3 )
+			{
+				if	   ( "gui::gui_parm5" == 8 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level8::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 7 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level7::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 6 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level6::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 5 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level5::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 4 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level4::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 2 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level2::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 1 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level1::rect" "$FuelBox2Level3::rect" "2000";	}
+				else if( "gui::gui_parm5" == 0 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level0::rect" "$FuelBox2Level3::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm8" == 2 )
+			{
+				if	   ( "gui::gui_parm5" == 8 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level8::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 7 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level7::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 6 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level6::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 5 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level5::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 4 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level4::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 3 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level3::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 1 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level1::rect" "$FuelBox2Level2::rect" "2000";	}
+				else if( "gui::gui_parm5" == 0 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level0::rect" "$FuelBox2Level2::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm8" == 1 )
+			{
+				if	   ( "gui::gui_parm5" == 8 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level8::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 7 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level7::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 6 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level6::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 5 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level5::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 4 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level4::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 3 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level3::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 2 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level2::rect" "$FuelBox2Level1::rect" "2000";	}
+				else if( "gui::gui_parm5" == 0 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level0::rect" "$FuelBox2Level1::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm8" == 0 )
+			{
+				if	   ( "gui::gui_parm5" == 8 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level8::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 7 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level7::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 6 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level6::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 5 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level5::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 4 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level4::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 3 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level3::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 2 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level2::rect" "$FuelBox2Level0::rect" "2000";	}
+				else if( "gui::gui_parm5" == 1 )	{	transition "fuelBoxLiquid2::rect" "$FuelBox2Level1::rect" "$FuelBox2Level0::rect" "2000";	}
+			}
+		}
+		else
+		{
+			if	("gui::gui_parm5" == 5 )		{	set "FuelBoxLevelHolder::rect" "$FuelBox2Level5::rect";	}
+			else if	("gui::gui_parm5" == 4 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox2Level4::rect";	}
+			else if	("gui::gui_parm5" == 3 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox2Level3::rect";	}
+			else if	("gui::gui_parm5" == 2 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox2Level2::rect";	}
+			else if	("gui::gui_parm5" == 1 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox2Level1::rect";	}
+			else if	("gui::gui_parm5" == 0 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox2Level0::rect";	}
+			
+			set "fuelBoxLiquid2::rect" "$FuelBoxLevelHolder::rect" ;
+		}
+		
+		if( "gui::gui_parm9" != "gui::gui_parm6" )
+		{
+			set "transferring" "1";
+						
+			if	(	"gui::gui_parm9" == 3 )
+			{
+				if	   ( "gui::gui_parm6" == 8 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level8::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 7 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level7::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 6 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level6::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 5 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level5::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 4 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level4::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 2 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level2::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 1 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level1::rect" "$FuelBox3Level3::rect" "2000";	}
+				else if( "gui::gui_parm6" == 0 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level0::rect" "$FuelBox3Level3::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm9" == 2 )
+			{
+				if	   ( "gui::gui_parm6" == 8 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level8::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 7 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level7::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 6 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level6::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 5 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level5::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 4 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level4::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 3 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level3::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 1 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level1::rect" "$FuelBox3Level2::rect" "2000";	}
+				else if( "gui::gui_parm6" == 0 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level0::rect" "$FuelBox3Level2::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm9" == 1 )
+			{
+				if	   ( "gui::gui_parm6" == 8 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level8::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 7 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level7::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 6 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level6::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 5 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level5::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 4 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level4::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 3 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level3::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 2 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level2::rect" "$FuelBox3Level1::rect" "2000";	}
+				else if( "gui::gui_parm6" == 0 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level0::rect" "$FuelBox3Level1::rect" "2000";	}
+			}
+
+			else if	(	"gui::gui_parm9" == 0 )
+			{
+				if	   ( "gui::gui_parm6" == 8 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level8::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 7 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level7::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 6 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level6::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 5 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level5::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 4 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level4::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 3 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level3::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 2 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level2::rect" "$FuelBox3Level0::rect" "2000";	}
+				else if( "gui::gui_parm6" == 1 )	{	transition "fuelBoxLiquid3::rect" "$FuelBox3Level1::rect" "$FuelBox3Level0::rect" "2000";	}
+			}
+		}
+		else
+		{			
+			if		("gui::gui_parm6" == 3 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox3Level3::rect";	}
+			else if	("gui::gui_parm6" == 2 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox3Level2::rect";	}
+			else if	("gui::gui_parm6" == 1 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox3Level1::rect";	}
+			else if	("gui::gui_parm6" == 0 )	{	set "FuelBoxLevelHolder::rect" "$FuelBox3Level0::rect";	}
+			
+			set "fuelBoxLiquid3::rect" "$FuelBoxLevelHolder::rect" ;
+		}
+			
+			runScript "gui::gui_parm21";
+			
+			//set "Transferring::visible" "1";
+			
+			if( "transferrring" == "1" )
+			{
+				//set "Transferring::visible" "1";
+			}			
+		
+		
+		//transition "fuelBoxLiquid3::rect" "$FuelBox3Level0::text" "$FuelBox3Level3::text" "2000" ;											
+	}
+	
+	onTime 2250
+	{
+		//set "Transferring::visible" "0";
+		//set "TextStatus::text" "FUEL TRANSFERRED!";
+		//set "TextStatus::statusType" 1;
+		//resetTime "TextStatus" "0";
+		
+		set "transferring" "0";
+		//set "Transferring::visible" "0";
+	}
+	
+	
+	windowDef FuelManagementScreen
+	{
+		rect 0, 0, 640, 440
+	
+		
+	
+		
+		windowDef FuelBox1
+		{
+			rect	100, 75, 110, 300
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0, 0, 0, 0.6
+			visible	1
+			cursor	1			
+		}
+		
+		windowDef FuelBox2
+		{
+			rect	248, 185, 110, 190
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0, 0, 0, 0.6
+			visible	1
+			cursor	1	
+		}
+		
+		windowDef FuelBox3
+		{
+			rect	395, 260, 110, 115
+			background	"guis/assets/e1m3/mask.tga"
+			matcolor	0, 0, 0, 0.6
+			visible	1
+			cursor	1	
+		}
+		
+
+		windowDef FuelBoxLiquid1
+		{
+			rect	100, 75, 110, 300
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.1, .2, 0.5, 0.7
+			visible	1				
+			cursor	1
+			
+		}
+		
+			
+		windowDef FuelBoxLiquid2
+		{
+			rect	248, 375, 110, 0
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.1, .2, 0.5, 0.7
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef FuelBoxLiquid3
+		{
+			rect	395, 375, 110, 0
+			background	"guis/assets/e1m3/backstuff.tga"
+			matcolor	0.1, .2, 0.5, 0.7
+			visible	1				
+			cursor	1
+		}
+		
+		windowDef OverlayLines
+		{
+			rect	5, 5, 630, 470
+			background	"guis/assets/e1m3/newfuelback.tga"
+			matcolor	1, 0.85, 0.4, pdflick [ time * .0025 ]
+			visible	1
+		}
+			
+		windowDef Fuel1Text
+		{
+			rect 215, 85, 110, 25
+			text "√À¿¬Õ€… — À¿ƒ"
+			forecolor	1, 0.85, 0.4, pdflick [ time * .0025 ]
+		}
+
+		windowDef Fuel2Text
+		{
+			rect 368, 195, 110, 25
+			text "2-ÓÈ — À¿ƒ"
+			forecolor	1, 0.85, 0.4, pdflick [ time * .0025 ]
+		}
+
+		windowDef Fuel3Text
+		{
+			rect 515, 268, 110, 25
+			text "“ŒœÀ»¬Œœ–Œ¬Œƒ"
+			forecolor	1, 0.85, 0.4, pdflick [ time * .0025 ]
+		}
+		
+		windowDef Fuel1AM
+		{						
+			rect 220, 120, 110, 25
+			text "¿¬“Œ”œ–¿¬À≈Õ»≈"
+			textscale	0.2
+			forecolor	.9, 0.4, 0.4, pdflick [ time * .0025 ]
+		}
+		
+		windowDef Fuel2AM
+		{
+			rect 368, 228, 110, 25
+			text "¿¬“Œ”œ–¿¬À≈Õ»≈"
+			textscale	0.2
+			forecolor	.4, 0.1, 0.1, pdflick [ time * .0025 ]
+		}
+
+		windowDef Fuel3AM
+		{
+			rect 515, 302, 110, 25
+			text "¿¬“Œ”œ–¿¬À≈Õ»≈"
+			textscale	0.2
+			forecolor	.4, 0.1, 0.1, pdflick [ time * .0025 ]
+			//forecolor	1, 0.85, 0.4, pdflick [ time * .0025 ]
+		}	
+		
+		windowDef TextStatusTopWarning
+		{
+			rect	102, 395, 300, 10
+			visible	1
+			background	"gui/line/horizwarn2"
+			matcolor 1, 0.7, 0.3, 0.8
+		}
+		
+		windowDef TextStatusLabel
+		{
+			rect	102, 400, 540, 70
+			text	"—Œ—“ŒﬂÕ»≈:"
+			textscale	0.26
+			forecolor	1, 0.7, 0.3, 0.8
+			visible	1
+			font	"fonts/micro"
+		}
+		
+		windowDef TextStatusBottomWarning
+		{
+			rect	102, 425, 300, 10
+			visible	1
+			background	"gui/line/horizwarn2"
+			matcolor 1, 0.7, 0.3, 0.8
+		}
+		
+		windowDef TextStatus
+		{
+			rect	182, 400, 540, 70
+			text	"ƒŒ—“”œ «¿œ–≈Ÿ≈Õ!"
+			textscale	0.26
+			forecolor	1, 0.7, 0.3, 0.8
+			visible	1
+			font	"fonts/micro"		
+			
+			//0 = error
+			//1 = success		
+			float	"statusType" 1
+			
+			onTime 0
+			{
+				if( "TextStatus::statusType" == "0" )
+				{
+					set "forecolor" "1, 0.3, 0.3, 0.8";
+				}
+				else
+				{
+					set "forecolor" "0.3, 1, 0.3, 0.8";
+				}
+			}
+					
+		}
+
+		windowDef Transferring
+		{
+			rect	10 ,10 ,620 ,460
+			background	"guis/assets/e1m3/backstuff"
+			
+			matcolor	1 ,0.6 ,0.3 , 0.3
+			visible	0
+			
+			windowDef TransferText
+			{
+				rect 25, 200, 600, 100
+				textscale	0.86
+				forecolor	1, 0.7, 0.3, 0.5
+			background	"gui/line/horizwarn2"				
+				visible	0
+				font	"fonts/micro"		
+				text	"œ≈–≈Ã≈Ÿ≈Õ»≈ “ŒœÀ»¬¿"
+			}
+		}
+		
+
+
+		
+		windowDef FuelOverlay1
+		{		
+			rect	100, 75, 110, 300		
+			
+			onMouseEnter
+			{
+				if( "gui::gui_parm31" == 1 && "Desktop::transferring" == 0)
+				{
+					if( "Desktop::tankSelected" != 1 )
+					{
+						transition "FuelBoxLiquid1::matcolor" "0.1 0.2 0.5 1.0" "0.1 0.2 0.8 1.0" "200" ;
+						transition "FuelBox1::matcolor" "0.0 0.0 0.0 0.0" "0.1 0.1 0.2 1.0" "200" ;
+					}
+				}
+				else
+				{
+					transition "FuelBoxLiquid1::matcolor" "0.1 0.2 0.5 1.0" "0.6 0.2 0.1 1.0" "200" ;
+					transition "FuelBox1::matcolor" "0.0 0.0 0.0 0.0" "0.2 0.1 0.1 1.0" "200" ;
+					
+				}
+			}
+
+			onMouseExit
+			{
+				if( "gui::gui_parm31" == 1 && "Desktop::transferring" == 0)
+				{
+					if( "Desktop::tankSelected" != 1 )
+					{
+						transition "FuelBoxLiquid1::matcolor" "0.1 0.2 0.8 1.0" "0.1 0.2 0.5 1.0" "200" ;
+						transition "FuelBox1::matcolor" "0.1 0.1 0.2 1.0" "0.0 0.0 0.0 0.0" "200" ;
+					}
+				}
+				else
+				{
+					transition "FuelBoxLiquid1::matcolor" "0.6 0.2 0.1 1.0" "0.1 0.2 0.5 1.0" "200" ;
+					transition "FuelBox1::matcolor" "0.2 0.1 0.1 1.0" "0.0 0.0 0.0 0.0" "200" ;
+				}
+
+			}
+			
+			onAction
+			{
+				if( "gui::gui_parm31" == 1 && "Desktop::transferring" == 0)
+				{
+					
+					if( "Desktop::tankSelected" == 1 )
+					{
+						set "FuelBoxLiquid1::matcolor" "0.1 0.2 0.8 1.0";
+						set "Desktop::tankSelected" 0;
+					}
+					else
+					{
+						if( "Desktop::tankSelected" != 0 )
+						{
+							if( "Desktop::tankSelected" == 2 )
+							{
+								runScript	"gui::gui_parm13";						
+								//resetTime "Desktop" "0";
+							}
+							else if( "Desktop::tankSelected" == 3 )
+							{
+								runScript	"gui::gui_parm15";						
+								//resetTime "Desktop" "0";					
+							}
+							
+							set "Desktop::tankSelected" 0;
+						}
+						else
+						{
+							if( "gui::gui_parm4" > 0 )
+							{
+								set "FuelBoxLiquid1::matcolor" "0.1 0.8 0.2 1.0";
+								set "Desktop::tankSelected" 1;
+							}
+							else
+							{
+								set "cmd" "activate ; play guisounds_error" ;
+							}
+						}
+					}					
+				}
+				else
+				{
+					set "cmd" "activate ; play guisounds_error" ;
+				}
+			}
+		}
+		
+		windowDef FuelOverlay2
+		{		
+			rect	248, 185, 110, 190
+			
+			onMouseEnter
+			{
+				if( "gui::gui_parm32" == 1 && "Desktop::transferring" == 0)
+				{
+					if( "Desktop::tankSelected" != 2 )
+					{
+						transition "FuelBoxLiquid2::matcolor" "0.1 0.2 0.5 1.0" "0.1 0.2 0.8 1.0" "200" ;
+						transition "FuelBox2::matcolor" "0.0 0.0 0.0 0.0" "0.1 0.1 0.2 1.0" "200" ;
+					}
+				}			
+				else
+				{
+					transition "FuelBoxLiquid2::matcolor" "0.1 0.2 0.5 1.0" "0.6 0.2 0.1 1.0" "200" ;
+					transition "FuelBox2::matcolor" "0.0 0.0 0.0 0.0" "0.2 0.1 0.1 1.0" "200" ;
+				}
+			}
+
+			onMouseExit
+			{
+				if( "gui::gui_parm32" == 1 && "Desktop::transferring" == 0 )
+				{
+					if( "Desktop::tankSelected" != 2 )
+					{
+						transition "FuelBoxLiquid2::matcolor" "0.1 0.2 0.8 1.0" "0.1 0.2 0.5 1.0" "200" ;
+						transition "FuelBox2::matcolor" "0.1 0.1 0.2 1.0" "0.0 0.0 0.0 0.0" "200" ;
+					}
+				}
+				else
+				{
+					transition "FuelBoxLiquid2::matcolor" "0.6 0.2 0.1 1.0" "0.1 0.2 0.5 1.0" "200" ;
+					transition "FuelBox2::matcolor" "0.2 0.1 0.1 1.0" "0.0 0.0 0.0 0.0" "200" ;
+				}
+			}
+			
+			onAction
+			{
+				if( "gui::gui_parm32" == 1 && "Desktop::transferring" == 0)
+				{
+					if( "Desktop::tankSelected" == 2 )
+					{
+						set "FuelBoxLiquid2::matcolor" "0.1 0.2 0.8 1.0";
+						set "Desktop::tankSelected" 0;
+					}
+					else
+					{
+						if( "Desktop::tankSelected" != 0 )
+						{
+							if( "Desktop::tankSelected" == 1 )
+							{
+								runScript	"gui::gui_parm11";						
+								//resetTime "Desktop" "0";
+							}
+							else if( "Desktop::tankSelected" == 3 )
+							{
+								runScript	"gui::gui_parm16";						
+								//resetTime "Desktop" "0";					
+							}
+							
+							set "Desktop::tankSelected" 0;
+						}
+						else
+						{
+							if( "gui::gui_parm5" > 0 )
+							{
+								set "FuelBoxLiquid2::matcolor" "0.1 0.8 0.2 1.0";
+								set "Desktop::tankSelected" 2;					
+							}
+							else
+							{
+								set "cmd" "activate ; play guisounds_error" ;
+							}
+						}
+					}					
+				}
+				else
+				{
+					set "cmd" "activate ; play guisounds_error" ;
+				}
+			}
+		}
+		
+		windowDef FuelOverlay3
+		{		
+			rect	395, 260, 110, 115
+			
+			float "hans" 0
+			
+			onMouseEnter
+			{
+				if( "gui::gui_parm33" == 1 && "Desktop::transferring" == 0)
+				{
+					if( "Desktop::tankSelected" != 3 )
+					{
+						transition "FuelBoxLiquid3::matcolor" "0.1 0.2 0.5 1.0" "0.1 0.2 0.8 1.0" "200" ;
+						transition "FuelBox3::matcolor" "0.0 0.0 0.0 0.0" "0.1 0.1 0.2 1.0" "200" ;
+					}
+				}
+				else
+				{
+					transition "FuelBoxLiquid3::matcolor" "0.1 0.2 0.5 1.0" "0.6 0.2 0.1 1.0" "200" ;
+					transition "FuelBox3::matcolor" "0.0 0.0 0.0 0.0" "0.2 0.1 0.1 1.0" "200" ;
+				}
+			}
+
+			onMouseExit
+			{
+				if( "gui::gui_parm33" == 1 && "Desktop::transferring" == 0)
+				{
+					if( "Desktop::tankSelected" != 3 )
+					{
+						transition "FuelBoxLiquid3::matcolor" "0.1 0.2 0.8 1.0" "0.1 0.2 0.5 1.0" "200" ;
+						transition "FuelBox3::matcolor" "0.1 0.1 0.2 1.0" "0.0 0.0 0.0 0.0" "200" ;
+					}
+				}
+				else
+				{
+					transition "FuelBoxLiquid3::matcolor" "0.6 0.2 0.1 1.0" "0.1 0.2 0.5 1.0" "200" ;
+					transition "FuelBox3::matcolor" "0.2 0.1 0.1 1.0" "0.0 0.0 0.0 0.0" "200" ;
+				}
+			}
+			
+			onAction
+			{
+				if( "gui::gui_parm33" == 1 && "Desktop::transferring" == 0 )
+				{
+					if( "Desktop::tankSelected" == 3)
+					{
+						set "FuelBoxLiquid3::matcolor" "0.1 0.2 0.8 1.0";
+						set "Desktop::tankSelected" 0;
+					}
+					else
+					{
+						if( "Desktop::tankSelected" != 0 )
+						{
+							if( "gui::gui_parm6" == "gui::gui_parm3")
+							{
+								set "cmd" "activate ; play guisounds_error" ;
+								set "TextStatus::text" "÷»—“≈–Õ¿ «¿œŒÀÕ≈Õ¿!";
+								set "TextStatus::statusType" 0;
+								resetTime "TextStatus" "0";
+							}
+							else
+							{
+								if( "Desktop::tankSelected" == 1 )
+								{
+									set "FuelBoxLiquid1::matcolor" "0.1 0.2 0.5 1.0";
+									runScript	"gui::gui_parm12";						
+									//resetTime "Desktop" "0";
+								}
+								else if( "Desktop::tankSelected" == 2 )
+								{
+									set "FuelBoxLiquid2::matcolor" "0.1 0.2 0.5 1.0";
+									runScript	"gui::gui_parm14";						
+									//resetTime "Desktop" "0";					
+								}
+								set "Desktop::tankSelected" 0;
+							}											
+						}
+						else
+						{
+							if( "gui::gui_parm6" > 0 )
+							{
+								set "FuelBoxLiquid3::matcolor" "0.1 0.8 0.2 1.0";
+								set "Desktop::tankSelected" 3;
+							}						
+							else
+							{
+								set "cmd" "activate ; play guisounds_error" ;
+								set "TextStatus::text" "÷»—“≈–Õ¿ œ”—“¿!";
+								set "TextStatus::statusType" 0;
+								resetTime "TextStatus" "0";
+							}
+						}
+					}					
+				}
+				else
+				{
+					set "cmd" "activate ; play guisounds_error" ;
+					set "TextStatus::text" "÷»—“≈–Õ¿ 3 Õ¿ ¿¬“Œ”œ–¿¬À≈Õ»»!";
+					set "TextStatus::statusType" 0;
+					resetTime "TextStatus" "0";
+				}
+			}
+		}
+	}
+	
+	
+	windowDef StatusArea
+	{
+		rect	1,1,438,112
+		visible	1
+		windowDef bar1Left
+		{
+			rect	5,3,-32,20
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar1Mid
+		{
+			rect	37,3,360,20
+			visible	1
+			background	"guis/assets/common/titlebar_mid"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar1Right
+		{
+			rect	397,3,38,20
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar2Left
+		{
+			rect	5,47,-32,-20
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar2Mid
+		{
+			rect	37,47,360,20
+			visible	1
+			background	"guis/assets/common/titlebar_mid"
+			matcolor	1,0.7,.25,0.5
+		}
+		windowDef bar2Right
+		{
+			rect	397,47,38,-20
+			visible	1
+			background	"guis/assets/common/titlebar_corner"
+			matcolor	1,0.7,.25,0.5
+		}
+		
+		windowDef Text1
+		{
+			rect	30, 12, 540, 70
+			text	"”œ–¿¬À≈Õ»≈ “ŒœÀ»¬ŒÃ"
+			textscale	0.56
+			forecolor	1, 0.7, 0.3, 0.8
+			visible	1
+			font	"fonts/micro"
+		}
+
+	}
+	
+	windowDef Btn0
+	{
+		rect	440,8,170,60
+		visible	1
+		background	"guis/assets/e1m3/buttonframe"
+		matcolor	1,0.7,0.25,0.8
+		
+	}
+	
+	windowDef TextTitle0
+	{
+		rect	440,8,170,60
+		visible	0
+		text	"Õ¿«¿ƒ"
+		forecolor	1,1,1,0.4
+		textscale	0.7
+		font	"fonts/micro"
+		textalign	.14
+		notime	1
+		textalignx	20
+		textaligny	4
+
+		onMouseEnter
+		{
+			transition "Btn0::matcolor" "1 0.7 0.25 0.8" "1 0.7 0.25 1" "200" ;			
+			transition "TextTitle0::forecolor" "1 1 1 0.4" "1 1 1 0.8" "200" ;
+		}
+
+		onMouseExit
+		{
+			transition "Btn0::matcolor" "1 0.7 0.25 0.7" "1 0.7 0.25 0.5" "200" ;			
+			transition "TextTitle0::forecolor" "1 1 1 1" "1 1 1 0.8" "200" ;
+		}
+
+		onAction {
+			set "cmd" "activate ; play guisounds_click" ;			
+			
+						
+			transition "FuelManagementScreen::rect" "0 15 640 440" "640 15 640 440" "250" ;
+			transition "Btn0::rect" "440 8 170 60" "640 8 170 60" "250" ;
+			transition "TextTitle0::rect" "440 8 170 60" "640 8 170 60" "250" ;
+			transition "MainScreen::rect" "0 480 640 440" "0 40 640 440" "250" ;
+		}
+
+	}
+	
+	windowDef MainScreen
+	{
+		rect 0, 480, 640, 440		
+		
+		
+		windowDef Btn1
+		{
+			rect	32,40,567,153
+			visible	1
+			windowDef btn1_Top
+			{
+				rect	86,1,401,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_horiz"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_corner1
+			{
+				rect	4,3,82,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_corner2
+			{
+				rect	487,3,-82,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_Bottom
+			{
+				rect	86,64,401,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_horiz"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_corner3
+			{
+				rect	4,62,82,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_corner4
+			{
+				rect	487,62,-82,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_Fill
+			{
+				rect	86,31,401,33
+				visible	1
+				backcolor	1,0.1,0,0.32
+			}
+			windowDef btn1_Right
+			{
+				rect	487,33,-82,-29
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_vert"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn1_Left
+			{
+				rect	4,33,82,-29
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_vert"
+				matcolor	1,0.1,0,0.7
+			}
+		}
+		
+		windowDef TextTitle1
+		{
+			rect	45,40,546,82
+			visible	1
+			text	"¿¬“ŒŒ◊»—“ ¿ “–”¡"
+			forecolor	1,1,1,0.8
+			textscale	0.68
+			font	"fonts/micro"
+			textalign	1
+			notime	1
+			textaligny	20
+
+			onMouseEnter {
+				transition "btn1_top::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_corner1::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_corner2::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_bottom::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_corner3::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_corner4::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_fill::backcolor" "1 0.1 0 0.32" "1 0 0 0.464" "200" ;
+				transition "btn1_right::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn1_left::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "TextTitle1::forecolor" "1 1 1 0.8" "1 1 1 1" "200" ;
+			}
+
+			onMouseExit {
+				transition "btn1_top::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_corner1::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_corner2::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_bottom::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_corner3::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_corner4::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_fill::backcolor" "1 0 0 0.464" "1 0.1 0 0.32" "200" ;
+				transition "btn1_right::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn1_left::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "TextTitle1::forecolor" "1 1 1 1" "1 1 1 0.8" "200" ;
+			}
+
+			onAction {
+				set "cmd" "play guisounds_error" ;
+				runScript	"gui::gui_parm6" ;
+				
+			
+			}
+		}
+		
+		windowDef Btn2
+		{
+			rect	32,140,567,153
+			visible	1
+			windowDef btn2_Top
+			{
+				rect	86,1,401,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_horiz"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_corner1
+			{
+				rect	4,3,82,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_corner2
+			{
+				rect	487,3,-82,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_Bottom
+			{
+				rect	86,64,401,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_horiz"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_corner3
+			{
+				rect	4,62,82,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_corner4
+			{
+				rect	487,62,-82,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_Fill
+			{
+				rect	86,31,401,33
+				visible	1
+				backcolor	1,0.1,0,0.32
+			}
+			windowDef btn2_Right
+			{
+				rect	487,33,-82,-29
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_vert"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn2_Left
+			{
+				rect	4,33,82,-29
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_vert"
+				matcolor	1,0.1,0,0.7
+			}
+		}
+		
+		windowDef TextTitle2
+		{
+			rect	45,140,546,82
+			visible	1
+			text	"—»—“≈Ã¿ —À»¬¿ “ŒœÀ»¬¿"
+			forecolor	1,1,1,0.8
+			textscale	0.68
+			font	"fonts/micro"
+			textalign	1
+			notime	1
+			textaligny	20
+
+			onMouseEnter {
+				transition "btn2_top::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_corner1::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_corner2::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_bottom::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_corner3::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_corner4::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_fill::backcolor" "1 0.1 0 0.32" "1 0 0 0.464" "200" ;
+				transition "btn2_right::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn2_left::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "TextTitle2::forecolor" "1 1 1 0.8" "1 1 1 1" "200" ;
+			}
+
+			onMouseExit {
+				transition "btn2_top::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_corner1::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_corner2::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_bottom::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_corner3::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_corner4::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_fill::backcolor" "1 0 0 0.464" "1 0.1 0 0.32" "200" ;
+				transition "btn2_right::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn2_left::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "TextTitle2::forecolor" "1 1 1 1" "1 1 1 0.8" "200" ;
+			}
+
+			onAction {
+				set "cmd" "play guisounds_error" ;
+				runScript	"gui::gui_parm6" ;
+				
+			
+			}
+		}
+		
+		windowDef Btn3
+		{
+			rect	32,240,567,153
+			visible	1
+			windowDef btn3_Top
+			{
+				rect	86,1,401,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_horiz"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_corner1
+			{
+				rect	4,3,82,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_corner2
+			{
+				rect	487,3,-82,-30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_Bottom
+			{
+				rect	86,64,401,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_horiz"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_corner3
+			{
+				rect	4,62,82,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_corner4
+			{
+				rect	487,62,-82,30
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_cornersm"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_Fill
+			{
+				rect	86,31,401,33
+				visible	1
+				backcolor	1,0.1,0,0.32
+			}
+			windowDef btn3_Right
+			{
+				rect	487,33,-82,-29
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_vert"
+				matcolor	1,0.1,0,0.7
+			}
+			windowDef btn3_Left
+			{
+				rect	4,33,82,-29
+				visible	1
+				background	"guis/assets/common/btn_2pxborder_vert"
+				matcolor	1,0.1,0,0.7
+			}
+		}
+		
+		windowDef TextTitle3
+		{
+			rect	45,240,546,82
+			visible	1
+			text	"–”◊ÕŒ≈ ”œ–¿¬À≈Õ»≈ “ŒœÀ»¬ŒÃ"
+			forecolor	1,1,1,0.8
+			textscale	0.68
+			font	"fonts/micro"
+			textalign	1
+			notime	1
+			textaligny	20
+
+			onMouseEnter {
+				transition "btn3_top::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_corner1::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_corner2::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_bottom::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_corner3::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_corner4::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_fill::backcolor" "1 0.1 0 0.32" "1 0 0 0.464" "200" ;
+				transition "btn3_right::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "btn3_left::matcolor" "1 0.1 0 0.7" "1 0 0 1" "200" ;
+				transition "TextTitle3::forecolor" "1 1 1 0.8" "1 1 1 1" "200" ;
+			}
+
+			onMouseExit {
+				transition "btn3_top::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_corner1::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_corner2::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_bottom::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_corner3::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_corner4::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_fill::backcolor" "1 0 0 0.464" "1 0.1 0 0.32" "200" ;
+				transition "btn3_right::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "btn3_left::matcolor" "1 0 0 1" "1 0.1 0 0.7" "200" ;
+				transition "TextTitle3::forecolor" "1 1 1 1" "1 1 1 0.8" "200" ;
+			}
+
+			onAction {
+				set "cmd" "play guisounds_click" ;
+				
+				transition "FuelManagementScreen::rect" "640 15 640 440" "0 15 640 440" "250" ;
+				transition "Btn0::rect" "640 8 170 60" "440 8 170 60" "250" ;
+				transition "TextTitle0::rect" "640 8 170 60" "440 8 170 60" "250" ;
+				transition "MainScreen::rect" "0 40 640 440" "0 480 640 440" "250" ;
+
+			
+			}
+		}
+	}
+	
+	windowDef bgClip
+	{
+		rect	0,381,639,100
+		visible	1
+		windowDef Bg
+		{
+			rect	5,-347,636,-480
+			background	"guis/assets/cpuserver/bg2.tga"
+			visible	1
+			matcolor	1, 0.8, .4, 1
+		}
+	}
+	
+	windowDef Static
+	{
+		rect	-10 ,-10 ,-660 ,-500
+		visible	1
+		background	"gui/static"
+		matcolor	1, 1, 1, pdhalffade[ time * 0.001 ] / 10
+	}
+	windowDef Outerglow
+	{
+		rect	0 ,0 ,-640 ,-480
+		background	"guis/assets/common/outerglow"
+		matcolor	1 ,0.8 ,0.3 , 0.2
+		visible	1
+	}
+	windowDef Outershadow
+	{
+		rect	0 ,0 ,-640 ,-480
+		background	"guis/assets/common/outershadow"
+		matcolor	1 ,1 ,1 ,1
+		visible	1
+	}
+	windowDef Addhighlight
+	{
+		rect	0 ,0 ,-640 ,-480
+		background	"gui/addhighlight"
+		matcolor	0.5 ,0.3 ,0.1 ,1
+		visible	1
+	}
+	windowDef scanlinesAlt
+	{
+		rect	0,0,-640,-480
+		matcolor	0.1,0.1,0.1,1
+		background	"gui/test/gui_scanlines5"
+		matscaley	2
+	}
+	windowDef OuterGlowBar
+	{
+		rect	0 ,0 ,-640 ,480
+		background	"gui/outerglowbar"
+		matcolor	1 ,0.7 ,0.4 ,1
+		visible	0
+	}
+	windowDef Reflect
+	{
+		rect	10 ,-10 ,-620 ,470
+		matcolor	1 ,0.8 ,0.5 ,0.1
+		visible	0
+		background	"gui/reflect2"
+	}
+	windowDef Dirt2
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.7
+		visible	1
+		background	"guis/assets/common/dirt2"
+		noevents	1
+	}
+	windowDef Dirt21
+	{
+		rect	0,0,-640,480
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt4"
+		noevents	1
+	}
+	windowDef GlassScratch1
+	{
+		rect	-36,-7,839,-530
+		background	"guis/assets/common/scratch1d"
+		visible	1
+		matcolor	0,0,0,0.4
+	}
+	windowDef GlassScratch
+	{
+		rect	-36,-10,839,-530
+		background	"gui/common/scratch1d"
+		visible	1
+		matcolor	0.6,0.6,0.6,1
+	}
+	windowDef Dirt211
+	{
+		rect	0,0,-640,-480
+		matcolor	1, 1, 1 ,0.5
+		visible	1
+		background	"guis/assets/common/dirt4"
+		noevents	1
+	}
+	
+	windowDef ShutdownPanel
+	{
+		rect	0, 0, -640, -480
+		background	"guis/assets/e1m3/mask.tga"
+		matcolor	0, 0, 0, 0
+		visible	1		
+	}
+	
+	
+		windowDef Bglow
+		{
+			rect	0, 0, -640, -480
+			background	"guis/assets/cpuserver/bglow.tga"
+			visible	1
+			matcolor	0.6, 0.4, 0.2, 0.1
+		}
+		
+			windowDef bgScroll
+	{
+		rect	20,15,-600,450
+		visible	1
+		background	"gui/scrollbig"
+		matcolor	1, 1,  1, flickertable [ time * 5 ] / 20
+	}
+}

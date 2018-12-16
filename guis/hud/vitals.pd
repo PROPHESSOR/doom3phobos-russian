@@ -1,0 +1,17 @@
+windowDef Vitals
+	{
+		rect 0, 410, 300, 200				
+
+		#include "guis/hud/health.pd"
+		#include "guis/hud/armor.pd"
+		
+	}
+
+	windowDef FullScreenHealthFlash
+	{		
+		rect 0, 0, 640, 480		
+		visible 0
+		background "guis/assets/ballg.jpg"				
+			
+		matcolor 0.8, 0.15, 0, pdfullfade[ time * 0.0002 ] / 4
+	}

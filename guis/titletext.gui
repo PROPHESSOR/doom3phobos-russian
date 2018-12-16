@@ -1,0 +1,34 @@
+windowDef Desktop {
+	rect	0 ,0 ,640 ,480 
+	backcolor	0 ,0 ,0 ,0 
+	visible	1	
+
+	onTime 0
+	{
+		set "TitleDef::text" "gui::gui_parm1" ;
+		set "TextDef::text" "gui::gui_parm2" ;
+
+		transition "TitleDef::rect" "-100 0 640 480" "-50 0 640 480" "16000" ;
+		transition "TextDef::rect" "0 0 640 480" "-50 0 640 480" "16000" ;
+	}
+
+	windowDef TitleDef
+	{
+		rect -100, 0, 640, 480
+		forecolor 0.1, 0.45, 0.81, 1
+		text "Õ¿«¬¿Õ»≈:"
+		textalign 1?
+		textaligny 212
+		font "fonts/bank"
+	}
+
+	windowDef TextDef
+	{
+		rect 0, 0, 640, 480
+		forecolor 1, 1, 1, 1
+		text "“≈ —“"
+		textalign 1?
+		textaligny 228
+		font "fonts/bank"
+	}
+}

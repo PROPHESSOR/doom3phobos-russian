@@ -1,0 +1,425 @@
+	//Title
+		windowDef LGTitleTextAttack {
+			rect		3, 5, 320, 20
+			text		"Прочее"
+			forecolor 0.2,0.56,0.88,.8
+			font "fonts/bank"
+			textscale	0.25
+			textaligny	0			
+		}
+
+	windowDef Attack
+	{
+		rect		3, 50, 380, 14
+
+		windowDef ForwardTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02112"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef ForwardSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_attack"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 66, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Use
+	{
+		rect		3, 65, 380, 14
+
+		windowDef ForwardTitle
+		{
+			rect		0, 0, 100, 14
+			text		"Использовать"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef ForwardSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_impulse56"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 81, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef PreviousWeapon
+	{
+		rect		3, 80, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02113"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_impulse15"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 96, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef NextWeapon
+	{
+		rect		3, 95, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02114"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_impulse14"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 111, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Reload
+	{
+		rect		3, 110, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02115"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_impulse13"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 126, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef LookUp
+	{
+		rect		3, 125, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02116"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_lookUp"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 141, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef LookDown
+	{
+		rect		3, 140, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02117"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_lookDown"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 156, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef MouseLook
+	{
+		rect		3, 155, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02118"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_mlook"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 171, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef CenterView
+	{
+		rect		3, 170, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02119"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_impulse18"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 186, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef ZoomView
+	{
+		rect		3, 185, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_02120"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_zoom"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 201, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Quicksave
+	{
+		rect		3, 200, 380, 14
+
+		windowDef ForwardTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_04067"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef ForwardSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"savegame quick"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 216, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef Quickload
+	{
+		rect		3, 215, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"#str_04068"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"loadgame quick"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 231, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}
+
+	windowDef SkipCutscene
+	{
+		rect		3, 230, 380, 14
+
+		windowDef BackpedalTitle
+		{
+			rect		0, 0, 100, 14
+			text		"Пропуск кат-сцен"
+			font		"fonts/bank"
+			textscale	0.15
+			forecolor 0.15,0.42,0.66,.8
+		}
+
+		bindDef BackpedalSelector
+		{
+			rect		66, 0, 90, 14
+			bind		"_impulse19"
+			font		"fonts/bank"
+			textscale	0.125			
+			textaligny  2
+			forecolor 0.2,0.56,0.88,.8
+		}
+	}
+
+	windowDef Divider2
+	{
+		rect		5, 246, 150, 1
+		background "guis/assets/border_hori"
+		matcolor 0.1,0.28,0.44,.5
+		noevents	1
+	}

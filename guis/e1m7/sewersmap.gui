@@ -1,0 +1,181 @@
+windowDef Desktop
+{
+	rect	0 ,0 ,640 ,480
+	backcolor	0 ,0 ,0 ,1	
+	background	"guis/assets/e1m7/sewermap.tga"
+	matcolor 0.1, 0.2, 0.5, 1
+	comment	"blah blah"
+	visible	1	
+	
+	onTrigger
+	{
+		resetTime "Desktop" "0";
+	}
+	
+	onTime 0
+	{
+		set "HubControl::visible" "0";
+		set "FloodGatesControl::visible" "0";
+		set "A1Control::visible" "0";
+		set "A2Control::visible" "0";
+		set "A3Control::visible" "0";				
+		
+		
+		if( "gui::gui_parm11" == 0 )
+		{
+			set "HubControl::visible" "1";
+		}
+		else if( "gui::gui_parm11" == 1 )
+		{
+			set "FloodGatesControl::visible" "1";
+		}
+		else if( "gui::gui_parm11" == 2 )
+		{
+			set "A1Control::visible" "1";
+		}
+		else if( "gui::gui_parm11" == 3 )
+		{
+			set "A2Control::visible" "1";
+		}
+		else if( "gui::gui_parm11" == 4 )
+		{
+			set "A3Control::visible" "1";
+		}
+		
+		if( "gui::gui_parm12" == 1 )
+		{
+			set "A1Bridge::rotate" "0";
+		}
+		else if( "gui::gui_parm12" == 2 )
+		{
+			set "A1Bridge::rotate" "270";
+		}
+		else if( "gui::gui_parm12" == 4 )
+		{
+			set "A1Bridge::rotate" "180";
+		}
+		else if( "gui::gui_parm12" == 8 )
+		{
+			set "A1Bridge::rotate" "90";
+		}
+		
+		if( "gui::gui_parm13" == 1 )
+		{
+			set "A2Bridge::rotate" "0";
+		}
+		else if( "gui::gui_parm13" == 2 )
+		{
+			set "A2Bridge::rotate" "270";
+		}
+		else if( "gui::gui_parm13" == 4 )
+		{
+			set "A2Bridge::rotate" "180";
+		}
+		else if( "gui::gui_parm13" == 8 )
+		{
+			set "A2Bridge::rotate" "90";
+		}
+		
+		if( "gui::gui_parm14" == 1 )
+		{
+			set "A3Bridge::rotate" "0";
+		}
+		else if( "gui::gui_parm14" == 2 )
+		{
+			set "A3Bridge::rotate" "270";
+		}
+		else if( "gui::gui_parm14" == 4 )
+		{
+			set "A3Bridge::rotate" "180";
+		}
+		else if( "gui::gui_parm14" == 8 )
+		{
+			set "A3Bridge::rotate" "90";
+		}
+	}
+	
+	windowDef HereDot
+	{
+		rect	410, 40, 10, 10
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.8, .2, 0.1, 0.7
+		visible 1
+	}
+	
+	windowDef HereText
+	{
+		rect 430, 35, 200, 50
+		text "ÂÛ ÇÄÅÑÜ!"
+	}
+
+	windowDef HubControl
+	{
+		rect	110, 340, 10, 10
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.8, .2, 0.1, 0.7
+		visible 1
+	}
+	
+	windowDef FloodGatesControl
+	{
+		rect	260, 180, 10, 10
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.8, .2, 0.1, 0.7
+		visible 1
+	}
+	
+	windowDef A1Control
+	{
+		rect	430, 310, 10, 10
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.8, .2, 0.1, 0.7
+		visible 1
+	}
+	
+	windowDef A2Control
+	{
+		rect	330, 210, 10, 10
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.8, .2, 0.1, 0.7
+		visible 1
+	}
+
+	windowDef A3Control
+	{
+		rect	400, 340, 10, 10
+		background	"guis/assets/e1m3/backstuff.tga"
+		matcolor	0.8, .2, 0.1, 0.7
+		visible 1
+	}
+	
+	windowDef A1Bridge
+	{
+		rect	435, 225, 68, 80
+		background	"guis/assets/e1m7/bridgecorner.tga"
+		matcolor	0.2, .9, 0.1, 0.7
+		//backcolor	1, 0, 0, 0.5
+		visible 1
+		rotate 0
+	}
+	
+	windowDef A2Bridge
+	{
+		rect	340, 225, 68, 80
+		background	"guis/assets/e1m7/bridgecorner.tga"
+		matcolor	0.2, .9, 0.1, 0.7
+		//backcolor	1, 0, 0, 0.5
+		visible 1
+		rotate 90
+	}
+	
+	windowDef A3Bridge
+	{
+		rect	340, 340, 68, 80
+		background	"guis/assets/e1m7/bridgestraight.tga"
+		matcolor	0.2, .9, 0.1, 0.7
+		//backcolor	1, 0, 0, 0.5
+		visible 1
+		rotate 90
+	}
+	
+}
