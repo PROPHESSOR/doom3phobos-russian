@@ -23,8 +23,6 @@
 
 ## Установка
 
-1. Нажать "Clone or download"
-2. Нажать "Download ZIP"
-3. Поместить в папку с модом
-4. Переименовать в pak001.pk4
-5. Играть ;)
+1. Скачать [последнюю версию](https://github.com/PROPHESSOR/doom3phobos-russian/releases)
+2. Поместить в папку с модом (возле файла pak000.pk4)
+3. Играть ;)
