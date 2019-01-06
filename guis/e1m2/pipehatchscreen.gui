@@ -802,7 +802,7 @@ windowDef Desktop {
 			set "Square1::background" "guis/assets/keypad/square_blur" ;
 			transition "Square1::rect" "80 60 480 360" "3 2 634 476" "200" ;
 			transition "Square1::matcolor" "1 1 1 0.3" "1 1 1 0.3" "200" ;
-			set "Status::text" "Hatch Opened" ;
+			set "Status::text" "Шлюз открыт" ;
 		}
 		onTime 300 {
 			set "Square2::background" "guis/assets/keypad/square" ;
@@ -849,7 +849,7 @@ windowDef Desktop {
 			transition "Square3::rect" "56 44 528 392" "120 100 400 280" "200" ;
 			transition "Square3::matcolor" "1 1 1 0.2" "1 1 1 0.1" "200" ;
 
-			set "Status::text" "No Such #" ;
+			set "Status::text" "Неверный #" ;
 		}
 		onTime 400 {
 			set "Square2::background" "guis/assets/keypad/square" ;

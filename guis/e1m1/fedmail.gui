@@ -125,7 +125,7 @@ windowDef Desktop
 	windowDef TextCurrent
 	{
 		rect	457,108,156,60
-		text	"Лична` электронна` почта"
+		text	"Личные email-ы"
 		textscale	0.45
 		forecolor	1,1,1,0.7
 		visible	1

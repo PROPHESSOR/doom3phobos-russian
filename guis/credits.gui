@@ -207,7 +207,7 @@ windowDef Desktop
 	{
 		rect	0,480,640,30
 		forecolor	0.1, 0.45, 0.81, 1
-		text	"Дополнительный дизайн уровней:"
+		text	"Дополнительный дизайн уровней"
 		textalign 1
 
 		onTime 28000
@@ -506,7 +506,7 @@ windowDef Desktop
 	{
 		rect	0,480,640,30
 		forecolor	0.1, 0.45, 0.81, 1
-		text	"Программисты"
+		text	"Программирование"
 		textalign 1
 
 		onTime 58500
